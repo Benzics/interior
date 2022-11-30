@@ -1,5 +1,5 @@
 # Interior max
-- A website for interior design services
+A website for interior design services
 
 ## Features
 - Admin and user panel
