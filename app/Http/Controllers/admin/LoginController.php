@@ -12,4 +12,5 @@ class LoginController extends Controller
         $pageTitle = 'Login to dashboard';
         return view('admin.auth.login', compact('pageTitle'));
     }
+    
 }
