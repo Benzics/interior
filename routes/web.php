@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\admin\LoginController as AdminLoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +15,8 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::name('admin.')->prefix('admin')->group(function()
+{
+    Route::get('/login', [AdminLoginController::class, 'index'])->name('login');
+});
