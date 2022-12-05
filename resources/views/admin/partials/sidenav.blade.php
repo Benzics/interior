@@ -4,7 +4,7 @@
     <div class="sidebar__inner">
         <div class="sidebar__logo">
             <a href="{{route('admin.dashboard')}}" class="sidebar__main-logo"><img
-                    src="{{ asset('images/logo.png') }}" alt="Logo"></a>
+                    src="{{ asset('images/favicon.png') }}" alt="Logo"></a>
             <a href="{{route('admin.dashboard')}}" class="sidebar__logo-shape"><img
                     src="{{asset('images/favicon.png')}}" alt="Image"></a>
             <button type="button" class="navbar__expand"></button>

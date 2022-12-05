@@ -15,6 +15,10 @@
 
     <div class="navbar__left">
         <button class="res-sidebar-open-btn"><i class="las la-bars"></i></button>
+        <button type="button" class="fullscreen-btn">
+            <i class="fullscreen-open las la-compress" onclick="openFullscreen();"></i>
+            <i class="fullscreen-close las la-compress-arrows-alt" onclick="closeFullscreen();"></i>
+        </button>
     </div>
 
     <div class="navbar__right">

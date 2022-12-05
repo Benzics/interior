@@ -11,10 +11,13 @@ class AdminLoginTest extends TestCase
 {
     use RefreshDatabase;
 
+    private $user;
+
     public function setUp(): void 
     {
         parent::setUp();
         $this->seed();
+        $this->user = User::find(1);
     }
 
     /**
@@ -45,5 +48,13 @@ class AdminLoginTest extends TestCase
 
         $response->assertValid()->assertRedirect(route('admin.login'));
     }
+
+    public function test_dashboard()
+    {
+        $response = $this->actingAs($this->user)->get(route('admin.dashboard'));
+
+        $response->assertOk();
+    }
+
 }
 
