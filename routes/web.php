@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
@@ -26,6 +27,11 @@ Route::name('admin.')->prefix('admin')->group(function()
     Route::middleware('auth')->group(function()
     {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+        // products and categories
+        Route::name('products.')->group(function(){
+            Route::resource('categories', CategoriesController::class);
+        });
     });
     
 });

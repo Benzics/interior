@@ -21,16 +21,16 @@
 
 
                 <li class="sidebar-menu-item sidebar-dropdown">
-                    <a href="javascript:void(0)" class="{{menuActive('admin.login*',3)}}">
+                    <a href="javascript:void(0)" class="{{menuActive('admin.products*',3)}}">
                         <i class="menu-icon la la-ticket-alt"></i>
-                        <span class="menu-title">Manage Lottery</span>
+                        <span class="menu-title">Manage Products</span>
                     </a>
-                    <div class="sidebar-submenu {{menuActive('admin.lottery*',2)}} ">
+                    <div class="sidebar-submenu {{menuActive('admin.products*',2)}} ">
                         <ul>
                             <li class="sidebar-menu-item {{menuActive('admin.login')}} ">
-                                <a href="{{route('admin.login')}}" class="nav-link">
+                                <a href="{{route('admin.products.categories.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">Lotteries</span>
+                                    <span class="menu-title">Categories</span>
                                 </a>
                             </li>
 

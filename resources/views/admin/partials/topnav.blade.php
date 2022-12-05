@@ -36,7 +36,7 @@
             <li class="dropdown">
                 <button type="button" class="" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                   <span class="navbar-user">
-                    <span class="navbar-user__thumb"><img src="{{ asset('assets/admin/images/profile/'. auth()->user()?->image) }}" alt="image"></span>
+                    <span class="navbar-user__thumb"><img src="{{ asset('/images/user.png') }}" alt="image"></span>
                     <span class="navbar-user__info">
                       <span class="navbar-user__name">{{auth()->user()?->name}}</span>
                     </span>
