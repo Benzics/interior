@@ -16,7 +16,7 @@ class LoginService {
 	 * @param array $data
 	 * @return bool
 	 */
-	public function logAdmin(array $data, Request $request) : bool
+	public static function logAdmin(array $data, Request $request) : bool
 	{
 		if(Auth::attempt($data))
 		{

@@ -19,4 +19,5 @@ Route::get('/', [HomeController::class, 'index']);
 Route::name('admin.')->prefix('admin')->group(function()
 {
     Route::get('/login', [AdminLoginController::class, 'index'])->name('login');
+    Route::post('/login', [AdminLoginController::class, 'authenticate']);
 });

@@ -58,6 +58,7 @@
 <!-- custom select box js -->
 <script src="{{asset('assets/admin/js/vendor/jquery.nice-select.min.js')}}"></script>
 
+@include('partials.notify')
 @stack('script-lib')
 
 <script src="{{ asset('assets/admin/js/nicEdit.js') }}"></script>
