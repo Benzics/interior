@@ -9,7 +9,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control b-radius--capsule" id="email" value="{{ old('email') }}" placeholder="'Enter your email">
+                        <input type="email" name="email" class="form-control b-radius--capsule" id="email" value="{{ old('email') }}" placeholder="Enter your email">
                         <i class="las la-user input-icon"></i>
                     </div>
                     <div class="form-group">

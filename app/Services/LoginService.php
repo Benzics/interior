@@ -11,22 +11,7 @@ use Illuminate\Http\Request;
 
 class LoginService {
 	
-	/**
-	 * Logs an admin into the system
-	 * @param array $data
-	 * @return bool
-	 */
-	public static function logAdmin(array $data, Request $request) : bool
-	{
-		if(Auth::attempt($data))
-		{
-			$request->session()->regenerate();
-
-            return true;
-		}
-
-		return false;
-	}
+	
 }
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\LoginService;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -20,22 +21,18 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        $validated = $request->validate([
+        $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        $credentials = [
-            'email' => $validated['email'],
-            'password' => $validated['password'],
-        ];
-
-        if(LoginService::logAdmin($credentials, $request))
+        if(Auth::attempt($credentials))
         {
-            return redirect()->route('admin.dashboard')->with(['success' => 'You\'ve been logged in successfully.']);
+            $request->session()->regenerate();
+            return redirect()->route('admin.dashboard')->with(['notify' => ['You\'ve been logged in successfully.']]);
         }
 
-        return back()->withErrors(['email' => 'Invalid email or password!']);
+        return back()->withErrors(['email' => 'Invalid email or password!'])->onlyInput('email');
 
     }
 }

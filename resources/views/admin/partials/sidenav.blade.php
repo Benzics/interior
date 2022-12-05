@@ -21,28 +21,28 @@
 
 
                 <li class="sidebar-menu-item sidebar-dropdown">
-                    <a href="javascript:void(0)" class="{{menuActive('admin.lottery*',3)}}">
+                    <a href="javascript:void(0)" class="{{menuActive('admin.login*',3)}}">
                         <i class="menu-icon la la-ticket-alt"></i>
                         <span class="menu-title">Manage Lottery</span>
                     </a>
                     <div class="sidebar-submenu {{menuActive('admin.lottery*',2)}} ">
                         <ul>
-                            <li class="sidebar-menu-item {{menuActive('admin.lottery.index')}} ">
-                                <a href="{{route('admin.lottery.index')}}" class="nav-link">
+                            <li class="sidebar-menu-item {{menuActive('admin.login')}} ">
+                                <a href="{{route('admin.login')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
                                     <span class="menu-title">Lotteries</span>
                                 </a>
                             </li>
 
-                            <li class="sidebar-menu-item {{menuActive('admin.lottery.phase.index')}} ">
-                                <a href="{{route('admin.lottery.phase.index')}}" class="nav-link">
+                            <li class="sidebar-menu-item {{menuActive('admin.login')}} ">
+                                <a href="{{route('admin.login')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
                                     <span class="menu-title">Phase</span>
                                 </a>
                             </li>
 
-                            <li class="sidebar-menu-item {{menuActive('admin.lottery.draw.manual')}} ">
-                                <a href="{{route('admin.lottery.draw.manual')}}" class="nav-link">
+                            <li class="sidebar-menu-item {{menuActive('admin.login')}} ">
+                                <a href="{{route('admin.login')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
                                     <span class="menu-title">Manual Draw</span>
                                 </a>

@@ -40,19 +40,19 @@
                   </span>
                 </button>
                 <div class="dropdown-menu dropdown-menu--sm p-0 border-0 box--shadow1 dropdown-menu-right">
-                    <a href="{{ route('admin.profile') }}"
+                    <a href=""
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-user-circle"></i>
                         <span class="dropdown-menu__caption">Profile</span>
                     </a>
 
-                    <a href="{{route('admin.password')}}"
+                    <a href=""
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-key"></i>
                         <span class="dropdown-menu__caption">Password</span>
                     </a>
 
-                    <a href="{{ route('admin.logout') }}"
+                    <a href=""
                        class="dropdown-menu__item d-flex align-items-center px-3 py-2">
                         <i class="dropdown-menu__icon las la-sign-out-alt"></i>
                         <span class="dropdown-menu__caption">Logout</span>

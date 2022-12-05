@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
+use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +21,6 @@ Route::name('admin.')->prefix('admin')->group(function()
 {
     Route::get('/login', [AdminLoginController::class, 'index'])->name('login');
     Route::post('/login', [AdminLoginController::class, 'authenticate']);
+
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 });
