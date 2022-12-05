@@ -36,7 +36,14 @@ class AdminLoginTest extends TestCase
 
         $response = $this->post(route('admin.login'), $data);
 
-        $response->assertValid()->assertSessionHas('success')->assertRedirect(route('admin.dashboard'));
+        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.dashboard'));
+    }
+
+    public function test_logout()
+    {
+        $response = $this->get(route('admin.logout'));
+
+        $response->assertValid()->assertRedirect(route('admin.login'));
     }
 }
 
