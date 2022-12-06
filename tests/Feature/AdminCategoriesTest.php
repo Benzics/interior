@@ -56,17 +56,6 @@ class AdminCategoriesTest extends TestCase
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.categories.show', $parameter));
     }
 
-    public function test_show_category()
-    {
-        Category::factory()->create();
-
-        $parameter = ['category' => '1'];
-
-        $response = $this->actingAs($this->_user)->get(route('admin.categories.show', $parameter));
-
-        $response->assertOk();
-    }
-
     public function test_delete_category()
     {
         Category::factory()->create();

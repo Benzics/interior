@@ -31,7 +31,7 @@ Route::name('admin.')->prefix('admin')->group(function()
         // products and categories
 
        
-        Route::resource('categories', CategoriesController::class);
+        Route::resource('categories', CategoriesController::class)->except('show');
         
     });
     
