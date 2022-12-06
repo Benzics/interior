@@ -28,11 +28,18 @@ class AdminCategoriesTest extends TestCase
         $response->assertOk();
     }
 
+    public function test_create_page()
+    {
+        $response = $this->actingAs($this->_user)->get(route('admin.categories.create'));
+
+        $response->assertOk()->assertValid();
+    }
+    
     public function test_create_category()
     {
         $data = ['name' => 'Test category'];
 
-        $response = $this->actingAs($this->_user)->post(route('admin.categories.create'), $data);
+        $response = $this->actingAs($this->_user)->post(route('admin.categories.store'), $data);
 
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.categories.index'));
     }

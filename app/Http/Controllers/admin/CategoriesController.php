@@ -36,7 +36,9 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Create category';
+
+        return view('admin.categories.create', compact('pageTitle'));
     }
 
     /**
