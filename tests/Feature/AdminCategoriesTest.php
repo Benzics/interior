@@ -11,18 +11,18 @@ class AdminCategoriesTest extends TestCase
 {
     use RefreshDatabase;
 
-    private $user;
+    private $_user;
 
     public function setUp(): void 
     {
         parent::setUp();
         $this->seed();
-        $this->user = User::find(1);
+        $this->_user = User::find(1);
     }
 
     public function test_index()
     {
-        $response = $this->get(route('admin.categories.index'));
+        $response = $this->actingAs($this->_user)->get(route('admin.categories.index'));
 
         $response->assertOk();
     }
