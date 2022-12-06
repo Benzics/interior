@@ -49,7 +49,14 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate(['name' => 'required']);
+
+        if(!$this->_service->create_category($validated['name']))
+        {
+            return back()->withErrors(['name' => 'An unexpected error occured']);
+        }
+
+        return redirect(route('admin.categories.index'))->with(['notify' => ['Category created successfully']]);
     }
 
     /**

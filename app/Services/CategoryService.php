@@ -23,6 +23,28 @@ class CategoryService {
 
 		return $categories;
 	}
+
+	/**
+	 * Gets all categories
+	 * @return
+	 */
+	public function get_categories()
+	{
+		$categories = Category::all();
+
+		return $categories;
+	}
+
+	/**
+	 * Creates a category
+	 * @param string $name
+	 */
+	public function create_category(string $name)
+	{
+		$category = Category::create(['name' => $name]);
+
+		return $category;
+	}
 }
 
 

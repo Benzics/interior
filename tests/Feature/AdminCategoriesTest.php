@@ -34,7 +34,7 @@ class AdminCategoriesTest extends TestCase
 
         $response->assertOk()->assertValid();
     }
-    
+
     public function test_create_category()
     {
         $data = ['name' => 'Test category'];
