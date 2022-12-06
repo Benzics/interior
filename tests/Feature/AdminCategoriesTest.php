@@ -44,6 +44,16 @@ class AdminCategoriesTest extends TestCase
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.categories.index'));
     }
 
+    public function test_edit_page()
+    {
+        Category::factory()->create();
+        $parameter = ['category' => '1'];
+        
+        $response = $this->actingAs($this->_user)->get(route('admin.categories.edit', $parameter));
+
+        $response->assertOk()->assertValid();
+    }
+
     public function test_edit_category()
     {
         Category::factory()->create();
