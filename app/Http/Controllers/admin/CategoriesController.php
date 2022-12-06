@@ -3,10 +3,18 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
+    private $_service;
+
+    public function __construct(CategoryService $service)
+    {
+        $this->_service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +24,9 @@ class CategoriesController extends Controller
     {
         $pageTitle = 'Product categories';
 
-        return view('admin.categories.index', compact('pageTitle'));
+        $categories = $this->_service->all_categories();
+
+        return view('admin.categories.index', compact('pageTitle', 'categories'));
     }
 
     /**

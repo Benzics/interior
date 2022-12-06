@@ -45,5 +45,5 @@
 </div>
 @endsection
 @push('breadcrumb-plugins')
-<a href="{{ route('admin.lottery.create') }}" class="icon-btn"><i class="fa fa-plus"></i> @lang('Create Lottery')</a> 
+<a href="{{ route('admin.categories.create') }}" class="icon-btn"><i class="fa fa-plus"></i> Create Category</a> 
 @endpush
