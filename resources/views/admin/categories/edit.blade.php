@@ -3,20 +3,21 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <form action="{{ route('admin.categories.store') }}" method="POST">
+            <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
                 @csrf
+                @method('update')
                 <div class="card-body">
                    
                     <div class="form-group">
                         <label>Category Name</label>
-                        <input type="text" class="form-control" placeholder="Category name" name="name" required value="{{ old('name') }}" />
+                        <input type="text" class="form-control" value="{{ old('name', $category->name) }}" placeholder="Category name" name="name" required/>
                     </div>
                            
                 </div>
                 <div class="card-footer">
                     <div class="form-row justify-content-center">
                         <div class="form-group col-md-12">
-                            <button type="submit" class="btn btn-block btn--primary mr-2">Create</button>
+                            <button type="submit" class="btn btn-block btn--primary mr-2">Edit</button>
                         </div>
                     </div>
                 </div>

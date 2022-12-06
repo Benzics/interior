@@ -68,7 +68,13 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pageTitle = 'Edit category';
+
+        $category = $this->_service->get_category($id);
+
+        if(!$category) return back()->withErrors(['name' => 'Category not found!']);
+
+        return view('admin.categories.edit', compact('pageTitle', 'category'));
     }
 
     /**

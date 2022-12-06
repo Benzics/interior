@@ -45,6 +45,18 @@ class CategoryService {
 
 		return $category;
 	}
+
+	/**
+	 * Get a specific category from the db
+	 * @param int $category The category id
+	 * @return
+	 */
+	public function get_category(int $category)
+	{
+		$category = Category::find($category);
+
+		return $category;
+	}
 }
 
 
