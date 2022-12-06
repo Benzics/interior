@@ -5,7 +5,7 @@
         <div class="card">
             <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
                 @csrf
-                @method('update')
+                @method('put')
                 <div class="card-body">
                    
                     <div class="form-group">

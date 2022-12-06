@@ -20,11 +20,11 @@
                                 <td data-label="Category Name">{{ $row->name }}</td>
                                
                                 <td data-label="Action">
-                                    <a href="{{ route('admin.categories.edit', $row->id) }}" class="icon-btn"><i class="la la-pencil"></i></a>
+                                    <a href="{{ route('admin.categories.edit', $row->id) }}" data-toggle="tooltip" title="Edit" class="icon-btn"><i class="la la-pencil"></i></a>
                                     <form action="{{ route('admin.categories.destroy', $row->id) }}" method="post">
                                         @method('delete')
                                         @csrf
-                                        <button class="icon-btn bg--danger"><i class="la la-trash"></i></button>
+                                        <button class="icon-btn bg--danger" data-toggle="tooltip" title="Delete"><i class="la la-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

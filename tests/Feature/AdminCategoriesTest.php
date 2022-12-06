@@ -63,7 +63,7 @@ class AdminCategoriesTest extends TestCase
 
         $response = $this->actingAs($this->_user)->put(route('admin.categories.update', $parameter), $data);
 
-        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.categories.show', $parameter));
+        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.categories.index'));
     }
 
     public function test_delete_category()

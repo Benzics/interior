@@ -57,6 +57,19 @@ class CategoryService {
 
 		return $category;
 	}
+
+	/**
+	 * Edit a category
+	 * @param string $name The category name
+	 * @param int $category The category id
+	 * @return
+	 */
+	public function edit_category(string $name, int $category)
+	{
+		$category = Category::where('id', $category)->update(['name' => $name]);
+
+		return $category;
+	}
 }
 
 

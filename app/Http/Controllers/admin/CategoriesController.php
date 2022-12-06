@@ -86,7 +86,20 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = $this->_service->get_category($id);
+
+        if(!$category) return back()->withErrors(['name' => 'Category not found!']);
+
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
+
+        if(!$this->_service->edit_category($validated['name'], $id))
+        {
+            return back()->withErrors(['name' => 'An unexpected error occured']);
+        }
+
+        return redirect(route('admin.categories.index'))->with(['notify' => ['Category edited successfully']]);
     }
 
     /**
