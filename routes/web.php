@@ -29,9 +29,10 @@ Route::name('admin.')->prefix('admin')->group(function()
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
         // products and categories
-        Route::name('products.')->group(function(){
-            Route::resource('categories', CategoriesController::class);
-        });
+
+       
+        Route::resource('categories', CategoriesController::class);
+        
     });
     
 });

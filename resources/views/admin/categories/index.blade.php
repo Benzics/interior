@@ -1,0 +1,49 @@
+@extends('admin.layouts.app')
+
+@section('panel')
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card b-radius--10">
+            <div class="card-body p-0">
+                <div class="table-responsive--sm table-responsive">
+                    <table class="table table--light style--two">
+                        <thead>
+                            <tr>
+                                <th>Category Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @forelse($categories as $row)
+                            <tr>
+                                <td data-label="Category Name">{{ $row->name }}</td>
+                               
+                                <td data-label="Action">
+                                    <a href="{{ route('admin.categories.edit', $row->id) }}" class="icon-btn"><i class="la la-pencil"></i></a>
+                                    <form action="{{ route('admin.categories.destroy') }}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="icon-btn"><i class="la la-basket"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td class="text-muted text-center" colspan="100%">No product categories found</td>
+                            </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer py-4">
+                {{ $categories->links('admin.partials.paginate') }}
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@push('breadcrumb-plugins')
+<a href="{{ route('admin.lottery.create') }}" class="icon-btn"><i class="fa fa-plus"></i> @lang('Create Lottery')</a> 
+@endpush
