@@ -14,7 +14,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        $pageTitle = 'Product categories';
+
+        return view('admin.categories.index', compact('pageTitle'));
     }
 
     /**
