@@ -21,7 +21,7 @@
                                
                                 <td data-label="Action">
                                     <a href="{{ route('admin.categories.edit', $row->id) }}" data-toggle="tooltip" title="Edit" class="icon-btn"><i class="la la-pencil"></i></a>
-                                    <form action="{{ route('admin.categories.destroy', $row->id) }}" method="post">
+                                    <form action="{{ route('admin.categories.destroy', $row->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this category?')">
                                         @method('delete')
                                         @csrf
                                         <button class="icon-btn bg--danger" data-toggle="tooltip" title="Delete"><i class="la la-trash"></i></button>

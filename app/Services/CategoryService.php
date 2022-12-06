@@ -70,6 +70,17 @@ class CategoryService {
 
 		return $category;
 	}
+
+	/**
+	 * Deletes a category
+	 * @param int $category Id
+	 */
+	public function delete_category(int $category)
+	{
+		$delete = Category::destroy($category);
+
+		return $delete;
+	}
 }
 
 

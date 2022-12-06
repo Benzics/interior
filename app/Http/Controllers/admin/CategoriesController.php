@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
@@ -110,6 +111,12 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = $this->_service->get_category($id);
+
+        if(!$category) return back()->withErrors(['name' => 'Category not found!']);
+
+        if(!$this->_service->delete_category($id)) return back()->withErrors(['name' => 'An uknown error occured']);
+
+        return redirect()->route('admin.categories.index')->with(['notify' => ['Category was deleted']]);
     }
 }
