@@ -16,6 +16,8 @@ class AdminCategoriesTest extends TestCase
 
     private $_parameter = ['category' => '1'];
 
+    private $_data = ['name' => 'Test category'];
+
     private function _factory()
     {
         return Category::factory()->create();
@@ -44,9 +46,7 @@ class AdminCategoriesTest extends TestCase
 
     public function test_create_category()
     {
-        $data = ['name' => 'Test category'];
-
-        $response = $this->actingAs($this->_user)->post(route('admin.categories.store'), $data);
+        $response = $this->actingAs($this->_user)->post(route('admin.categories.store'), $this->_data);
 
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.categories.index'));
     }
@@ -64,9 +64,7 @@ class AdminCategoriesTest extends TestCase
     {
         $this->_factory();
 
-        $data = ['name' => 'Test category'];
-
-        $response = $this->actingAs($this->_user)->put(route('admin.categories.update', $this->_parameter), $data);
+        $response = $this->actingAs($this->_user)->put(route('admin.categories.update', $this->_parameter), $this->_data);
 
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.categories.index'));
     }

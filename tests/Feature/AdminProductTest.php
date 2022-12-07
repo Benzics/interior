@@ -15,6 +15,8 @@ class AdminProductTest extends TestCase
 
     private $_parameter = ['product' => '1'];
 
+    private $_data = [];
+
     private function _factory()
     {
         return Product::factory()->create();
@@ -53,10 +55,7 @@ class AdminProductTest extends TestCase
 
     public function test_product_create()
     {
-        $data = [
-        ];
-
-        $response = $this->actingAs($this->_user)->post(route('admin.products.store'), $data);
+        $response = $this->actingAs($this->_user)->post(route('admin.products.store'), $this->_data);
 
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.products.index'));
     }
@@ -72,10 +71,8 @@ class AdminProductTest extends TestCase
     public function test_product_edit()
     {
         $this->_factory();
-        
 
-        $data = [];
-        $response = $this->actingAs($this->_user)->put(route('admin.products.update', $this->_parameter), $data);
+        $response = $this->actingAs($this->_user)->put(route('admin.products.update', $this->_parameter), $this->_data);
 
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.products.index'));
     }
