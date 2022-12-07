@@ -19,7 +19,7 @@
                             @forelse($products as $row)
                             <tr>
                                 <td data-label="Product Name">{{ $row->name }}</td>
-                               
+                                <td data-label="Category Name">{{ $row->category->name }}</td>
                                 <td data-label="Action">
                                     <a href="{{ route('admin.products.edit', $row->id) }}" data-toggle="tooltip" title="Edit" class="icon-btn"><i class="la la-pencil"></i></a>
                                     <form action="{{ route('admin.products.destroy', $row->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this product?')">

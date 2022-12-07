@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\ProductController as AdminProductController;
+use App\Http\Controllers\admin\ProductController as AdminProductController;
 
 /*
 |--------------------------------------------------------------------------
