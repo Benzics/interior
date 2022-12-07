@@ -36,7 +36,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Add New Product';
+
+        return view('admin.products.create', compact('pageTitle'));
     }
 
     /**
