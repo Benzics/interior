@@ -14,6 +14,13 @@ class AdminCategoriesTest extends TestCase
 
     private $_user;
 
+    private $_parameter = ['category' => '1'];
+
+    private function _factory()
+    {
+        return Category::factory()->create();
+    }
+
     public function setUp(): void 
     {
         parent::setUp();
@@ -46,33 +53,29 @@ class AdminCategoriesTest extends TestCase
 
     public function test_edit_page()
     {
-        Category::factory()->create();
-        $parameter = ['category' => '1'];
+        $this->_factory();
         
-        $response = $this->actingAs($this->_user)->get(route('admin.categories.edit', $parameter));
+        $response = $this->actingAs($this->_user)->get(route('admin.categories.edit', $this->_parameter));
 
         $response->assertOk()->assertValid();
     }
 
     public function test_edit_category()
     {
-        Category::factory()->create();
+        $this->_factory();
 
         $data = ['name' => 'Test category'];
-        $parameter = ['category' => '1'];
 
-        $response = $this->actingAs($this->_user)->put(route('admin.categories.update', $parameter), $data);
+        $response = $this->actingAs($this->_user)->put(route('admin.categories.update', $this->_parameter), $data);
 
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.categories.index'));
     }
 
     public function test_delete_category()
     {
-        Category::factory()->create();
+        $this->_factory();
 
-        $parameter = ['category' => '1'];
-
-        $response = $this->actingAs($this->_user)->delete(route('admin.categories.destroy', $parameter));
+        $response = $this->actingAs($this->_user)->delete(route('admin.categories.destroy', $this->_parameter));
 
         $response->assertSessionHas('notify')->assertRedirect(route('admin.categories.index'));
     }

@@ -13,6 +13,13 @@ class AdminProductTest extends TestCase
 
     private $_user;
 
+    private $_parameter = ['product' => '1'];
+
+    private function _factory()
+    {
+        return Product::factory()->create();
+    }
+
     public function setUp(): void 
     {
         parent::setUp();
@@ -36,10 +43,10 @@ class AdminProductTest extends TestCase
 
     public function test_view_page()
     {
-        Product::factory()->create();
-        $parameter = ['product' => '1'];
+        $this->_factory();
+        
 
-        $response = $this->actingAs($this->_user)->get(route('admin.products.view', $parameter));
+        $response = $this->actingAs($this->_user)->get(route('admin.products.show', $this->_parameter));
 
         $response->assertOk();
     }
@@ -48,6 +55,38 @@ class AdminProductTest extends TestCase
     {
         $data = [
         ];
+
+        $response = $this->actingAs($this->_user)->post(route('admin.products.store'), $data);
+
+        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.products.index'));
+    }
+
+    public function test_product_edit_page()
+    {
+        $this->_factory();
+        $response = $this->actingAs($this->_user)->get(route('admin.products.edit', $this->_parameter));
+
+        $response->assertOk()->assertValid();
+    }
+
+    public function test_product_edit()
+    {
+        $this->_factory();
+        
+
+        $data = [];
+        $response = $this->actingAs($this->_user)->put(route('admin.products.update', $this->_parameter), $data);
+
+        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.products.index'));
+    }
+
+    public function test_product_delete()
+    {
+        $this->_factory();
+
+        $response = $this->actingAs($this->_user)->delete(route('admin.products.destroy', $this->_parameter));
+
+        $response->assertSessionHas('notify')->assertRedirect(route('admin.products.index'));
     }
 
 }
