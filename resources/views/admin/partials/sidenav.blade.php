@@ -34,17 +34,17 @@
                                 </a>
                             </li>
 
-                            <li class="sidebar-menu-item {{menuActive('admin.login')}} ">
-                                <a href="{{route('admin.login')}}" class="nav-link">
+                            <li class="sidebar-menu-item {{menuActive('admin.products.index')}} ">
+                                <a href="{{route('admin.products.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">Phase</span>
+                                    <span class="menu-title">Products</span>
                                 </a>
                             </li>
 
-                            <li class="sidebar-menu-item {{menuActive('admin.login')}} ">
-                                <a href="{{route('admin.login')}}" class="nav-link">
+                            <li class="sidebar-menu-item {{menuActive('admin.products.create')}} ">
+                                <a href="{{route('admin.products.create')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
-                                    <span class="menu-title">Manual Draw</span>
+                                    <span class="menu-title">Add New Product</span>
                                 </a>
                             </li>
 

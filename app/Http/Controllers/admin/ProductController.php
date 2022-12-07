@@ -4,9 +4,17 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
+    private $_service;
+
+    public function __construct(ProductService $service)
+    {
+        $this->_service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $pageTitle = 'Products';
+
+        $products = $this->_service->get_products();
+
+        return view('admin.products.index', compact('pageTitle', 'products'));
     }
 
     /**
