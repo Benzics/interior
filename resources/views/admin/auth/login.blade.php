@@ -21,6 +21,9 @@
                         <a href="{{ route('admin.password.reset') }}" class="text-muted text--small"><i class="las la-lock"></i>Forgot password?</a>
                     </div> --}}
                     <div class="form-group">
+                        <input type="checkbox" name="remember" id="remember"> <label for="remember">Remember me</label>
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="submit-btn mt-25 b-radius--capsule">Login <i class="las la-sign-in-alt"></i></button>
                     </div>
                 </form>

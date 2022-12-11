@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ProductService;
+use Illuminate\Validation\Rules\File;
 
 class ProductController extends Controller
 {
@@ -49,7 +50,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'images.*' => ['required', File::image()],
+        ]);
+
+        // 
     }
 
     /**
