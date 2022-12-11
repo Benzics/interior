@@ -56,7 +56,7 @@ class ProductController extends Controller
             'images.*' => ['required', File::image()],
         ]);
 
-        // 
+        
     }
 
     /**
