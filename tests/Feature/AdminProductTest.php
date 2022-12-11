@@ -8,6 +8,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+
 class AdminProductTest extends TestCase
 {
     use RefreshDatabase;
@@ -16,7 +19,11 @@ class AdminProductTest extends TestCase
 
     private $_parameter = ['product' => '1'];
 
-    private $_data = [];
+    private $_data = [
+        'name' => 'Test product',
+        'description' => 'Test description',
+        'category_id' => '1',
+    ];
 
     private function _factory()
     {
@@ -57,6 +64,10 @@ class AdminProductTest extends TestCase
 
     public function test_product_create()
     {
+        Storage::fake('products');
+
+        $this->_data['images'] = [UploadedFile::fake()->image('product.jpg')];
+
         $response = $this->actingAs($this->_user)->post(route('admin.products.store'), $this->_data);
 
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.products.index'));

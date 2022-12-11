@@ -29,7 +29,7 @@
                             
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea rows="8" class="form-control nicEdit" placeholder="Product description" name="description" required>{{ old('description') }}</textarea>
+                                <textarea rows="8" class="form-control nicEdit" placeholder="Product description" name="description">{{ old('description') }}</textarea>
                             </div>
 
                             <div class="form-group">

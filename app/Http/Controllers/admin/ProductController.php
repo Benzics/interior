@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Services\CategoryService;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 use App\Services\ProductService;
 use Illuminate\Validation\Rules\File;
@@ -66,13 +67,21 @@ class ProductController extends Controller
             'name' => $validate['name'],
             'description' => $validate['description'],
             'category_id' => $validate['category_id'],
+            'user_id' => auth()->id(),
         ]);
 
         // upload images
+        $image_service = new ImageService();
+
         foreach($request->file('images') as $image)
         {
+            $path = $image->store('/product_images', ['disk' => 'my_files']);
 
+            $image_service->save_image($path, $product->id);
         }
+
+        return redirect()->route('admin.products.index')->with('notify', ['Product added successfully']);
+
     }
 
     /**

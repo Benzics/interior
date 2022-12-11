@@ -10,6 +10,7 @@
                     <table class="table table--light style--two">
                         <thead>
                             <tr>
+                                <th>Thumbnail</th>
                                 <th>Product Name</th>
                                 <th>Category</th>
                                 <th>Action</th>
