@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('description');
             $table->foreignId('user_id');
             $table->foreignId('category_id');
-            $table->text('images');
             $table->timestamps();
         });
     }
