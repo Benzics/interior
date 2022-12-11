@@ -56,7 +56,7 @@ return [
             'throw' => false,
         ],
 
-        'product_images' => [
+        'my_files' => [
             'driver' => 'local',
             'root' => public_path() . '/',
         ]

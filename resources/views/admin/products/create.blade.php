@@ -13,6 +13,19 @@
                                 <label>Product Name</label>
                                 <input type="text" class="form-control" placeholder="Your Product name" name="name" required value="{{ old('name') }}"/>
                             </div>
+
+                            <div class="form-group">
+                                <label for="category_id">Product Category</label>
+                                <select name="category_id" id="category_id" class="form-control" required="">
+                                    <option disabled selected>Select a category</option>
+
+                                    @forelse ($categories as $item)
+                                        <option value="{{ $item->id }}" {{ $item->id == old('category_id') ? 'selected' : '' }}>{{ $item->name }}</option>
+                                    @empty
+                                        <option disabled>Please create a category</option>
+                                    @endforelse
+                                </select>
+                            </div>
                             
                             <div class="form-group">
                                 <label>Product Description</label>

@@ -46,6 +46,18 @@ class ProductService {
 
 		return $product;
 	}
+
+	/**
+	 * Adds a product to the products table
+	 * @param array $data
+	 * @return
+	 */
+	public function add_product(array $data)
+	{
+		$product = Product::create($data);
+
+		return $product;
+	}
 }
 
 
