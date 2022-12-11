@@ -19,6 +19,13 @@
                         <tbody class="list">
                             @forelse($products as $row)
                             <tr>
+                                <td data-label="Product Thumbnail">
+                                    <div class="user">
+                                        <div class="thumb">
+                                            <img src="{{ asset(collect($row->images)->first()?->name) }}" alt="{{ $row->name }}">
+                                        </div>
+                                    </div>
+                                </td>
                                 <td data-label="Product Name">{{ $row->name }}</td>
                                 <td data-label="Category Name">{{ $row->category->name }}</td>
                                 <td data-label="Action">
@@ -48,4 +55,13 @@
 @endsection
 @push('breadcrumb-plugins')
 <a href="{{ route('admin.products.create') }}" class="icon-btn"><i class="fa fa-plus"></i> Add Product</a> 
+@endpush
+
+@push('style')
+<style>
+table .user .thumb, table .user .thumb img {
+    width: 100px;
+    height: 100px;
+}
+</style>
 @endpush
