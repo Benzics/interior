@@ -103,7 +103,25 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pageTitle = 'Edit Product';
+        $product = $this->_service->get_product($id);
+        $category_service = new CategoryService();
+        $categories = $category_service->get_categories();
+
+        $images = collect($product->images)->all();
+        
+        $imageGallery = [];
+
+        $ids = 0;
+
+        foreach($images as $row)
+        {
+            $imageGallery[] = (object) ['id' => $row->id, 'src' => asset($row->name)];
+        }
+
+        $imageGallery = json_encode($imageGallery);
+
+        return view('admin.products.edit', compact('pageTitle', 'product', 'categories', 'imageGallery'));
     }
 
     /**
@@ -115,7 +133,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request->all());
     }
 
     /**
