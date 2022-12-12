@@ -21,7 +21,7 @@ class ProductService {
 	{
 		$products = Product::orderBy('id', 'DESC')->paginate($limit);
 
-		return $products;
+		return $products;  
 	}
 
 	/**
@@ -70,6 +70,17 @@ class ProductService {
 		$product = Product::where('id', $id)->update($data);
 
 		return $product;
+	}
+
+	/**
+	 * Deletes a product
+	 * @param int $product the product id
+	 */
+	public function delete_product(int $product)
+	{
+		$delete = Product::where('id', $product)->first()->delete();
+
+		return $delete;
 	}
 }
 

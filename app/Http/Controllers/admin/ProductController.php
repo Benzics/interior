@@ -204,6 +204,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = $this->_service->get_product($id);
+
+        if(!$product) return back()->withErrors(['name' => 'Product not found!']);
+
+        if(!$this->_service->delete_product($id)) return back()->withErrors(['name' => 'An uknown error occured']);
+
+        return redirect()->route('admin.products.index')->with(['notify' => ['product was deleted']]);
     }
 }

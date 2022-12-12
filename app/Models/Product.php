@@ -25,4 +25,11 @@ class Product extends Model
     {
         return $this->hasMany(Image::class);
     }
+
+    public static function booted() {
+
+        static::deleting(function($user) {
+             $user->images()->delete();
+        });
+    }
 }
