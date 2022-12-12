@@ -19,7 +19,7 @@ class ProductService {
 	 */
 	public function get_products(int $limit = 15)
 	{
-		$products = Product::paginate($limit);
+		$products = Product::orderBy('id', 'DESC')->paginate($limit);
 
 		return $products;
 	}
