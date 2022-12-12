@@ -58,6 +58,19 @@ class ProductService {
 
 		return $product;
 	}
+
+	/**
+	 * Edit a product
+	 * @param array $data
+	 * @param int $id
+	 * @return
+	 */
+	public function edit_product(array $data, int $id)
+	{
+		$product = Product::where('id', $id)->update($data);
+
+		return $product;
+	}
 }
 
 

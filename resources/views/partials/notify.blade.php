@@ -4,7 +4,7 @@
     @foreach(session('notify') as $msg)
         <script> 
             "use strict";
-            iziToast.{{ $msg[0] }}({message:"{{ __($msg[1]) }}", position: "topRight"}); 
+            iziToast.success({message:"{{ $msg }}", position: "topRight"}); 
         </script>
     @endforeach
 @endif

@@ -22,7 +22,7 @@
                                 <td data-label="Product Thumbnail">
                                     <div class="user">
                                         <div class="thumb">
-                                            <img src="{{ asset(collect($row->images)->first()?->name) }}" alt="{{ $row->name }}">
+                                            <img src="{{ asset( collect($row->images)->first()?->name ?: 'images/default.png') }}" alt="{{ $row->name }}">
                                         </div>
                                     </div>
                                 </td>

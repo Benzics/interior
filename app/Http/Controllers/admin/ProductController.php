@@ -105,14 +105,15 @@ class ProductController extends Controller
     {
         $pageTitle = 'Edit Product';
         $product = $this->_service->get_product($id);
+
+        if(!$product) return back()->withErrors(['product' => 'Product not found']);
+
         $category_service = new CategoryService();
         $categories = $category_service->get_categories();
 
         $images = collect($product->images)->all();
         
         $imageGallery = [];
-
-        $ids = 0;
 
         foreach($images as $row)
         {
@@ -133,7 +134,59 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        $product = $this->_service->get_product($id);
+        if(!$product) return back()->withErrors(['product' => 'Product not found']);
+
+        $images = collect($product->images);
+        $image_service = new ImageService();
+
+        $validate = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category_id' => 'required|numeric',
+            'images.*' => [File::image()],
+        ]);
+
+        $preloaded = $request->input('preloaded');
+
+        // if length of preloaded images is not equal to the images this product has, we delete the removed images
+        if(count($request->input('preloaded') ?? []) !== $images->count())
+        {
+            $delete_images = $images->map(function($item, $key) use ($preloaded, $image_service) {
+
+                if(collect($preloaded ?? [])->search($item->id) === false)
+                {
+                    // delete this image
+                    $image_service->delete_image($item->id);
+                }
+            });
+        }
+        
+        // if new images are included, upload them
+        if($request->hasFile('images'))
+        {
+            foreach($request->file('images') as $image)
+            {
+                $path = $image->store('/product_images', ['disk' => 'my_files']);
+
+                $image_service->save_image($path, $product->id);
+            }
+        }
+
+        // edit the product
+        $product_data = [
+            'name' => $validate['name'],
+            'description' => $validate['description'],
+            'category_id' => $validate['category_id'],
+        ];
+
+        if(!$this->_service->edit_product($product_data, $product->id))
+        {
+            return back()->withErrors(['name' => 'An internal error occured']);
+        }
+
+        return redirect()->route('admin.products.index')->with('notify', ['Product edited successfully']);
+
     }
 
     /**
