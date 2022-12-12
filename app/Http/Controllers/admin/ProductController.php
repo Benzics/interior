@@ -92,7 +92,14 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $pageTitle = 'View Product';
+        $product = $this->_service->get_product($id);
+
+        $images = $product->images;
+
+        if(!$product) return back()->withErrors(['product' => 'Product not found']);
+
+        return view('admin.products.show', compact('pageTitle', 'product', 'images'));
     }
 
     /**
