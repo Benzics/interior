@@ -52,6 +52,38 @@
                     </div>
                 </li>
 
+                <li class="sidebar-menu-item sidebar-dropdown">
+                    <a href="javascript:void(0)" class="{{menuActive(['admin.apartments*', 'admin.apartments*'],3)}}">
+                        <i class="menu-icon la la-ticket-alt"></i>
+                        <span class="menu-title">Manage Apartments</span>
+                    </a>
+                    <div class="sidebar-submenu {{menuActive(['admin.apartments*', 'admin.apartment-categories*'],2)}} ">
+                        <ul>
+                            <li class="sidebar-menu-item {{menuActive('admin.categories.index')}} ">
+                                <a href="{{route('admin.categories.index')}}" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title">Categories</span>
+                                </a>
+                            </li>
+
+                            <li class="sidebar-menu-item {{menuActive('admin.products.index')}} ">
+                                <a href="{{route('admin.products.index')}}" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title">Apartments</span>
+                                </a>
+                            </li>
+
+                            <li class="sidebar-menu-item {{menuActive('admin.products.create')}} ">
+                                <a href="{{route('admin.products.create')}}" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title">Add Apartment</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
                 
             </ul>
             <div class="text-center mb-3 text-uppercase">
