@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\ApartmentCategory as Category;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class ApartmentCategoryController extends Controller
 {
     private $_service;
 
@@ -45,7 +45,7 @@ class CategoriesController extends Controller
             return back()->withErrors(['name' => 'An unexpected error occured']);
         }
 
-        return redirect(route('admin.categories.index'))->with(['notify' => ['Category created successfully']]);
+        return redirect(route('admin.apartment-categories.index'))->with(['notify' => ['Category created successfully']]);
     }
 
 
@@ -75,7 +75,7 @@ class CategoriesController extends Controller
             return back()->withErrors(['name' => 'An unexpected error occured']);
         }
 
-        return redirect(route('admin.categories.index'))->with(['notify' => ['Category edited successfully']]);
+        return redirect(route('admin.apartment-categories.index'))->with(['notify' => ['Category edited successfully']]);
     }
 
     public function destroy($id)
@@ -86,6 +86,6 @@ class CategoriesController extends Controller
 
         if(!$this->_service->delete_category($id)) return back()->withErrors(['name' => 'An uknown error occured']);
 
-        return redirect()->route('admin.categories.index')->with(['notify' => ['Category was deleted']]);
+        return redirect()->route('admin.apartment-categories.index')->with(['notify' => ['Category was deleted']]);
     }
 }

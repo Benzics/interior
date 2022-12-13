@@ -13,13 +13,36 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class CategoryService {
 	
 	/**
+	 * Our model
+	 */
+	private $_model;
+
+	/**
+	 * Sets the model used for this service
+	 * @param $model
+	 */
+	public function set_model($model)
+	{
+		$this->_model = $model;
+	}
+
+	/**
+	 * Gets the model used for this service
+	 * @return
+	 */
+	public function get_model()
+	{
+		return $this->_model;
+	}
+
+	/**
 	 * Gets all product categories paginated
 	 * @param int $limit = 15
 	 * @return Illuminate\Pagination\LengthAwarePaginator;
 	 */
 	public function all_categories(int $limit = 15) : LengthAwarePaginator
 	{
-		$categories = Category::paginate($limit);
+		$categories = $this->_model::paginate($limit);
 
 		return $categories;
 	}
@@ -30,7 +53,7 @@ class CategoryService {
 	 */
 	public function get_categories()
 	{
-		$categories = Category::all();
+		$categories = $this->_model::all();
 
 		return $categories;
 	}
@@ -41,7 +64,7 @@ class CategoryService {
 	 */
 	public function create_category(string $name)
 	{
-		$category = Category::create(['name' => $name]);
+		$category = $this->_model::create(['name' => $name]);
 
 		return $category;
 	}
@@ -53,7 +76,7 @@ class CategoryService {
 	 */
 	public function get_category(int $category)
 	{
-		$category = Category::find($category);
+		$category = $this->_model::find($category);
 
 		return $category;
 	}
@@ -66,7 +89,7 @@ class CategoryService {
 	 */
 	public function edit_category(string $name, int $category)
 	{
-		$category = Category::where('id', $category)->update(['name' => $name]);
+		$category = $this->_model::where('id', $category)->update(['name' => $name]);
 
 		return $category;
 	}
@@ -77,7 +100,7 @@ class CategoryService {
 	 */
 	public function delete_category(int $category)
 	{
-		$delete = Category::destroy($category);
+		$delete = $this->_model::destroy($category);
 
 		return $delete;
 	}

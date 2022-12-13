@@ -14,7 +14,7 @@ class AdminApartmentCategoriesTest extends TestCase
 
     private $_user;
 
-    private $_parameter = ['category' => '1'];
+    private $_parameter = ['apartment_category' => '1'];
 
     private $_data = ['name' => 'Test category'];
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\ApartmentCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\LoginController as AdminLoginController;
@@ -33,6 +34,7 @@ Route::name('admin.')->prefix('admin')->group(function()
         // products and categories
        
         Route::resource('categories', CategoriesController::class)->except('show');
+        Route::resource('apartment-categories', ApartmentCategoryController::class)->except('show');
         Route::resource('products', AdminProductController::class);
         
     });

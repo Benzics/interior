@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Services\CategoryService;
 use App\Services\ImageService;
 use Illuminate\Http\Request;
@@ -18,11 +19,6 @@ class ProductController extends Controller
         $this->_service = $service;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $pageTitle = 'Products';
@@ -32,27 +28,17 @@ class ProductController extends Controller
         return view('admin.products.index', compact('pageTitle', 'products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $pageTitle = 'Add New Product';
 
         $category_service = new CategoryService();
+        $category_service->set_model(new Category());
         $categories = $category_service->get_categories();
 
         return view('admin.products.create', compact('pageTitle', 'categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validate = $request->validate([
@@ -84,12 +70,6 @@ class ProductController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $pageTitle = 'View Product';
@@ -102,12 +82,6 @@ class ProductController extends Controller
         return view('admin.products.show', compact('pageTitle', 'product', 'images'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $pageTitle = 'Edit Product';
@@ -116,6 +90,7 @@ class ProductController extends Controller
         if(!$product) return back()->withErrors(['product' => 'Product not found']);
 
         $category_service = new CategoryService();
+        $category_service->set_model(new Category());
         $categories = $category_service->get_categories();
 
         $images = collect($product->images)->all();
@@ -132,13 +107,6 @@ class ProductController extends Controller
         return view('admin.products.edit', compact('pageTitle', 'product', 'categories', 'imageGallery'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $product = $this->_service->get_product($id);
@@ -196,12 +164,6 @@ class ProductController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $product = $this->_service->get_product($id);
