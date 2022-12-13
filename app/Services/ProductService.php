@@ -1,8 +1,6 @@
 <?php
 namespace App\Services;
 
-use App\Models\Product;
-
 /**
 *Automatically generated service
 *Author: Benjamin Ojobo
@@ -13,13 +11,36 @@ use App\Models\Product;
 class ProductService {
 	
 	/**
+	 * Our model
+	 */
+	private $_model;
+
+	/**
+	 * Sets the model used for this service
+	 * @param $model
+	 */
+	public function set_model($model)
+	{
+		$this->_model = $model;
+	}
+
+	/**
+	 * Gets the model used for this service
+	 * @return
+	 */
+	public function get_model()
+	{
+		return $this->_model;
+	}
+
+	/**
 	 * Gets products paginated
 	 * @param int $limit
 	 * @return
 	 */
 	public function get_products(int $limit = 15)
 	{
-		$products = Product::orderBy('id', 'DESC')->paginate($limit);
+		$products = $this->_model->orderBy('id', 'DESC')->paginate($limit);
 
 		return $products;  
 	}
@@ -30,7 +51,7 @@ class ProductService {
 	 */
 	public function all_products()
 	{
-		$products = Product::all();
+		$products = $this->_model->all();
 
 		return $products;
 	}
@@ -42,7 +63,7 @@ class ProductService {
 	 */
 	public function get_product(int $product)
 	{
-		$product = Product::find($product);
+		$product = $this->_model->find($product);
 
 		return $product;
 	}
@@ -54,7 +75,7 @@ class ProductService {
 	 */
 	public function add_product(array $data)
 	{
-		$product = Product::create($data);
+		$product = $this->_model->create($data);
 
 		return $product;
 	}
@@ -67,7 +88,7 @@ class ProductService {
 	 */
 	public function edit_product(array $data, int $id)
 	{
-		$product = Product::where('id', $id)->update($data);
+		$product = $this->_model->where('id', $id)->update($data);
 
 		return $product;
 	}
@@ -78,7 +99,7 @@ class ProductService {
 	 */
 	public function delete_product(int $product)
 	{
-		$delete = Product::where('id', $product)->first()->delete();
+		$delete = $this->_model->where('id', $product)->first()->delete();
 
 		return $delete;
 	}

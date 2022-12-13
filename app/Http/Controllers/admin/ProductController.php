@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use App\Services\CategoryService;
 use App\Services\ImageService;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class ProductController extends Controller
     public function __construct(ProductService $service)
     {
         $this->_service = $service;
+        $this->_service->set_model(new Product());
     }
 
     public function index()
