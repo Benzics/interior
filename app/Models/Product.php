@@ -28,8 +28,8 @@ class Product extends Model
 
     public static function booted() {
 
-        static::deleting(function($user) {
-             $user->images()->delete();
+        static::deleting(function($product) {
+            $product->images()->delete();
         });
     }
 }
