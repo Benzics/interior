@@ -15,30 +15,34 @@ class ProductController extends Controller
 {
     private $_service;
 
+    private $_route;
+
     public function __construct(ProductService $service)
     {
         $this->_service = $service;
         $this->_service->set_model(new Product());
+        $this->_route = 'admin.products';
     }
 
     public function index()
     {
         $pageTitle = 'Products';
+        $route = $this->_route;
 
         $products = $this->_service->get_products();
 
-        return view('admin.products.index', compact('pageTitle', 'products'));
+        return view('admin.products.index', compact('pageTitle', 'products', 'route'));
     }
 
     public function create()
     {
         $pageTitle = 'Add New Product';
-
+        $route = $this->_route;
         $category_service = new CategoryService();
         $category_service->set_model(new Category());
         $categories = $category_service->get_categories();
 
-        return view('admin.products.create', compact('pageTitle', 'categories'));
+        return view('admin.products.create', compact('pageTitle', 'categories', 'route'));
     }
 
     public function store(Request $request)
@@ -68,25 +72,27 @@ class ProductController extends Controller
             $image_service->save_image($path, $product->id);
         }
 
-        return redirect()->route('admin.products.index')->with('notify', ['Product added successfully']);
+        return redirect()->route($this->_route . '.index')->with('notify', ['Product added successfully']);
 
     }
 
     public function show($id)
     {
         $pageTitle = 'View Product';
+        $route = $this->_route;
         $product = $this->_service->get_product($id);
 
         $images = $product->images;
 
         if(!$product) return back()->withErrors(['product' => 'Product not found']);
 
-        return view('admin.products.show', compact('pageTitle', 'product', 'images'));
+        return view('admin.products.show', compact('pageTitle', 'product', 'images', 'route'));
     }
 
     public function edit($id)
     {
         $pageTitle = 'Edit Product';
+        $route = $this->_route;
         $product = $this->_service->get_product($id);
 
         if(!$product) return back()->withErrors(['product' => 'Product not found']);
@@ -106,7 +112,7 @@ class ProductController extends Controller
 
         $imageGallery = json_encode($imageGallery);
 
-        return view('admin.products.edit', compact('pageTitle', 'product', 'categories', 'imageGallery'));
+        return view('admin.products.edit', compact('pageTitle', 'product', 'categories', 'imageGallery', 'route'));
     }
 
     public function update(Request $request, $id)
@@ -162,7 +168,7 @@ class ProductController extends Controller
             return back()->withErrors(['name' => 'An internal error occured']);
         }
 
-        return redirect()->route('admin.products.index')->with('notify', ['Product edited successfully']);
+        return redirect()->route($this->_route . '.index')->with('notify', ['Product edited successfully']);
 
     }
 
@@ -174,6 +180,6 @@ class ProductController extends Controller
 
         if(!$this->_service->delete_product($id)) return back()->withErrors(['name' => 'An uknown error occured']);
 
-        return redirect()->route('admin.products.index')->with(['notify' => ['product was deleted']]);
+        return redirect()->route($this->_route . '.index')->with(['notify' => ['product was deleted']]);
     }
 }

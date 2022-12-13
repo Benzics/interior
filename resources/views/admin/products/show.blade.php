@@ -15,6 +15,7 @@
                             Category
                             <span class="font-weight-bold">{{ $product->category->name }}</span>
                         </li>
+                        @stack('more')
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Description
                             {!! $product->description !!}
@@ -42,7 +43,7 @@
 @endsection
 
 @push('breadcrumb-plugins')
-<a href="{{ route('admin.products.index') }}" class="icon-btn" ><i class="fa fa-fw fa-reply"></i>Back</a> 
+<a href="{{ route($route . '.index') }}" class="icon-btn" ><i class="fa fa-fw fa-reply"></i>Back</a> 
 @endpush
 
 @push('style')

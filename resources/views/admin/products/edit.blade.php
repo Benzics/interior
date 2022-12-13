@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route($route . '.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="card-body">
@@ -11,12 +11,12 @@
                         
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Product Name</label>
-                                <input type="text" class="form-control" placeholder="Your Product name" name="name" required value="{{ old('name', $product->name) }}"/>
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Name" name="name" required value="{{ old('name', $product->name) }}"/>
                             </div>
 
                             <div class="form-group">
-                                <label for="category_id">Product Category</label>
+                                <label for="category_id">Category</label>
                                 <select name="category_id" id="category_id" class="form-control" required="">
                                     <option disabled selected>Select a category</option>
 
@@ -27,14 +27,14 @@
                                     @endforelse
                                 </select>
                             </div>
-                            
+                            @stack('more')
                             <div class="form-group">
-                                <label>Product Description</label>
-                                <textarea rows="8" class="form-control nicEdit" placeholder="Product description" name="description">{{ old('description', $product->description) }}</textarea>
+                                <label>Description</label>
+                                <textarea rows="8" class="form-control nicEdit" placeholder="description" name="description">{{ old('description', $product->description) }}</textarea>
                             </div>
 
                             <div class="form-group">
-                                <label>Product Images</label>
+                                <label>Images</label>
                                 <div class="input-images"></div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
 @endsection
 
 @push('breadcrumb-plugins')
-<a href="{{ route('admin.products.index') }}" class="icon-btn" ><i class="fa fa-fw fa-reply"></i>Back</a> 
+<a href="{{ route($route . '.index') }}" class="icon-btn" ><i class="fa fa-fw fa-reply"></i>Back</a> 
 @endpush
 
 @push('style')

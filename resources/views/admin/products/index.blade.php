@@ -11,7 +11,7 @@
                         <thead>
                             <tr>
                                 <th>Thumbnail</th>
-                                <th>Product Name</th>
+                                <th>Name</th>
                                 <th>Category</th>
                                 <th>Action</th>
                             </tr>
@@ -30,9 +30,9 @@
                                 <td data-label="Category Name">{{ $row->category->name }}</td>
                                 <td data-label="Action">
                                     
-                                    <a href="{{ route('admin.products.show', $row->id) }}" class="icon-btn bg--7" data-toggle="tooltip" title="View Details"><i class="fas fa-eye"></i></a>
-                                    <a href="{{ route('admin.products.edit', $row->id) }}" data-toggle="tooltip" title="Edit" class="icon-btn"><i class="la la-pencil"></i></a>
-                                    <form action="{{ route('admin.products.destroy', $row->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                                    <a href="{{ route($route . '.show', $row->id) }}" class="icon-btn bg--7" data-toggle="tooltip" title="View Details"><i class="fas fa-eye"></i></a>
+                                    <a href="{{ route($route . '.edit', $row->id) }}" data-toggle="tooltip" title="Edit" class="icon-btn"><i class="la la-pencil"></i></a>
+                                    <form action="{{ route($route . '.destroy', $row->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this product?')">
                                         @method('delete')
                                         @csrf
                                         <button class="icon-btn bg--danger" data-toggle="tooltip" title="Delete"><i class="la la-trash"></i></button>
@@ -56,7 +56,7 @@
 </div>
 @endsection
 @push('breadcrumb-plugins')
-<a href="{{ route('admin.products.create') }}" class="icon-btn"><i class="fa fa-plus"></i> Add Product</a> 
+<a href="{{ route($route . '.create') }}" class="icon-btn"><i class="fa fa-plus"></i> Add Product</a> 
 @endpush
 
 @push('style')
