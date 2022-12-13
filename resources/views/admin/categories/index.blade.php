@@ -20,8 +20,8 @@
                                 <td data-label="Category Name">{{ $row->name }}</td>
                                
                                 <td data-label="Action">
-                                    <a href="{{ route('admin.categories.edit', $row->id) }}" data-toggle="tooltip" title="Edit" class="icon-btn"><i class="la la-pencil"></i></a>
-                                    <form action="{{ route('admin.categories.destroy', $row->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this category?')">
+                                    <a href="{{ route($route . '.edit', $row->id) }}" data-toggle="tooltip" title="Edit" class="icon-btn"><i class="la la-pencil"></i></a>
+                                    <form action="{{ route($route . '.destroy', $row->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this category?')">
                                         @method('delete')
                                         @csrf
                                         <button class="icon-btn bg--danger" data-toggle="tooltip" title="Delete"><i class="la la-trash"></i></button>
@@ -30,7 +30,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td class="text-muted text-center" colspan="100%">No product categories found</td>
+                                <td class="text-muted text-center" colspan="100%">No categories found</td>
                             </tr>
                             @endforelse
                         </tbody>
@@ -45,5 +45,5 @@
 </div>
 @endsection
 @push('breadcrumb-plugins')
-<a href="{{ route('admin.categories.create') }}" class="icon-btn"><i class="fa fa-plus"></i> Create Category</a> 
+<a href="{{ route($route . '.create') }}" class="icon-btn"><i class="fa fa-plus"></i> Create Category</a> 
 @endpush

@@ -11,29 +11,33 @@ class ApartmentCategoryController extends Controller
 {
     private $_service;
 
+    private $_route;
+
     public function __construct(CategoryService $service)
     {
         $this->_service = $service;
+        $this->_service->set_model(new Category());
 
-        $model = new Category();
-        $this->_service->set_model($model);
+        $this->_route = 'admin.apartment-categories';
     }
 
     public function index()
     {
-        $pageTitle = 'Product categories';
+        $pageTitle = 'Apartment categories';
+        $route = $this->_route;
 
         $categories = $this->_service->all_categories();
 
-        return view('admin.categories.index', compact('pageTitle', 'categories'));
+        return view('admin.categories.index', compact('pageTitle', 'categories', 'route'));
     }
 
   
     public function create()
     {
         $pageTitle = 'Create category';
+        $route = $this->_route;
 
-        return view('admin.categories.create', compact('pageTitle'));
+        return view('admin.categories.create', compact('pageTitle', 'route'));
     }
 
     public function store(Request $request)
@@ -52,12 +56,13 @@ class ApartmentCategoryController extends Controller
     public function edit($id)
     {
         $pageTitle = 'Edit category';
+        $route = $this->_route;
 
         $category = $this->_service->get_category($id);
 
         if(!$category) return back()->withErrors(['name' => 'Category not found!']);
 
-        return view('admin.categories.edit', compact('pageTitle', 'category'));
+        return view('admin.categories.edit', compact('pageTitle', 'category', 'route'));
     }
 
     public function update(Request $request, $id)

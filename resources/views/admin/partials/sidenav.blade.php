@@ -59,8 +59,8 @@
                     </a>
                     <div class="sidebar-submenu {{menuActive(['admin.apartments*', 'admin.apartment-categories*'],2)}} ">
                         <ul>
-                            <li class="sidebar-menu-item {{menuActive('admin.categories.index')}} ">
-                                <a href="{{route('admin.categories.index')}}" class="nav-link">
+                            <li class="sidebar-menu-item {{menuActive('admin.apartment-categories.index')}} ">
+                                <a href="{{route('admin.apartment-categories.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
                                     <span class="menu-title">Categories</span>
                                 </a>

@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
+            <form action="{{ route($route . '.update', $category->id) }}" method="POST">
                 @csrf
                 @method('put')
                 <div class="card-body">
@@ -28,5 +28,5 @@
 @endsection
 
 @push('breadcrumb-plugins')
-<a href="{{ route('admin.categories.index') }}" class="icon-btn" ><i class="fa fa-fw fa-reply"></i>Back</a> 
+<a href="{{ route($route . '.index') }}" class="icon-btn" ><i class="fa fa-fw fa-reply"></i>Back</a> 
 @endpush
