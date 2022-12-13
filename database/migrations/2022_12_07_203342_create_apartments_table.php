@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('apartments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('product_id')->default('0');
-            $table->foreignId('apartment_id')->default('0');
+            $table->text('description');
+            $table->decimal('price');
+            $table->foreignId('user_id');
+            $table->foreignId('apartment_category_id');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('apartments');
     }
 };
