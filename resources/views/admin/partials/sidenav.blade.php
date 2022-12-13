@@ -66,15 +66,15 @@
                                 </a>
                             </li>
 
-                            <li class="sidebar-menu-item {{menuActive('admin.products.index')}} ">
-                                <a href="{{route('admin.products.index')}}" class="nav-link">
+                            <li class="sidebar-menu-item {{menuActive('admin.apartments.index')}} ">
+                                <a href="{{route('admin.apartments.index')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
                                     <span class="menu-title">Apartments</span>
                                 </a>
                             </li>
 
-                            <li class="sidebar-menu-item {{menuActive('admin.products.create')}} ">
-                                <a href="{{route('admin.products.create')}}" class="nav-link">
+                            <li class="sidebar-menu-item {{menuActive('admin.apartments.create')}} ">
+                                <a href="{{route('admin.apartments.create')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
                                     <span class="menu-title">Add Apartment</span>
                                 </a>

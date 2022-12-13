@@ -21,6 +21,7 @@ class ApartmentFactory extends Factory
             'description' => fake()->text(),
             'user_id' => '1',
             'apartment_category_id' => '1',
+            'price' => '10.4',
         ];
     }
 }

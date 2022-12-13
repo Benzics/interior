@@ -17,12 +17,12 @@ class AdminApartmentsTest extends TestCase
 
     private $_user;
 
-    private $_parameter = ['product' => '1'];
+    private $_parameter = ['apartment' => '1'];
 
     private $_data = [
         'name' => 'Test product',
         'description' => 'Test description',
-        'apartment_category_id' => '1',
+        'category_id' => '1',
         'price' => '10',
     ];
 
@@ -41,14 +41,14 @@ class AdminApartmentsTest extends TestCase
 
     public function test_index()
     {
-        $response = $this->actingAs($this->_user)->get(route('admin.products.index'));
+        $response = $this->actingAs($this->_user)->get(route('admin.apartments.index'));
 
         $response->assertOk();
     }
 
     public function test_create_page()
     {
-        $response = $this->actingAs($this->_user)->get(route('admin.products.create'));
+        $response = $this->actingAs($this->_user)->get(route('admin.apartments.create'));
 
         $response->assertOk()->assertValid();
     }
@@ -58,7 +58,7 @@ class AdminApartmentsTest extends TestCase
         $this->_factory();
         
 
-        $response = $this->actingAs($this->_user)->get(route('admin.products.show', $this->_parameter));
+        $response = $this->actingAs($this->_user)->get(route('admin.apartments.show', $this->_parameter));
 
         $response->assertOk();
     }
@@ -69,15 +69,15 @@ class AdminApartmentsTest extends TestCase
 
         $this->_data['images'] = [UploadedFile::fake()->image('product.jpg')];
 
-        $response = $this->actingAs($this->_user)->post(route('admin.products.store'), $this->_data);
+        $response = $this->actingAs($this->_user)->post(route('admin.apartments.store'), $this->_data);
 
-        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.products.index'));
+        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.apartments.index'));
     }
 
     public function test_product_edit_page()
     {
         $this->_factory();
-        $response = $this->actingAs($this->_user)->get(route('admin.products.edit', $this->_parameter));
+        $response = $this->actingAs($this->_user)->get(route('admin.apartments.edit', $this->_parameter));
 
         $response->assertOk()->assertValid();
     }
@@ -86,17 +86,17 @@ class AdminApartmentsTest extends TestCase
     {
         $this->_factory();
 
-        $response = $this->actingAs($this->_user)->put(route('admin.products.update', $this->_parameter), $this->_data);
+        $response = $this->actingAs($this->_user)->put(route('admin.apartments.update', $this->_parameter), $this->_data);
 
-        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.products.index'));
+        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.apartments.index'));
     }
 
     public function test_product_delete()
     {
         $this->_factory();
 
-        $response = $this->actingAs($this->_user)->delete(route('admin.products.destroy', $this->_parameter));
+        $response = $this->actingAs($this->_user)->delete(route('admin.apartments.destroy', $this->_parameter));
 
-        $response->assertSessionHas('notify')->assertRedirect(route('admin.products.index'));
+        $response->assertSessionHas('notify')->assertRedirect(route('admin.apartments.index'));
     }
 }

@@ -21,7 +21,11 @@
                                     <option disabled selected>Select a category</option>
 
                                     @forelse ($categories as $item)
+                                        @if($route == 'admin.apartments')
+                                        <option value="{{ $item->id }}" {{ $item->id == old('category_id', $product->apartment_category_id) ? 'selected' : '' }}>{{ $item->name }}</option>
+                                        @else
                                         <option value="{{ $item->id }}" {{ $item->id == old('category_id', $product->category_id) ? 'selected' : '' }}>{{ $item->name }}</option>
+                                        @endif
                                     @empty
                                         <option disabled>Please create a category</option>
                                     @endforelse

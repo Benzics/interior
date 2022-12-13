@@ -18,7 +18,7 @@ class Apartment extends Model
 
     public function category()
     {
-        return $this->belongsTo(ApartmentCategory::class);
+        return $this->belongsTo(ApartmentCategory::class, 'apartment_category_id', 'id');
     }
 
     public function images()

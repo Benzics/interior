@@ -17,13 +17,25 @@ class ImageService {
 	 * Save an image to the db
 	 * @param string $name The image name
 	 * @param int $product_id The product id
+	 * @param bool $apartment
 	 */
-	public function save_image(string $name, int $product_id)
+	public function save_image(string $name, int $product_id, bool $apartment = false)
 	{
-		$save = Image::create([
+
+		$data = [
 			'name' => $name,
-			'product_id' => $product_id,
-		]);
+		];
+
+		if($apartment)
+		{
+			$data['apartment_id'] = $product_id;
+		}
+		else
+		{
+			$data['product_id'] = $product_id;
+		}
+		
+		$save = Image::create($data);
 
 		return $save;
 	}
