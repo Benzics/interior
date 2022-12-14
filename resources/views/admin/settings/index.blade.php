@@ -16,7 +16,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Contact Mail</label>
-                                <input type="text" class="form-control" placeholder="Contact Mail" name="admin-mail" required value="{{ old('admin-mail', setting('admin-mail')) }}" />
+                                <input type="email" class="form-control" placeholder="Contact Mail" name="admin-mail" required value="{{ old('admin-mail', setting('admin-mail')) }}" />
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -28,13 +28,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Currency Symbol</label>
-                                <input type="text" class="form-control" placeholder="Currency Symbol" name="currency_symbol" required value="{{ old('currency-symbol', setting('currency-symbol')) }}" />
+                                <input type="text" class="form-control" placeholder="Currency Symbol" name="currency-symbol" required value="{{ old('currency-symbol', setting('currency-symbol')) }}" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Currency Short</label>
-                                <input type="text" class="form-control" placeholder="Currency Short" name="currency_short" required value="{{ old('currency-short', setting('currency-short')) }}" />
+                                <input type="text" class="form-control" placeholder="Currency Short" name="currency-short" required value="{{ old('currency-short', setting('currency-short')) }}" />
                             </div>
                         </div>
                         <div class="col-md-6">

@@ -51,7 +51,7 @@ function setting(string $setting_name)
  * Get the current currency symbol in use
  * @return
  */
-function currency_symbol()
+function currencySymbol()
 {
     return setting('currency-symbol');
 }
@@ -60,7 +60,7 @@ function currency_symbol()
  * Get the current currency short code in use
  * @return
  */
-function currency_short()
+function currencyShort()
 {
     return setting('currency-short');
 }

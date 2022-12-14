@@ -14,7 +14,15 @@ class AdminSettingsTest extends TestCase
 
     private $_user;
 
-    private $_data = ['name' => 'Test setting', 'value' => 'Test'];
+    private $_data = [
+        'site-name' => 'test',
+        'admin-mail' => 'test@mail.com',
+        'currency' => 'Dollar',
+        'currency-short' => 'USD',
+        'currency-symbol' => '$',
+        'phone' => '12345',
+        'address' => 'Test addy'
+    ];
 
     private function _factory()
     {
