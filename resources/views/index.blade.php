@@ -1,191 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <!-- META -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <meta name="robots" content="" />    
-    <meta name="description" content="" />
-    
-    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
-    
-    <!-- MOBILE SPECIFIC -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- BOOTSTRAP STYLE SHEET -->
-    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"  />
-    <!-- FONTAWESOME STYLE SHEET -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
-    <!-- OWL CAROUSEL STYLE SHEET -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" integrity="sha512-GqP/pjlymwlPb6Vd7KmT5YbapvowpteRq9ffvufiXYZp0YpMTtR9tI6/v3U3hFi1N9MQmXum/yBfELxoY+S1Mw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- MAGNIFIC POPUP STYLE SHEET -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/magnific-popup.min.css') }}">
-    <!-- LOADER STYLE SHEET -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/loader.min.css') }}">
-    <!-- MAIN STYLE SHEET -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-    <!-- REVOLUTION SLIDER 4 STYLE -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/rev-slider-4.css') }}"> 
-   
-
-    <!-- REVOLUTION SLIDER CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/settings.css') }}">
-    <!-- REVOLUTION NAVIGATION STYLE -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/navigation.css') }}">
-    
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,800,800i,900" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Crete+Round:400,400i&amp;subset=latin-ext" rel="stylesheet"> 
-
-</head>
-<body class="footer-fixed">
-
-	<div class="page-wraper"> 
-       	
-        <!-- HEADER START -->
-        <header class="site-header header-style-1  nav-wide">
-            
-            <div class="sticky-header main-bar-wraper">
-                <div class="main-bar bg-white p-t10">
-                    <div class="container">
-                        <div class="logo-header">
-                        	<div class="logo-header-inner logo-header-one">
-                            	<a href="index.html">
-                                <img src="images/logo-dark.png" width="171" height="49" alt="" />
-                            </a>
-                            </div>
-                        </div>
-                        <!-- NAV Toggle Button -->
-                        <button data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <!-- ETRA Nav -->
-                        <div class="extra-nav">
-                            <div class="extra-cell">
-                                <a href="#search" class="site-search-btn"><i class="fa fa-search"></i></a>
-                            </div>
-                         </div>
-                         
-                         
-                        <!-- SITE Search -->
-                        <div id="search"> 
-                            <span class="close"></span>
-                            <form role="search" id="searchform" action="/search" method="get" class="radius-xl">
-                                <div class="input-group">
-                                    <input value="" name="q" type="search" placeholder="Type to search"/>
-                                    <span class="input-group-btn"><button type="button" class="search-btn"><i class="fa fa-search"></i></button></span>
-                                </div>   
-                            </form>
-                        </div>
-                        
-                        <!-- ETRA Nav -->
-						<div class="extra-nav">
-                            <div class="extra-cell">
-                                <div class="dropdown share-icon-btn">
-                                     <a href="javascript:;" class="site-search-btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></a>
-                                     <div class="dropdown-menu bg-white">
-                                        <div class="top-bar">
-                                                <ul class="social-bx list-inline">
-                                                    <li><a href="javascript:void(0);" class="fa fa-facebook"></a></li>
-                                                    <li><a href="javascript:void(0);" class="fa fa-twitter"></a></li>
-                                                    <li><a href="javascript:void(0);" class="fa fa-linkedin"></a></li>
-                                                    <li><a href="javascript:void(0);" class="fa fa-rss"></a></li>
-                                                    <li><a href="javascript:void(0);" class="fa fa-youtube"></a></li>
-                                                    <li><a href="javascript:void(0);" class="fa fa-instagram"></a></li>
-                                                </ul>
-                                            </div>
-                                    </div>
-                                </div>                                 
-                            </div>
-                         </div>                           
-                        <!-- MAIN Vav -->
-                        <div class="header-nav navbar-collapse collapse">
-                            <ul class=" nav navbar-nav">
-                                <li class="active">
-                                    <a href="javascript:;">Home</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="index.html">Home-1</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-2.html">Home-2</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-3.html">Home-3</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-4.html">Home-4</a>
-                                        </li>
-                                        <li>
-                                            <a href="index-5.html">Home-5</a>
-                                        </li>
-                                    </ul>                                                    
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="about-1.html">About us</a>
-                                        </li>
-                                        <li>
-                                            <a href="contact-1.html">Contact us</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">News</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="news-grid.html">Grid</a></li>
-                                        <li><a href="news-listing.html">Listing</a></li>
-                                        <li><a href="news-masonry.html">Masonry</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Works</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="work-grid.html">Grid</a></li>
-                                        <li><a href="work-masonry.html">Masonry</a></li>
-                                        <li><a href="work-carousel.html">Carousel</a></li>
-                                        <li><a href="project-detail.html">Project Detail</a></li>                                        
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Post detail</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="post-image.html">Image</a></li>
-                                        <li><a href="post-gallery.html">Gallery</a></li>
-                                        <li><a href="post-video.html">Video</a></li>
-                                        <li><a href="post-right-sidebar.html">Right Sidebar</a></li>                                        
-                                    </ul>                                    
-                                </li>
-                                <li class="submenu-direction">
-                                    <a href="javascript:;">Shortcodes</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="accordian.html">All Elements</a></li>
-                                    </ul>                                    
-                                </li>                                
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </header>
+@extends('layouts.app')
+@section('content')
+	
         <!-- HEADER END -->
         
         <!-- CONTENT START -->
@@ -196,9 +11,9 @@
                 <div id="welcome" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.3.1">
                     <ul>	
                         <!-- SLIDE 1 -->
-                        <li data-index="rs-901" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/main-slider/slider1/slide1.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        <li data-index="rs-901" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/slide/slide1.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="images/main-slider/slider1/slide1.jpg"  alt=""  data-lazyload="images/main-slider/slider1/slide1.jpg" data-bgposition="center center" 
+                            <img src="images/slide/slide1.jpg"  alt=""  data-lazyload="images/slide/slide1.jpg" data-bgposition="center center" 
                             data-bgfit="cover" data-bgparallax="4" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
                     
@@ -352,9 +167,9 @@
                         </li>
                         
                         <!-- SLIDE 2 -->
-                        <li data-index="rs-902" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/main-slider/slider1/slide2.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        <li data-index="rs-902" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/slide/slide2.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="images/main-slider/slider1/slide2.jpg"  alt=""  data-lazyload="images/main-slider/slider1/slide2.jpg" data-bgposition="center center" 
+                            <img src="images/slide/slide2.jpg"  alt=""  data-lazyload="images/slide/slide2.jpg" data-bgposition="center center" 
                             data-bgfit="cover" data-bgparallax="4" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
                     
@@ -509,9 +324,9 @@
                         </li>   
                         
                         <!-- SLIDE 3 -->
-                        <li data-index="rs-903" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/main-slider/slider1/slide3.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        <li data-index="rs-903" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="images/slide/slide3.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="images/main-slider/slider1/slide3.jpg"  alt=""  data-lazyload="images/main-slider/slider1/slide2.jpg" data-bgposition="center center" 
+                            <img src="images/slide/slide3.jpg"  alt=""  data-lazyload="images/slide/slide2.jpg" data-bgposition="center center" 
                             data-bgfit="cover" data-bgparallax="4" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
                     
@@ -766,7 +581,7 @@
                 <!-- COLUMNS 1 --> 
                 <div class="item fadingcol building-col">
                     <div class="wt-img-effect ">
-                        <img src="images/gallery/pic1.jpg" alt="">
+                        <img src="images/portrait/pic1.jpg" alt="">
                         <div class="overlay-bx-2 ">
                             <div class="line-amiation">
                                 <div class="text-white  font-weight-300 p-a40">
@@ -784,7 +599,7 @@
                 <!-- COLUMNS 2 --> 
                 <div class="item fadingcol  building-col">
                     <div class="wt-img-effect ">
-                        <img src="images/gallery/pic2.jpg" alt="">
+                        <img src="images/portrait/pic2.jpg" alt="">
                         <div class="overlay-bx-2 ">
                             <div class="line-amiation">
                                 <div class="text-white  font-weight-300 p-a40">
@@ -802,7 +617,7 @@
                 <!-- COLUMNS 3 --> 
                 <div class="item fadingcol building-col">
                     <div class="wt-img-effect ">
-                        <img src="images/gallery/pic3.jpg" alt="">
+                        <img src="images/portrait/pic3.jpg" alt="">
                         <div class="overlay-bx-2 ">
                             <div class="line-amiation">
                                 <div class="text-white  font-weight-300 p-a40">
@@ -820,7 +635,7 @@
                 <!-- COLUMNS 4 --> 
                 <div class="item fadingcol building-col">
                     <div class="wt-img-effect ">
-                        <img src="images/gallery/pic4.jpg" alt="">
+                        <img src="images/portrait/pic4.jpg" alt="">
                         <div class="overlay-bx-2 ">
                             <div class="line-amiation">
                                 <div class="text-white  font-weight-300 p-a40">
@@ -838,7 +653,7 @@
                 <!-- COLUMNS 5 --> 
                 <div class="item fadingcol interior-col">
                     <div class="wt-img-effect ">
-                        <img src="images/gallery/pic5.jpg" alt="">
+                        <img src="images/portrait/pic5.jpg" alt="">
                         <div class="overlay-bx-2 ">
                             <div class="line-amiation">
                                 <div class="text-white  font-weight-300 p-a40">
@@ -856,7 +671,7 @@
                 <!-- COLUMNS 6 --> 
                 <div class="item fadingcol restaurant-col">
                     <div class="wt-img-effect ">
-                        <img src="images/gallery/pic6.jpg" alt="">
+                        <img src="images/portrait/pic6.jpg" alt="">
                         <div class="overlay-bx-2 ">
                             <div class="line-amiation">
                                 <div class="text-white  font-weight-300 p-a40">
@@ -874,7 +689,7 @@
                 <!-- COLUMNS 7 --> 
                 <div class="item fadingcol restaurant-col">
                     <div class="wt-img-effect ">
-                        <img src="images/gallery/pic7.jpg" alt="">
+                        <img src="images/portrait/pic7.jpg" alt="">
                         <div class="overlay-bx-2 ">
                             <div class="line-amiation">
                                 <div class="text-white  font-weight-300 p-a40">
@@ -892,7 +707,7 @@
                 <!-- COLUMNS 8 -->                         
                 <div class="item fadingcol interior-col">
                     <div class="wt-img-effect ">
-                        <img src="images/gallery/pic8.jpg" alt="">
+                        <img src="images/portrait/pic8.jpg" alt="">
                         <div class="overlay-bx-2 ">
                             <div class="line-amiation">
                                 <div class="text-white  font-weight-300 p-a40">
@@ -1232,95 +1047,20 @@ non nulla sed, egestas venenatis felis.
     </div>   
     <!-- TESTIMONIALS SECTION END --> 
       
-                                     
-</div>
+
 <!-- CONTENT END -->
 
-<!-- FOOTER START -->
-<footer class="site-footer   footer-dark footer-wide relative overflow-hide">
-    <div class="footer-bottom overlay-wraper">
-        <div class="overlay-main bg-black" style="opacity:0;"></div>
-        <div class="container p-t30">
-            <div class="row">
-            
-                <div class="col-md-4 wt-footer-bot-left">
-                    <a href="#"><img src="images/logo-light.png" width="140" height="58" alt=""></a>
-                </div>
-                
-                <div class="col-md-4 text-center copyright-block p-t15">
-                    <span class="copyrights-text">© 2018 Your Company. Designed By thememajestic.</span>
-                </div>  
-                                     
-                <div class="col-md-4 wt-footer-bot-right p-t15">
-                    <ul class="copyrights-nav pull-right"> 
-                        <li><a href="javascript:void(0);">Terms  & Condition</a></li>
-                        <li><a href="javascript:void(0);">Privacy Policy</a></li>
-                        <li><a href="contact-1.html">Contact Us</a></li>
-                    </ul>
-                </div>
+@endsection
 
-            </div>
-        </div>
-    </div>
-    <div id="particles-dark" class="particles-canvas"></div>
-</footer>
-<!-- FOOTER END -->
-
-<!-- BUTTON TOP START -->
-<button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
-
-</div>
-
-<!-- LOADING AREA START ===== -->
-<div class="loading-area">
-<div class="loading-box"></div>
-<div class="loading-pic">
-<svg id="triangle" width="140px" height="140px" viewBox="-3 -4 39 39">
-  <polygon fill="#fff" stroke="#000" stroke-width="2" points="16,0 32,32 0,32"></polygon>
-</svg>
-</div>
-</div>
-<!-- LOADING AREA  END ====== -->
-
-
-<!-- JAVASCRIPT  FILES ========================================= --> 
-<script  src="{{ asset('js/jquery-1.12.4.min.js') }}"></script><!-- JQUERY.MIN JS -->
-<script  src="{{ asset('js/bootstrap.min.js') }}"></script><!-- BOOTSTRAP.MIN JS -->
-
-
-
-<script  src="{{ asset('js/magnific-popup.min.js') }}"></script><!-- MAGNIFIC-POPUP JS -->
-
-<script  src="{{ asset('js/waypoints.min.js') }}"></script><!-- WAYPOINTS JS -->
-<script  src="{{ asset('js/counterup.min.js') }}"></script><!-- COUNTERUP JS -->
-<script  src="{{ asset('js/waypoints-sticky.min.js') }}"></script><!-- COUNTERUP JS -->
-
-<!--<script  src="{{ asset('js/isotope.pkgd.min.js') }}"></script><!-- MASONRY  -->
-
-<script  src="{{ asset('js/owl.carousel.min.js') }}"></script><!-- OWL  SLIDER  -->
-<script src="{{ asset('js/jquery.owl-filter.js') }}"></script>
-
-<script  src="{{ asset('js/stellar.min.js') }}"></script><!-- PARALLAX BG IMAGE   --> 
-<script  src="{{ asset('js/scrolla.min.js') }}"></script><!-- ON SCROLL CONTENT ANIMTE   --> 
-
-<script src="{{ asset('js/particles.js') }}"></script><!-- CANVAS EFFECT   --> 
-<script src="{{ asset('js/app.js') }}"></script><!-- CANVAS EFFECT   -->
-
-<script  src="{{ asset('js/custom.js') }}"></script><!-- CUSTOM FUCTIONS  -->
-<script  src="{{ asset('js/shortcode.js') }}"></script><!-- SHORTCODE FUCTIONS  -->
+@push('scripts')
 <!-- REVOLUTION JS FILES -->
 
 <script  src="{{ asset('js/jquery.themepunch.tools.min.js') }}"></script>
 <script  src="{{ asset('js/jquery.themepunch.revolution.min.js') }}"></script>
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->	
-<script  src="{{ asset('js/extensions/revolution-plugin.js') }}"></script>
+<script  src="{{ asset('js/revolution-plugin.js') }}"></script>
 
 <!-- REVOLUTION SLIDER SCRIPT FILES -->
 <script  src="{{ asset('js/rev-script-1.js') }}"></script>
-
-
-</body>
-
-</html>
-
+@endpush
