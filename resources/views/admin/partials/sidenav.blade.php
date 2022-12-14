@@ -90,10 +90,17 @@
                         <span class="menu-title">Site settings</span>
                     </a>
                 </li>
+
+                <li class="sidebar-menu-item {{menuActive(['admin.profile', 'admin.password'])}}">
+                    <a href="{{route('admin.profile')}}" class="nav-link ">
+                        <i class="menu-icon las la-user"></i>
+                        <span class="menu-title">Profile</span>
+                    </a>
+                </li>
                 
             </ul>
             <div class="text-center mb-3 text-uppercase">
-               Tinselcollections
+               {{ setting('site-name') }}
             </div>
         </div>
     </div>

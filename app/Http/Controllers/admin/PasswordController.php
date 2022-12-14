@@ -41,4 +41,32 @@ class PasswordController extends Controller
         return redirect()->route('admin.password')->with('notify', ['Password changed successfully']);
 
     }
+
+    public function profile()
+    {
+        $pageTitle = 'Profile';
+        $admin = auth()->user();
+
+        return view('admin.profile', compact('pageTitle', 'admin'));
+    }
+
+    public function editProfile(Request $request)
+    {
+        $admin = auth()->user();
+
+        $validate = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $service = new CommonService();
+        $service->set_model(new User());
+
+        if(!$service->edit(['name' => $validate['name'], 'email' => $validate['email']], $admin->id))
+        {
+            return back()->withErrors(['name' => 'An internal error occured']);
+        }
+
+        return redirect()->route('admin.profile')->with('notify', ['Profile updated successfully']);
+    }
 }

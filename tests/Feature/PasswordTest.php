@@ -37,4 +37,23 @@ class PasswordTest extends TestCase
 
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.password'));
     }
+
+    public function test_profile()
+    {
+        $response = $this->actingAs($this->_user)->get(route('admin.profile'));
+
+        $response->assertOk();
+    }
+
+    public function test_profile_edit()
+    {
+        $data = [
+            'name' => 'admin',
+            'email' => 'admin@site.com',
+        ];
+
+        $response = $this->actingAs($this->_user)->post(route('admin.profile'), $data);
+
+        $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.profile'));
+    }
 }

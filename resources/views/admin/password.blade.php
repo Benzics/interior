@@ -73,5 +73,5 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{route('admin.dashboard')}}" class="btn btn-sm btn--primary box--shadow1 text--small" ><i class="fa fa-user"></i>Dashboard</a>
+    <a href="{{route('admin.profile')}}" class="btn btn-sm btn--primary box--shadow1 text--small" ><i class="fa fa-user"></i>Profile Setting</a>
 @endpush

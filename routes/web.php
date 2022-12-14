@@ -45,7 +45,10 @@ Route::name('admin.')->prefix('admin')->group(function()
 
         Route::get('/password', [PasswordController::class, 'index'])->name('password');
         Route::post('/password', [PasswordController::class, 'store']);
-        
+
+        Route::get('/profile', [PasswordController::class, 'profile'])->name('profile');
+        Route::post('/profile', [PasswordController::class, 'editProfile']);
+
     });
     
 });
