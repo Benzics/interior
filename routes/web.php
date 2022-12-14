@@ -10,7 +10,7 @@ use App\Http\Controllers\admin\ProductController as AdminProductController;
 use App\Http\Controllers\admin\ApartmentController;
 use App\Http\Controllers\admin\PasswordController;
 use App\Http\Controllers\admin\SettingController;
-
+use App\Http\Controllers\admin\BannerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,6 +48,7 @@ Route::name('admin.')->prefix('admin')->group(function()
 
         Route::get('/profile', [PasswordController::class, 'profile'])->name('profile');
         Route::post('/profile', [PasswordController::class, 'editProfile']);
+        Route::resource('banners', BannerController::class);
 
     });
     

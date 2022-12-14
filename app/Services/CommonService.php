@@ -47,6 +47,43 @@ class CommonService {
 	}
 
 	/**
+	 * Gets paginated data
+	 * @param int $limit = 15
+	 * @param string $field = 'id'
+	 * @param string $order = 'DESC'
+	 * @return
+	 */
+	public function getPaginated(int $limit = 15, string $field = 'id', string $order = 'DESC')
+	{
+		$data = $this->_model->orderBy($field, $order)->paginate($limit);
+
+		return $data;  
+	}
+
+	/**
+	 * Returns all the data in model db
+	 * @return
+	 */
+	public function getAll()
+	{
+		$data = $this->_model->all();
+
+		return $data;
+	}
+
+	/**
+	 * Returns the total amount of data in model
+	 * @return
+	 */
+	public function count()
+	{
+		$count = $this->_model->count();
+
+		return $count;
+	}
+
+
+	/**
 	 * Edit data by id
 	 * @param array $data
 	 * @param $id
