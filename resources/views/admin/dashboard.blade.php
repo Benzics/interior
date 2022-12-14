@@ -10,12 +10,12 @@
                 </div>
                 <div class="details">
                     <div class="numbers">
-                        <span class="amount">0</span>
+                        <span class="amount">{{ $apartments }}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total Users')</span>
+                        <span class="text--small">@lang('Total Apartments')</span>
                     </div>
-                    <a href=""
+                    <a href="{{ route('admin.apartments.index') }}"
                        class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
                 </div>
             </div>
@@ -28,13 +28,13 @@
                 </div>
                 <div class="details">
                     <div class="numbers">
-                        <span class="amount">23</span>
+                        <span class="amount">{{ $products }}</span>
                     </div>
                     <div class="desciption">
-                        <span class="text--small">@lang('Total SMS Unverified Users')</span>
+                        <span class="text--small">@lang('Total Products')</span>
                     </div>
 
-                    <a href=""
+                    <a href="{{ route('admin.products.index') }}"
                        class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
                 </div>
             </div>
