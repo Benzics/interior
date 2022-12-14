@@ -14,20 +14,14 @@
     <meta name="robots" content="" />    
     <meta name="description" content="" />
     
-    <!-- FAVICONS ICON -->
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
     
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- [if lt IE 9]>
-        <script src="js/html5shiv.min.js"></script>
-        <script src="js/respond.min.js"></script>
-	<![endif] -->
-    
     <!-- BOOTSTRAP STYLE SHEET -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha512-tqup5t5XyJXlvX8b/E9pI0swGA4AugszFqvdWASa2/484oj4HW7UaXKwRmnMLKFp3ZWeTwjjCh6J40AvdUQhrA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"  />
     <!-- FONTAWESOME STYLE SHEET -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -742,4 +736,591 @@
             </div>   
             <!-- WELCOME  SECTION END -->  
              
+    <!-- LATEST PRJECTS SLIDER START -->
+    <div class="section-full p-t90 p-lr80 latest_project-outer square_shape3">
+
+        <!-- TITLE START -->
+        <div class="section-head text-left">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="text-uppercase font-36">Latest Project</h2>
+                    <div class="wt-separator-outer">
+                        <div class="wt-separator bg-black"></div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <ul class="btn-filter-wrap">
+                        <li class="btn-filter btn-active" data-filter="*">All Project</li>
+                        <li class="btn-filter" data-filter=".building-col">Building</li>
+                        <li class="btn-filter" data-filter=".interior-col">Interior</li>
+                        <li class="btn-filter" data-filter=".restaurant-col">Restaurant</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- TITLE END -->
+
+        <!-- IMAGE CAROUSEL START -->
+        <div class="section-content">
+            <div class="owl-carousel owl-carousel-filter  owl-btn-bottom-left">
+                <!-- COLUMNS 1 --> 
+                <div class="item fadingcol building-col">
+                    <div class="wt-img-effect ">
+                        <img src="images/gallery/pic1.jpg" alt="">
+                        <div class="overlay-bx-2 ">
+                            <div class="line-amiation">
+                                <div class="text-white  font-weight-300 p-a40">
+                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
+                                    <p>Morbi mattis ex non urna condimentum,
+                                          eget eleifend diam molestie. Curabitur 
+                                          lorem enim, maximus non null.
+                                    </p>
+                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <!-- COLUMNS 2 --> 
+                <div class="item fadingcol  building-col">
+                    <div class="wt-img-effect ">
+                        <img src="images/gallery/pic2.jpg" alt="">
+                        <div class="overlay-bx-2 ">
+                            <div class="line-amiation">
+                                <div class="text-white  font-weight-300 p-a40">
+                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
+                                    <p>Morbi mattis ex non urna condimentum,
+                                          eget eleifend diam molestie. Curabitur 
+                                          lorem enim, maximus non null.
+                                    </p>
+                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <!-- COLUMNS 3 --> 
+                <div class="item fadingcol building-col">
+                    <div class="wt-img-effect ">
+                        <img src="images/gallery/pic3.jpg" alt="">
+                        <div class="overlay-bx-2 ">
+                            <div class="line-amiation">
+                                <div class="text-white  font-weight-300 p-a40">
+                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
+                                    <p>Morbi mattis ex non urna condimentum,
+                                          eget eleifend diam molestie. Curabitur 
+                                          lorem enim, maximus non null.
+                                    </p>
+                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <!-- COLUMNS 4 --> 
+                <div class="item fadingcol building-col">
+                    <div class="wt-img-effect ">
+                        <img src="images/gallery/pic4.jpg" alt="">
+                        <div class="overlay-bx-2 ">
+                            <div class="line-amiation">
+                                <div class="text-white  font-weight-300 p-a40">
+                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
+                                    <p>Morbi mattis ex non urna condimentum,
+                                          eget eleifend diam molestie. Curabitur 
+                                          lorem enim, maximus non null.
+                                    </p>
+                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <!-- COLUMNS 5 --> 
+                <div class="item fadingcol interior-col">
+                    <div class="wt-img-effect ">
+                        <img src="images/gallery/pic5.jpg" alt="">
+                        <div class="overlay-bx-2 ">
+                            <div class="line-amiation">
+                                <div class="text-white  font-weight-300 p-a40">
+                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
+                                    <p>Morbi mattis ex non urna condimentum,
+                                          eget eleifend diam molestie. Curabitur 
+                                          lorem enim, maximus non null.
+                                    </p>
+                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <!-- COLUMNS 6 --> 
+                <div class="item fadingcol restaurant-col">
+                    <div class="wt-img-effect ">
+                        <img src="images/gallery/pic6.jpg" alt="">
+                        <div class="overlay-bx-2 ">
+                            <div class="line-amiation">
+                                <div class="text-white  font-weight-300 p-a40">
+                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
+                                    <p>Morbi mattis ex non urna condimentum,
+                                          eget eleifend diam molestie. Curabitur 
+                                          lorem enim, maximus non null.
+                                    </p>
+                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+                <!-- COLUMNS 7 --> 
+                <div class="item fadingcol restaurant-col">
+                    <div class="wt-img-effect ">
+                        <img src="images/gallery/pic7.jpg" alt="">
+                        <div class="overlay-bx-2 ">
+                            <div class="line-amiation">
+                                <div class="text-white  font-weight-300 p-a40">
+                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
+                                    <p>Morbi mattis ex non urna condimentum,
+                                          eget eleifend diam molestie. Curabitur 
+                                          lorem enim, maximus non null.
+                                    </p>
+                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                </div>
+                            </div>
+                       </div>
+                   </div>
+                </div>   
+                <!-- COLUMNS 8 -->                         
+                <div class="item fadingcol interior-col">
+                    <div class="wt-img-effect ">
+                        <img src="images/gallery/pic8.jpg" alt="">
+                        <div class="overlay-bx-2 ">
+                            <div class="line-amiation">
+                                <div class="text-white  font-weight-300 p-a40">
+                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
+                                    <p>Morbi mattis ex non urna condimentum,
+                                          eget eleifend diam molestie. Curabitur 
+                                          lorem enim, maximus non null.
+                                    </p>
+                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
+            <strong>Awesome</strong>
+            <span class="text-black">Designs</span>
+        </div>
+     </div>   
+    <!-- LATEST PRJECTS SLIDER END --> 
+     
     
+    <!-- BLOG SECTION START -->
+    <div class="section-full p-t140 bg-repeat " style="background-image:url(images/background/ptn-1.png);">
+        <div class="container">
+            <div class="section-content">
+                <!-- TITLE START -->
+                <div class="section-head text-left">
+                    <h2 class="text-uppercase font-36">Latest Blog</h2>
+                    <div class="wt-separator-outer">
+                        <div class="wt-separator bg-black"></div>
+                    </div>
+                </div>
+                <!-- TITLE END -->                    
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="overlay-wraper bg-no-repeat bg-cover latest-blog-dark-outer p-a20 m-b30" style="background-image:url(images/blog/landscap-half/pic1.jpg);">
+                            <div class="overlay-main bg-black opacity-04"></div>
+                            <div class="latest-blog-dark text-uppercase p-a20">
+                                <h3 class="m-a0"><span class="text-white">Title of first blog post</span></h3>
+                                <div class="v-date  text-yellow font-weight-700">10 Aug 2016</div>
+                            </div>
+                        </div>
+                        <div class="overlay-wraper bg-no-repeat bg-cover latest-blog-dark-outer p-a20 m-b30" style="background-image:url(images/blog/landscap-half/pic2.jpg);">
+                            <div class="overlay-main bg-black opacity-04"></div>
+                            <div class="latest-blog-dark text-uppercase p-a20">
+                                <h3 class="m-a0"><span class="text-white">Title of first blog post</span></h3>
+                                <div class="v-date  text-yellow font-weight-700">10 Aug 2016</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="overlay-wraper bg-no-repeat bg-cover latest-blog-dark-outer2 m-b30" style="background-image:url(images/blog/square/pic1.jpg);">
+                            <div class="overlay-main bg-black opacity-04"></div>
+                            <div class="latest-blog-square text-white">
+                                <h2 class="m-t0 m-b10"><span class="text-white font-30 text-uppercase">Small & Minimal House On Paters on Hill</span></h2>
+                                <p class="font-weight-300">typefaces and layouts, and in appeara
+                                    nce of different general the content of
+                                    dummy text is nonsensical.typefaces 
+                                    of dummy text is nonsensical.</p>
+                                <a href="javascript:;" class="letter-spacing-4 font-12 text-white text-uppercase">Read More</a>     
+                                <div class="v-date  text-yellow font-weight-700 text-uppercase">10 Aug 2016</div>
+                            </div>
+                        </div>                            	
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+                <div class="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
+                    <strong>Blog</strong>
+                    <span class="text-black">Post</span>
+                </div>
+            </div>                
+    </div>   
+    <!-- BLOG SECTION END -->  
+    
+    <!-- CLIENT LOGO SECTION START -->
+    <div class="section-full p-tb100  bg-repeat " style="background-image:url(images/background/ptn-1.png);">
+        <div class="container">
+            <div class="section-content">
+            
+                <!-- TESTIMONIAL 4 START ON BACKGROUND -->   
+                <div class="section-content">
+                     <div class="section-content p-tb10 owl-btn-vertical-center">
+                        <div class="owl-carousel home-client-carousel-2">
+                        
+                            <div class="item">
+                                <div class="ow-client-logo">
+                                    <div class="client-logo client-logo-media">
+                                    <a href="javascript:void(0);"><img src="images/client-logo/w1.png" alt=""></a></div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="ow-client-logo">
+                                    <div class="client-logo client-logo-media">
+                                    <a href="javascript:void(0);"><img src="images/client-logo/w2.png" alt=""></a></div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="ow-client-logo">
+                                    <div class="client-logo client-logo-media">
+                                    <a href="javascript:void(0);"><img src="images/client-logo/w3.png" alt=""></a></div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="ow-client-logo">
+                                    <div class="client-logo client-logo-media">
+                                    <a href="javascript:void(0);"><img src="images/client-logo/w4.png" alt=""></a></div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="ow-client-logo">
+                                    <div class="client-logo client-logo-media">
+                                    <a href="javascript:void(0);"><img src="images/client-logo/w5.png" alt=""></a></div>
+                                </div>
+                            </div>
+                            
+                            <div class="item">
+                                <div class="ow-client-logo">
+                                    <div class="client-logo client-logo-media">
+                                    <a href="javascript:void(0);"><img src="images/client-logo/w6.png" alt=""></a></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CLIENT LOGO  SECTION End --> 
+                
+    <!-- COMPANY DETAIL SECTION START -->
+    <div class="section-full p-tb100 overlay-wraper bg-top-center bg-parallax"  data-stellar-background-ratio="0.5" style="background-image:url(images/background/bg-11.jpg);">
+        <div class="overlay-main opacity-08 bg-black"></div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="some-facts">
+                        <div class="text-white text-uppercase">
+                        <span class="font-40 font-weight-300">Some</span>
+                        <h2 class="font-50">
+                            <span class="text-yellow">Intresting Facts</span>
+                        </h2>
+                        <p class="font-18 font-weight-300">Morbi mattis ex non urna condimentum, eget eleif
+end diam molestie. Curabitur lorem enim, maximus 
+non nulla sed, egestas venenatis felis. 
+                        </p>
+                    </div>
+                    </div>
+                </div>
+               
+               <div class="col-md-6 col-sm-12">
+                       <div class="row some-facts-counter">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="wt-icon-box-wraper p-a10 text-white m-b30">
+                                <div class="icon-content text-center">
+                                    <div class="font-40 font-weight-600 m-b5 text-yellow"><span class="counter">451</span></div>
+                                    <div class="wt-separator-outer m-b20"><div class="wt-separator bg-white"></div></div>
+                                    <span class="text-uppercase">Happy Clients</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="wt-icon-box-wraper p-a10 text-white m-b30">
+                                <div class="icon-content text-center">
+                                    <div class="font-40 font-weight-600 m-b5 text-yellow"><span class="counter">532</span></div>
+                                    <div class="wt-separator-outer m-b20"><div class="wt-separator bg-white"></div></div>
+                                    <span class="text-uppercase">Finished projects</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="wt-icon-box-wraper p-a10 text-white m-b30">
+                                <div class="icon-content text-center">
+                                    <div class="font-40 font-weight-600 m-b5 text-yellow"><span class="counter">299</span></div>
+                                    <div class="wt-separator-outer m-b20"><div class="wt-separator bg-white"></div></div>
+                                    <span class="text-uppercase">Working Days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- COMPANY DETAIL SECTION End --> 
+               
+    <!-- TESTIMONIALS SECTION START -->
+    <div class="section-full p-t140 bg-repeat " style="background-image:url(images/background/ptn-1.png);">
+        <div class="container">
+            <div class="section-content">
+                <!-- TITLE START -->
+                <div class="section-head text-left">
+                    <h2 class="text-uppercase font-36">Testimonials</h2>
+                    <div class="wt-separator-outer">
+                        <div class="wt-separator bg-black"></div>
+                    </div>
+                </div>
+                <!-- TITLE END -->                    
+                <!-- TESTIMONIAL 4 START ON BACKGROUND -->   
+                <div class="section-content">
+                    <div class="owl-carousel testimonial-home">
+                        <div class="item">
+                            <div class="testimonial-6">
+                                <div class="testimonial-pic-block"> 
+                                    <div class="testimonial-pic">
+                                        <img src="images/testimonials/pic1.jpg" width="132" height="132" alt="">
+                                    </div>
+                                </div>
+                                <div class="testimonial-text clearfix bg-white">
+                                    <div class="testimonial-detail clearfix">
+                                        <strong class="testimonial-name">Taylor Roberts</strong>
+                                        <span class="testimonial-position p-t0">Co-manager associated</span>
+                                    </div>
+                                    <div class="testimonial-paragraph text-black p-t15">
+                                        <span class="fa fa-quote-left"></span>
+                                        <p>typefaces and layouts, and in appearance of different general the content of dummy text is nonsensical.typefaces of dummy text is nonsensical.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonial-6">
+                                <div class="testimonial-pic-block"> 
+                                    <div class="testimonial-pic">
+                                        <img src="images/testimonials/pic4.jpg" width="132" height="132" alt="">
+                                    </div>
+                                </div>
+                                <div class="testimonial-text clearfix bg-white">
+                                    <div class="testimonial-detail clearfix">
+                                        <strong class="testimonial-name">Robert willson</strong>
+                                        <span class="testimonial-position p-t0">Co-manager associated</span>
+                                    </div>
+                                    <div class="testimonial-paragraph text-black p-t15">
+                                        <span class="fa fa-quote-left"></span>
+                                        <p>typefaces and layouts, and in appearance of different general the content of dummy text is nonsensical.typefaces of dummy text is nonsensical.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                
+                        <div class="item">
+                            <div class="testimonial-6">
+                                <div class="testimonial-pic-block"> 
+                                    <div class="testimonial-pic">
+                                        <img src="images/testimonials/pic2.jpg" width="132" height="132" alt="">
+                                    </div>
+                                </div>
+                                <div class="testimonial-text clearfix bg-white">
+                                    <div class="testimonial-detail clearfix">
+                                        <strong class="testimonial-name">Taylor Roberts</strong>
+                                        <span class="testimonial-position p-t0">Co-manager associated</span>
+                                    </div>
+                                    <div class="testimonial-paragraph text-black p-t15">
+                                        <span class="fa fa-quote-left"></span>
+                                        <p>typefaces and layouts, and in appearance of different general the content of dummy text is nonsensical.typefaces of dummy text is nonsensical.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                
+                        <div class="item">
+                            <div class="testimonial-6">
+                                <div class="testimonial-pic-block"> 
+                                    <div class="testimonial-pic">
+                                        <img src="images/testimonials/pic3.jpg" width="132" height="132" alt="">
+                                    </div>
+                                </div>
+                                <div class="testimonial-text clearfix bg-white">
+                                    <div class="testimonial-detail clearfix">
+                                        <strong class="testimonial-name">Robert willson</strong>
+                                        <span class="testimonial-position p-t0">Co-manager associated</span>
+                                    </div>
+                                    <div class="testimonial-paragraph text-black p-t15">
+                                        <span class="fa fa-quote-left"></span>
+                                        <p>typefaces and layouts, and in appearance of different general the content of dummy text is nonsensical.typefaces of dummy text is nonsensical.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonial-6">
+                                <div class="testimonial-pic-block"> 
+                                    <div class="testimonial-pic">
+                                        <img src="images/testimonials/pic1.jpg" width="132" height="132" alt="">
+                                    </div>
+                                </div>
+                                <div class="testimonial-text clearfix bg-white">
+                                    <div class="testimonial-detail clearfix">
+                                        <strong class="testimonial-name">Taylor Roberts</strong>
+                                        <span class="testimonial-position p-t0">Co-manager associated</span>
+                                    </div>
+                                    <div class="testimonial-paragraph text-black p-t15">
+                                        <span class="fa fa-quote-left"></span>
+                                        <p>typefaces and layouts, and in appearance of different general the content of dummy text is nonsensical.typefaces of dummy text is nonsensical.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="item">
+                            <div class="testimonial-6">
+                                <div class="testimonial-pic-block"> 
+                                    <div class="testimonial-pic">
+                                        <img src="images/testimonials/pic4.jpg" width="132" height="132" alt="">
+                                    </div>
+                                </div>
+                                <div class="testimonial-text clearfix bg-white">
+                                    <div class="testimonial-detail clearfix">
+                                        <strong class="testimonial-name">Taylor Roberts</strong>
+                                        <span class="testimonial-position p-t0">Co-manager associated</span>
+                                    </div>
+                                    <div class="testimonial-paragraph text-black p-t15">
+                                        <span class="fa fa-quote-left"></span>
+                                        <p>typefaces and layouts, and in appearance of different general the content of dummy text is nonsensical.typefaces of dummy text is nonsensical.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                                                                                
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+                <div class="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
+                    <strong>Client</strong>
+                    <span class="text-black">Says</span>
+                </div>
+            </div>                
+    </div>   
+    <!-- TESTIMONIALS SECTION END --> 
+      
+                                     
+</div>
+<!-- CONTENT END -->
+
+<!-- FOOTER START -->
+<footer class="site-footer   footer-dark footer-wide relative overflow-hide">
+    <div class="footer-bottom overlay-wraper">
+        <div class="overlay-main bg-black" style="opacity:0;"></div>
+        <div class="container p-t30">
+            <div class="row">
+            
+                <div class="col-md-4 wt-footer-bot-left">
+                    <a href="#"><img src="images/logo-light.png" width="140" height="58" alt=""></a>
+                </div>
+                
+                <div class="col-md-4 text-center copyright-block p-t15">
+                    <span class="copyrights-text">© 2018 Your Company. Designed By thememajestic.</span>
+                </div>  
+                                     
+                <div class="col-md-4 wt-footer-bot-right p-t15">
+                    <ul class="copyrights-nav pull-right"> 
+                        <li><a href="javascript:void(0);">Terms  & Condition</a></li>
+                        <li><a href="javascript:void(0);">Privacy Policy</a></li>
+                        <li><a href="contact-1.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="particles-dark" class="particles-canvas"></div>
+</footer>
+<!-- FOOTER END -->
+
+<!-- BUTTON TOP START -->
+<button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
+
+</div>
+
+<!-- LOADING AREA START ===== -->
+<div class="loading-area">
+<div class="loading-box"></div>
+<div class="loading-pic">
+<svg id="triangle" width="140px" height="140px" viewBox="-3 -4 39 39">
+  <polygon fill="#fff" stroke="#000" stroke-width="2" points="16,0 32,32 0,32"></polygon>
+</svg>
+</div>
+</div>
+<!-- LOADING AREA  END ====== -->
+
+
+<!-- JAVASCRIPT  FILES ========================================= --> 
+<script  src="{{ asset('js/jquery-1.12.4.min.js') }}"></script><!-- JQUERY.MIN JS -->
+<script  src="{{ asset('js/bootstrap.min.js') }}"></script><!-- BOOTSTRAP.MIN JS -->
+
+
+
+<script  src="{{ asset('js/magnific-popup.min.js') }}"></script><!-- MAGNIFIC-POPUP JS -->
+
+<script  src="{{ asset('js/waypoints.min.js') }}"></script><!-- WAYPOINTS JS -->
+<script  src="{{ asset('js/counterup.min.js') }}"></script><!-- COUNTERUP JS -->
+<script  src="{{ asset('js/waypoints-sticky.min.js') }}"></script><!-- COUNTERUP JS -->
+
+<!--<script  src="{{ asset('js/isotope.pkgd.min.js') }}"></script><!-- MASONRY  -->
+
+<script  src="{{ asset('js/owl.carousel.min.js') }}"></script><!-- OWL  SLIDER  -->
+<script src="{{ asset('js/jquery.owl-filter.js') }}"></script>
+
+<script  src="{{ asset('js/stellar.min.js') }}"></script><!-- PARALLAX BG IMAGE   --> 
+<script  src="{{ asset('js/scrolla.min.js') }}"></script><!-- ON SCROLL CONTENT ANIMTE   --> 
+
+<script src="{{ asset('js/particles.js') }}"></script><!-- CANVAS EFFECT   --> 
+<script src="{{ asset('js/app.js') }}"></script><!-- CANVAS EFFECT   -->
+
+<script  src="{{ asset('js/custom.js') }}"></script><!-- CUSTOM FUCTIONS  -->
+<script  src="{{ asset('js/shortcode.js') }}"></script><!-- SHORTCODE FUCTIONS  -->
+<!-- REVOLUTION JS FILES -->
+
+<script  src="{{ asset('js/jquery.themepunch.tools.min.js') }}"></script>
+<script  src="{{ asset('js/jquery.themepunch.revolution.min.js') }}"></script>
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->	
+<script  src="{{ asset('js/extensions/revolution-plugin.js') }}"></script>
+
+<!-- REVOLUTION SLIDER SCRIPT FILES -->
+<script  src="{{ asset('js/rev-script-1.js') }}"></script>
+
+
+</body>
+
+</html>
+
