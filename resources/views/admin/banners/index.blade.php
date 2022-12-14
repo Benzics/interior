@@ -20,15 +20,16 @@
                         <tbody class="list">
                             @forelse($banners as $row)
                             <tr>
-                                <td data-label="Product Thumbnail">
+                                <td data-label="Banner Thumbnail">
                                     <div class="user">
                                         <div class="thumb">
-                                            <img src="{{ asset( collect($row->images)->first()?->name ?: 'images/default.png') }}" alt="{{ $row->name }}">
+                                            <img src="{{ asset( $row->image ?: 'images/default.png') }}" alt="{{ $row->name }}">
                                         </div>
                                     </div>
                                 </td>
-                                <td data-label="Product Name">{{ $row->name }}</td>
-                                <td data-label="Category Name">{{ $row->category->name }}</td>
+                                <td data-label="Banner Name">{{ $row->name }}</td>
+                                <td data-label="Banner Title">{{ $row->title }}</td>
+                                <td data-label="Banner Url">{{ url($row->url) }}</td>
                                 <td data-label="Action">
                                     
                                     <a href="{{ route($route . '.show', $row->id) }}" class="icon-btn bg--7" data-toggle="tooltip" title="View Details"><i class="fas fa-eye"></i></a>
@@ -42,7 +43,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td class="text-muted text-center" colspan="100%">No products found</td>
+                                <td class="text-muted text-center" colspan="100%">No banners found</td>
                             </tr>
                             @endforelse
                         </tbody>
@@ -57,7 +58,7 @@
 </div>
 @endsection
 @push('breadcrumb-plugins')
-<a href="{{ route($route . '.create') }}" class="icon-btn"><i class="fa fa-plus"></i> Add Product</a> 
+<a href="{{ route($route . '.create') }}" class="icon-btn"><i class="fa fa-plus"></i> Add Banner</a> 
 @endpush
 
 @push('style')
