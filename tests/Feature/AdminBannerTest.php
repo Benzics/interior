@@ -48,10 +48,10 @@ class AdminBannerTest extends TestCase
     {
         Storage::fake('products');
 
-        $data = $this->_data;
-        $data['images'] = [UploadedFile::fake()->image('banner.jpg')];
+        
+        $this->_data['image'] = [UploadedFile::fake()->image('banner.jpg')];
 
-        $response = $this->actingAs($this->_user)->post('admin.banners.store', $data);
+        $response = $this->actingAs($this->_user)->post(route('admin.banners.store'), $this->_data);
 
         $response->assertValid()->assertSessionHas('notify')->assertRedirect(route('admin.banners.index'));
     }

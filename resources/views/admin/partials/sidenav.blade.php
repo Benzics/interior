@@ -91,7 +91,7 @@
                     </a>
                 </li>
 
-                <li class="sidebar-menu-item {{menuActive('admin.banners*', 2)}}">
+                <li class="sidebar-menu-item {{menuActive('admin.banners*')}}">
                     <a href="{{route('admin.banners.index')}}" class="nav-link ">
                         <i class="menu-icon la la-ticket-alt"></i>
                         <span class="menu-title">Banners</span>
