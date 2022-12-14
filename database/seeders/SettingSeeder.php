@@ -16,11 +16,13 @@ class SettingSeeder extends Seeder
     public function run()
     {
         DB::table('settings')->insert([
-            ['name' => 'currency_symbol', 'value' => 'N'],
+            ['name' => 'currency-symbol', 'value' => 'N'],
             ['name' => 'currency', 'value' => 'Naira'],
+            ['name' => 'currency-short', 'value' => 'NGN'],
             ['name' => 'admin-mail', 'value' => 'test@mail.com'],
             ['name' => 'address', 'value' => 'Test'],
-            ['name' => 'phone', 'value' => '12345']
+            ['name' => 'phone', 'value' => '12345'],
+            ['name' => 'site-name', 'value' => 'Test'],
         ]);
     }
 }

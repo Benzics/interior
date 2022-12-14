@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\LoginController as AdminLoginController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\ProductController as AdminProductController;
 use App\Http\Controllers\admin\ApartmentController;
+use App\Http\Controllers\admin\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,8 @@ Route::name('admin.')->prefix('admin')->group(function()
         Route::resource('apartment-categories', ApartmentCategoryController::class)->except('show');
         Route::resource('products', AdminProductController::class);
         Route::resource('apartments', ApartmentController::class);
-        
+        Route::get('/settings', [SettingController::class, 'index'])->name('settings');
+        Route::post('/settings', [SettingController::class, 'store']);
     });
     
 });

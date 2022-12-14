@@ -7,5 +7,10 @@ use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    //
+    public function index()
+    {
+        $pageTitle = 'Site Settings';
+
+        return view('admin.settings.index', compact('pageTitle'));
+    }
 }

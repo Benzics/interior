@@ -84,6 +84,12 @@
                     </div>
                 </li>
 
+                <li class="sidebar-menu-item {{menuActive('admin.settings')}}">
+                    <a href="{{route('admin.settings')}}" class="nav-link ">
+                        <i class="menu-icon las la-wrench"></i>
+                        <span class="menu-title">Site settings</span>
+                    </a>
+                </li>
                 
             </ul>
             <div class="text-center mb-3 text-uppercase">
