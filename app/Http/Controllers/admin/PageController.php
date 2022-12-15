@@ -30,12 +30,29 @@ class PageController extends Controller
 
     public function create()
     {
-        //
+        $pageTitle = 'Add New Page';
+        $route = $this->_route;
+
+        return view('admin.pages.create', compact('pageTitle', 'route'));
     }
 
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required',
+            'content' => 'required',
+            'url' => 'required|alpha',
+        ]);
+
+        $data = [
+            'name' => $validate['name'],
+            'content' => $validate['content'],
+            'url' => $validate['url'],
+        ];
+
+        if(!$this->_service->save($data)) return back()->withErrors(['name' => 'An internal error occured']);
+
+        return redirect()->route($this->_route . '.index')->with('notify', ['Page Added Successfully']);
     }
 
     public function edit($id)

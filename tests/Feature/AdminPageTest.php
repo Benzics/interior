@@ -10,7 +10,7 @@ class AdminPageTest extends CommonTests
     {
         parent::setUp();
         $this->set_route('admin.pages');
-        $this->set_data(['name' => 'Test', 'Content' => 'Test']);
+        $this->set_data(['name' => 'Test', 'content' => 'Test', 'url' => 'test']);
         $this->set_parameter(['page' => '1']);
     }
 
