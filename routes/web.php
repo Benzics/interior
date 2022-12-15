@@ -11,6 +11,8 @@ use App\Http\Controllers\admin\ApartmentController;
 use App\Http\Controllers\admin\PasswordController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\PageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +51,7 @@ Route::name('admin.')->prefix('admin')->group(function()
         Route::get('/profile', [PasswordController::class, 'profile'])->name('profile');
         Route::post('/profile', [PasswordController::class, 'editProfile']);
         Route::resource('banners', BannerController::class)->except('show');
+        Route::resource('pages', PageController::class)->except('show');
 
     });
     
