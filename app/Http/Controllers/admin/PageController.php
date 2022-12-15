@@ -57,16 +57,42 @@ class PageController extends Controller
 
     public function edit($id)
     {
-        //
+        $pageTitle = 'Edit Page';
+        $route = $this->_route;
+        $page = $this->_service->get($id);
+
+        if(!$page) return back()->withErrors(['name' => 'Page Not Found!']);
+
+        return view('admin.pages.edit', compact('pageTitle', 'route', 'page'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required',
+            'content' => 'required',
+            'url' => 'required|alpha',
+        ]);
+
+        $data = [
+            'name' => $validate['name'],
+            'content' => $validate['content'],
+            'url' => $validate['url'],
+        ];
+
+        if(!$this->_service->edit($data, $id)) return back()->withErrors(['name' => 'An internal error occured']);
+
+        return redirect()->route($this->_route . '.index')->with('notify', ['Page Edited Successfully']);
     }
 
     public function destroy($id)
     {
-        //
+        $page = $this->_service->get($id);
+
+        if(!$page) return back()->withErrors(['name' => 'Page not found!']);
+
+        if(!$this->_service->delete($id)) return back()->withErrors(['name' => 'An uknown error occured']);
+
+        return redirect()->route($this->_route . '.index')->with(['notify' => ['Page was deleted']]);
     }
 }
