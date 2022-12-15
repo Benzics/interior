@@ -11,13 +11,15 @@
                         <thead>
                             <tr>
                                 <th>Page Name</th>
+                                <th>Url</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody class="list">
                             @forelse($pages as $row)
                             <tr>
-                                <td data-label="Category Name">{{ $row->name }}</td>
+                                <td data-label="Page Name">{{ $row->name }}</td>
+                                <td data-label="Page Url">{{ url("/pages/$row->url") }}</td>
                                
                                 <td data-label="Action">
                                     <a href="{{ route($route . '.edit', $row->id) }}" data-toggle="tooltip" title="Edit" class="icon-btn"><i class="la la-pencil"></i></a>

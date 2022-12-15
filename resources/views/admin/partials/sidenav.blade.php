@@ -97,6 +97,12 @@
                         <span class="menu-title">Banners</span>
                     </a>
                 </li>
+                <li class="sidebar-menu-item {{menuActive('admin.pages*')}}">
+                    <a href="{{route('admin.pages.index')}}" class="nav-link ">
+                        <i class="menu-icon la la-book"></i>
+                        <span class="menu-title">Pages</span>
+                    </a>
+                </li>
                 <li class="sidebar-menu-item {{menuActive(['admin.profile', 'admin.password'])}}">
                     <a href="{{route('admin.profile')}}" class="nav-link ">
                         <i class="menu-icon las la-user"></i>
