@@ -16,9 +16,9 @@ class PageSeeder extends Seeder
     public function run()
     {
         DB::table('pages')->insert([
-            ['name' => 'About', 'content' => 'about us'],
-            ['name' => 'Terms', 'content' => 'Terms and conditions'],
-            ['name' => 'Privacy Policy', 'content' => 'Privacy Policy'],
+            ['name' => 'About', 'content' => 'about us', 'url' => 'about'],
+            ['name' => 'Terms', 'content' => 'Terms and conditions', 'url' => 'terms'],
+            ['name' => 'Privacy Policy', 'content' => 'Privacy Policy', 'url' => 'privacy'],
         ]);
     }
 }
