@@ -31,8 +31,7 @@
                                 <td data-label="Banner Title">{{ $row->title }}</td>
                                 <td data-label="Banner Url">{{ url($row->url) }}</td>
                                 <td data-label="Action">
-                                    
-                                    <a href="{{ route($route . '.show', $row->id) }}" class="icon-btn bg--7" data-toggle="tooltip" title="View Details"><i class="fas fa-eye"></i></a>
+                                
                                     <a href="{{ route($route . '.edit', $row->id) }}" data-toggle="tooltip" title="Edit" class="icon-btn"><i class="la la-pencil"></i></a>
                                     <form action="{{ route($route . '.destroy', $row->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this product?')">
                                         @method('delete')

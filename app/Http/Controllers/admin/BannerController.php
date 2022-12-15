@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\CommonService;
 use App\Models\Banner;
+use Illuminate\Validation\Rules\File;
 
 class BannerController extends Controller
 {
@@ -42,11 +43,12 @@ class BannerController extends Controller
             'name' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'url' => 'required'
+            'url' => 'required',
+            'image.*' => ['required', File::image()],
         ]);
 
         $image = collect($request->file('image'))->first();
-        $path = $image->store('/images/slide', ['disk' => 'my_files']);
+        $path = $image->store('/images/banners', ['disk' => 'my_files']);
 
         $data = [
             'name' => $validate['name'],
@@ -62,23 +64,63 @@ class BannerController extends Controller
 
     }
 
-    public function show($id)
-    {
-        //
-    }
-
     public function edit($id)
     {
-        //
+        $pageTitle = 'Edit banner';
+        $banner = $this->_service->get($id);
+        $route = $this->_route;
+
+        if(!$banner) return back()->withErrors(['name' => 'Banner not found!']);
+
+        $preloaded[] = (object) ['id' => $banner->id, 'src' => asset($banner->image)];
+
+        $preloaded = json_encode($preloaded);
+
+        return view('admin.banners.edit', compact('pageTitle', 'banner', 'preloaded', 'route'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'url' => 'required'
+        ]);
+
+        $banner = $this->_service->get($id);
+        $path = $banner->image;
+
+        if($request->hasFile('image'))
+        {
+            $image = collect($request->file('image'))->first();
+            $path = $image->store('/images/banners', ['disk' => 'my_files']);
+        }
+
+        $data = [
+            'name' => $validate['name'],
+            'title' => $validate['title'],
+            'description' => $validate['description'],
+            'url' => $validate['url'],
+            'image' => $path,
+        ];
+
+        if(!$this->_service->edit($data, $banner->id)) return back()->withErrors(['name' => 'An internal error occured']);
+
+        return redirect()->route('admin.banners.index')->with('notify', ['Banner edited successfully']);
     }
 
     public function destroy($id)
     {
-        //
+        $banner = $this->_service->get($id);
+
+        if(!$banner) return back()->withErrors(['name' => 'Banner not found!']);
+
+        // delete the image
+        if(file_exists($banner->image)) unlink($banner->image);
+
+        if(!$this->_service->delete($id)) return back()->withErrors(['name' => 'An uknown error occured']);
+
+        return redirect()->route($this->_route . '.index')->with(['notify' => ['Banner was deleted']]);
     }
 }

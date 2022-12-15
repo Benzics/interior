@@ -48,7 +48,7 @@ Route::name('admin.')->prefix('admin')->group(function()
 
         Route::get('/profile', [PasswordController::class, 'profile'])->name('profile');
         Route::post('/profile', [PasswordController::class, 'editProfile']);
-        Route::resource('banners', BannerController::class);
+        Route::resource('banners', BannerController::class)->except('show');
 
     });
     

@@ -58,7 +58,7 @@ class AdminBannerTest extends TestCase
 
     public function test_edit_banner_page()
     {
-        $response = $this->actingAs($this->_user)->get(route('admin.banners.edit'));
+        $response = $this->actingAs($this->_user)->get(route('admin.banners.edit', $this->_parameter));
 
         $response->assertOk();
     }
