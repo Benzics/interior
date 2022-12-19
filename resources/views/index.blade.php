@@ -11,15 +11,15 @@
                 <div id="welcome" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.3.1">
                     <ul>
                         @forelse ($banners as $item)
-                        <li data-index="rs-901" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="{{ $item->thumb }}"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                        <li data-index="rs-{{ $item->id }}" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="{{ getImage($item->thumb, '50x50') }}"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="{{ $item->image }}"  alt=""  data-lazyload="{{ $item->image }}" data-bgposition="center center" 
+                            <img src="{{ getImage($item->image, '1920x1080') }}"  alt=""  data-lazyload="{{ getImage($item->image, '1920x1080') }}" data-bgposition="center center" 
                             data-bgfit="cover" data-bgparallax="4" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
                     
                             <!-- LAYER NR. 1 -->
                             <div class="tp-caption tp-shape tp-shapewrapper  " 
-                                id="slide-901-layer-1" 
+                                id="slide-{{ $item->id }}-layer-1" 
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
                                 data-y="['top','top','top','top']" data-voffset="['0','0','0','0']" 
                                 data-width="full"
@@ -41,7 +41,7 @@
                             
                             <!-- LAYER NR. 2 -->
                             <div class="tp-caption tp-shape tp-shapewrapper  " 
-                                id="slide-901-layer-2" 
+                                id="slide-{{ $item->id }}-layer-2" 
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
                                 data-y="['bottom','bottom','bottom','bottom']" data-voffset="['0','0','0','0']" 
                                 data-width="full"
@@ -63,7 +63,7 @@
                     
                             <!-- LAYER NR. 3 -->
                             <div class="tp-caption BigBold-Title   tp-resizeme" 
-                                id="slide-901-layer-3" 
+                                id="slide-{{ $item->id }}-layer-3" 
                                 data-x="['left','left','left','left']" data-hoffset="['120','120','30','30']" 
                                 data-y="['bottom','bottom','bottom','bottom']" data-voffset="['180','180','160','160']" 
                                 data-fontsize="['80','60','50','30']"
@@ -91,7 +91,7 @@
                     
                             <!-- LAYER NR. 4 -->
                             <div class="tp-caption BigBold-SubTitle  " 
-                                id="slide-901-layer-4" 
+                                id="slide-{{ $item->id }}-layer-4" 
                                 data-x="['left','left','left','left']" data-hoffset="['120','120','30','30']" 
                                 data-y="['bottom','bottom','bottom','bottom']" data-voffset="['100','65','60','60']" 
                                 data-fontsize="['15','15','15','13']"
@@ -118,7 +118,7 @@
                     
                             <!-- LAYER NR. 5 -->
                             <div class="tp-caption BigBold-Button rev-btn " 
-                                id="slide-901-layer-5" 
+                                id="slide-{{ $item->id }}-layer-5" 
                                 data-x="['left','left','left','left']" data-hoffset="['480','480','30','30']" 
                                 data-y="['bottom','bottom','bottom','bottom']" data-voffset="['100','100','30','30']"  
                                 data-width="none"
@@ -139,11 +139,11 @@
                                 data-paddingbottom="[15,15,15,15]"
                                 data-paddingleft="[50,50,0,0]"
                     
-                                style="z-index: 11; "><a href="{{ url($item->url) }}" class="site-button outline white">{{ $item->name }}</a> </div>                            
+                                style="z-index: 11; "><a href="{{ url($item->url) }}" class="site-button outline white">{{ $item->button_text }}</a> </div>                            
 
                             <!-- Border Part -->
                             <div class="tp-caption tp-shape tp-shapewrapper " 
-                                id="slide-901-layer-8" 
+                                id="slide-{{ $item->id }}-layer-8" 
                                 data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" 
                                 data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
                                 data-width="full"
