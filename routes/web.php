@@ -61,3 +61,5 @@ Route::name('admin.')->prefix('admin')->group(function()
     });
     
 });
+
+Route::get('placeholder-image/{size}', [HomeController::class, 'placeholderImage'])->name('placeholder.image');

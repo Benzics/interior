@@ -48,7 +48,8 @@ class BannerController extends Controller
         ]);
 
         $image = collect($request->file('image'))->first();
-        $path = $image->store('/images/banners', ['disk' => 'my_files']);
+        $bannerPath = public_path('/images/banners');
+        $path = 'images/banners/' . uploadImage($image, $bannerPath, '1920x900');
 
         $data = [
             'name' => $validate['name'],
@@ -94,7 +95,8 @@ class BannerController extends Controller
         if($request->hasFile('image'))
         {
             $image = collect($request->file('image'))->first();
-            $path = $image->store('/images/banners', ['disk' => 'my_files']);
+            $bannerPath = public_path('/images/banners');
+            $path = 'images/banners/' . uploadImage($image, $bannerPath, '1920x900');
         }
 
         $data = [
