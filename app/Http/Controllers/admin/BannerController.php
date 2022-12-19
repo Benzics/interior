@@ -44,19 +44,23 @@ class BannerController extends Controller
             'title' => 'required',
             'description' => 'required',
             'url' => 'required',
+            'button_text' => 'required',
             'image.*' => ['required', File::image()],
         ]);
 
         $image = collect($request->file('image'))->first();
         $bannerPath = public_path('/images/banners');
-        $path = 'images/banners/' . uploadImage($image, $bannerPath, '1920x900');
+        $path = 'images/banners/' . uploadImage($image, $bannerPath, '1920x1080');
+        $thumb = 'images/banners/' . uploadImage($image, $bannerPath, '50x50');
 
         $data = [
             'name' => $validate['name'],
             'title' => $validate['title'],
             'description' => $validate['description'],
             'url' => $validate['url'],
+            'button_text' => $validate['button_text'],
             'image' => $path,
+            'thumb' => $thumb,
         ];
 
         if(!$this->_service->save($data)) return back()->withErrors(['name' => 'An internal error occured']);
@@ -86,17 +90,20 @@ class BannerController extends Controller
             'name' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'url' => 'required'
+            'url' => 'required',
+            'button_text' => 'required',
         ]);
 
         $banner = $this->_service->get($id);
         $path = $banner->image;
+        $thumb = $banner->thumb;
 
         if($request->hasFile('image'))
         {
             $image = collect($request->file('image'))->first();
             $bannerPath = public_path('/images/banners');
-            $path = 'images/banners/' . uploadImage($image, $bannerPath, '1920x900');
+            $path = 'images/banners/' . uploadImage($image, $bannerPath, '1920x1080');
+            $thumb = 'images/banners/' . uploadImage($image, $bannerPath, '50x50');
         }
 
         $data = [
@@ -104,7 +111,9 @@ class BannerController extends Controller
             'title' => $validate['title'],
             'description' => $validate['description'],
             'url' => $validate['url'],
+            'button_text' => $validate['button_text'],
             'image' => $path,
+            'thumb' => $thumb,
         ];
 
         if(!$this->_service->edit($data, $banner->id)) return back()->withErrors(['name' => 'An internal error occured']);

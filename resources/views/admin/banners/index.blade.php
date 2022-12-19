@@ -23,7 +23,7 @@
                                 <td data-label="Banner Thumbnail">
                                     <div class="user">
                                         <div class="thumb">
-                                            <img src="{{ asset( $row->image ?: 'images/default.png') }}" alt="{{ $row->name }}">
+                                            <img src="{{ getImage($row->thumb, '50x50') }}" alt="{{ $row->name }}">
                                         </div>
                                     </div>
                                 </td>

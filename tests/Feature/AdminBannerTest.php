@@ -22,6 +22,7 @@ class AdminBannerTest extends TestCase
         'description' => 'Test description',
         'title' => 'Test',
         'url' => 'test',
+        'button_text' => 'test',
     ];
 
     public function setUp(): void 

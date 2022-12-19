@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Services\CommonService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -13,7 +15,11 @@ class HomeController extends Controller
      */
     public function index() : View
     {
-        return view('index');
+        $banner_service = new CommonService();
+        $banner_service->set_model(new Banner());
+        $banners = $banner_service->getAll();
+
+        return view('index', compact('banners'));
     }
 
     public function placeholderImage($size = null)

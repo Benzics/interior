@@ -22,6 +22,8 @@ class BannerSeeder extends Seeder
                 'description' => 'Our company takes orders to external architectural offices.',
                 'url' => 'products',
                 'image' => 'images/slide/slide1.jpg',
+                'thumb' => 'images/slide/slide1.jpg',
+                'button_text' => 'READ MORE',
             ],
             [
                 'name' => 'banner2',
@@ -29,6 +31,8 @@ class BannerSeeder extends Seeder
                 'description' => 'Our company takes orders to external architectural offices.',
                 'url' => 'products',
                 'image' => 'images/slide/slide2.jpg',
+                'thumb' => 'images/slide/slide2.jpg',
+                'button_text' => 'READ MORE',
             ],
             [
                 'name' => 'banner3',
@@ -36,6 +40,8 @@ class BannerSeeder extends Seeder
                 'description' => 'Our company takes orders to external architectural offices.',
                 'url' => 'products',
                 'image' => 'images/slide/slide3.jpg',
+                'thumb' => 'images/slide/slide3.jpg',
+                'button_text' => 'READ MORE',
             ],
         ]);
     }

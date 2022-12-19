@@ -29,6 +29,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Button Text</label>
+                                <input type="text" class="form-control" placeholder="Button Text" name="button_text" required value="{{ old('button_text') }}"/>
+                            </div>
+
+                            <div class="form-group">
                                 <label>Banner Image</label>
                                 <div class="input-images"></div>
                             </div>

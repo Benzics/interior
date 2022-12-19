@@ -20,6 +20,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('url');
             $table->string('image');
+            $table->string('thumb')->nullable();
+            $table->string('button_text');
             $table->timestamps();
         });
     }
