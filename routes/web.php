@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\PasswordController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\PageController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,11 @@ use App\Http\Controllers\admin\PageController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-
+Route::get('install', function(){
+    Artisan::call('key:generate');
+    Artisan::call('migrate:refresh');
+    Artisan::call('db:seed');
+});
 Route::name('admin.')->prefix('admin')->group(function()
 {
     Route::get('/login', [AdminLoginController::class, 'index'])->name('login');
