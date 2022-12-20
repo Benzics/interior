@@ -63,13 +63,13 @@ class ProductController extends Controller
         ]);
 
         // upload images
-        $image_service = new ImageService();
+        $imageService = new ImageService();
 
         foreach($request->file('images') as $image)
         {
             $path = $image->store('/product_images', ['disk' => 'my_files']);
 
-            $image_service->save_image($path, $product->id);
+            $imageService->save_image($path, $product->id);
         }
 
         return redirect()->route($this->_route . '.index')->with('notify', ['Product added successfully']);
@@ -121,7 +121,7 @@ class ProductController extends Controller
         if(!$product) return back()->withErrors(['product' => 'Product not found']);
 
         $images = collect($product->images);
-        $image_service = new ImageService();
+        $imageService = new ImageService();
 
         $validate = $request->validate([
             'name' => 'required',
@@ -133,14 +133,14 @@ class ProductController extends Controller
         $preloaded = $request->input('preloaded');
 
         // if length of preloaded images is not equal to the images this product has, we delete the removed images
-        if(count($request->input('preloaded') ?? []) !== $images->count())
+        if(count($preloaded ?? []) !== $images->count())
         {
-            $delete_images = $images->map(function($item, $key) use ($preloaded, $image_service) {
+            $images->map(function($item, $key) use ($preloaded, $imageService) {
 
                 if(collect($preloaded ?? [])->search($item->id) === false)
                 {
                     // delete this image
-                    $image_service->delete_image($item->id);
+                    $imageService->delete_image($item->id);
                 }
             });
         }
@@ -152,7 +152,7 @@ class ProductController extends Controller
             {
                 $path = $image->store('/product_images', ['disk' => 'my_files']);
 
-                $image_service->save_image($path, $product->id);
+                $imageService->save_image($path, $product->id);
             }
         }
 
