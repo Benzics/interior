@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             SettingSeeder::class,
             BannerSeeder::class,
             PageSeeder::class,
+            SectionSeeder::class,
+            SectionImageSeeder::class,
         ]);
     }
 }
