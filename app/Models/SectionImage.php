@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class SectionImage extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['section_id', 'path'];
+
+    public function section()
+    {
+        return $this->belongsTo(Section::class);
+    }
 }
