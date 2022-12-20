@@ -148,6 +148,12 @@ class SectionController extends Controller
 
     public function destroy($id)
     {
-        
+        $section = $this->_service->get($id);
+
+        if(!$section) return back()->withErrors(['name' => 'Section not found!']);
+
+        if(!$this->_service->delete($id)) return back()->withErrors(['name' => 'An uknown error occured']);
+
+        return redirect()->route($this->_route . '.index')->with(['notify' => ['section was deleted']]);
     }
 }

@@ -15,4 +15,11 @@ class Section extends Model
     {
         return $this->hasMany(SectionImage::class);
     }
+
+    public static function booted() {
+
+        static::deleting(function($section) {
+            $section->images()->delete();
+        });
+    }
 }
