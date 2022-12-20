@@ -103,6 +103,12 @@
                         <span class="menu-title">Pages</span>
                     </a>
                 </li>
+                <li class="sidebar-menu-item {{menuActive('admin.sections*')}}">
+                    <a href="{{route('admin.sections.index')}}" class="nav-link ">
+                        <i class="menu-icon la la-book"></i>
+                        <span class="menu-title">Sections</span>
+                    </a>
+                </li>
                 <li class="sidebar-menu-item {{menuActive(['admin.profile', 'admin.password'])}}">
                     <a href="{{route('admin.profile')}}" class="nav-link ">
                         <i class="menu-icon las la-user"></i>
