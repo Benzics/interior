@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\PasswordController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\PageController;
+use App\Http\Controllers\admin\SectionController;
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -57,6 +58,7 @@ Route::name('admin.')->prefix('admin')->group(function()
         Route::post('/profile', [PasswordController::class, 'editProfile']);
         Route::resource('banners', BannerController::class)->except('show');
         Route::resource('pages', PageController::class)->except('show');
+        Route::resource('sections', SectionController::class)->except('show');
 
     });
     
