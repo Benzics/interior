@@ -54,23 +54,33 @@ class ProductController extends Controller
             'images.*' => ['required', File::image()],
         ]);
 
+        // create a portrait from one of the uploaded images
+        $portrait = collect($request->file('images'))->first();
+
+        $path = public_path('product_images');
+
+        $portrait = 'product_images/' . uploadImage($portrait, $path, '360x560');
         // save the product
         $product = $this->_service->add_product([
             'name' => $validate['name'],
             'description' => $validate['description'],
             'category_id' => $validate['category_id'],
             'user_id' => auth()->id(),
+            'portrait' => $portrait,
         ]);
 
         // upload images
         $imageService = new ImageService();
 
+        $path = public_path('product_images/');
+
         foreach($request->file('images') as $image)
         {
-            $path = $image->store('/product_images', ['disk' => 'my_files']);
+            $imagePath = 'product_images/' . uploadImage($image, $path, '800x500');
 
-            $imageService->save_image($path, $product->id);
+            $imageService->save_image($imagePath, $product->id);
         }
+        
 
         return redirect()->route($this->_route . '.index')->with('notify', ['Product added successfully']);
 
@@ -132,6 +142,8 @@ class ProductController extends Controller
 
         $preloaded = $request->input('preloaded');
 
+        $portrait = $product->portrait;
+
         // if length of preloaded images is not equal to the images this product has, we delete the removed images
         if(count($preloaded ?? []) !== $images->count())
         {
@@ -148,12 +160,20 @@ class ProductController extends Controller
         // if new images are included, upload them
         if($request->hasFile('images'))
         {
+            $path = public_path('product_images');
             foreach($request->file('images') as $image)
             {
-                $path = $image->store('/product_images', ['disk' => 'my_files']);
+                $imagePath = 'product_images/' . uploadImage($image, $path, '800x500');
 
-                $imageService->save_image($path, $product->id);
+                $imageService->save_image($imagePath, $product->id);
             }
+
+            // create a new portrait 
+            $portrait = collect($request->file('images'))->first();
+
+            
+    
+            $portrait = 'product_images/' . uploadImage($portrait, $path, '360x560');
         }
 
         // edit the product
@@ -161,6 +181,7 @@ class ProductController extends Controller
             'name' => $validate['name'],
             'description' => $validate['description'],
             'category_id' => $validate['category_id'],
+            'portrait' => $portrait,
         ];
 
         if(!$this->_service->edit_product($product_data, $product->id))

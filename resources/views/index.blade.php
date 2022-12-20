@@ -176,64 +176,45 @@
             </div>
             <!-- SLIDER END -->
             
-            
-            <!-- WELCOME SECTION START -->
+            {{-- about section --}}
             <div class="section-full p-t90 bg-gray">
                 <div class="container">
                     <div class="section-content">
                     	<div class="row">
                     		<div class="col-md-5 col-sm-12 text-uppercase text-black">
-                            	<span class="font-30 font-weight-300">Welcome</span>
+                            	<span class="font-30 font-weight-300">{{ $about?->title }}</span>
                                 <h2 class="font-40">
-                                    We are <span class="text-yellow">creative</span> Building  - Design  Company
+                                   {{ $about?->subtitle }}
                                 </h2>
-                                <p>Dummy text is also used to demonstrate the appearance of different typefaces and layouts, and in general</p>
-                                <p class="text-lowercase">typefaces and layouts, and in appearance of different general 
-                                      the content of dummy text is nonsensical.typefaces and layouts, 
-                                      different general the content of dummy text is nonsensical.
-                                </p>
-                                 <a href="javascript:void(0);" class="btn-half site-button button-lg m-b15"><span>Read More</span><em></em></a>
+                                {!! $about?->content !!}
+                                 <a href="{{ url($about?->url ?? '/') }}" class="btn-half site-button button-lg m-b15"><span>{{ $about?->button_text }}</span><em></em></a>
                             </div>
                             
                         	<div class="col-md-7 col-sm-12">
                             	<div class="m-carousel-1 m-l100">
                             		<div class="owl-carousel home-carousel-1 owl-btn-vertical-center">
-                                        <!-- COLUMNS 1 -->
+                                        @php($images = collect($about?->images)->all())
+
+                                        @forelse($images as $item)
+
+                                            <div class="item">
+                                                <div class="ow-img wt-img-effect zoom-slow">
+                                                    <a href="{{ $about?->url }}"><img src="{{ getImage($item->path) }}" alt=""></a>
+                                                </div>
+                                            </div>
+                                        @empty
                                         <div class="item">
                                             <div class="ow-img wt-img-effect zoom-slow">
-                                                <a href="javascript:void(0);"><img src="images/gallery/pic1.jpg" alt=""></a>
+                                                <a href="#"><img src="{{ getImage('', '800x500') }}" alt=""></a>
                                             </div>
                                         </div>
-                                        <!-- COLUMNS 2 -->
-                                        <div class="item">
-                                            <div class="ow-img wt-img-effect zoom-slow">
-                                                <a href="javascript:void(0);"><img src="images/gallery/pic2.jpg" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <!-- COLUMNS 3 -->
-                                        <div class="item">
-                                            <div class="owl-img wt-img-effect zoom-slow">
-                                                <a href="javascript:void(0);"><img src="images/gallery/pic3.jpg" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <!-- COLUMNS 4 -->
-                                        <div class="item">
-                                            <div class="ow-img wt-img-effect zoom-slow">
-                                                <a href="javascript:void(0);"><img src="images/gallery/pic4.jpg" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <!-- COLUMNS 5 -->
-                                        <div class="item">
-                                            <div class="ow-img wt-img-effect zoom-slow">
-                                                <a href="javascript:void(0);"><img src="images/gallery/pic5.jpg" alt=""></a>
-                                            </div>
-                                        </div>
+                                        @endforelse
                                    </div>
                                </div>
                             </div>
                         </div>
                         <div class="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-                        	<strong>18 Year</strong>
+                        	<strong>8 Years</strong>
                             <span class="text-black">Experience Working</span>
                         </div>
                     </div>

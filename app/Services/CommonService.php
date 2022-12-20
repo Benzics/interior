@@ -35,13 +35,14 @@ class CommonService {
 	}
 
 	/**
-	 * Get a particular data by id
-	 * @param int $id
+	 * Get a particular data
+	 * @param $id
+	 * @param string $field = id
 	 * @return
 	 */
-	public function get(int $id)
+	public function get($id, string $field = 'id')
 	{
-		$data = $this->_model->find($id);
+		$data = $this->_model->where($field, $id)->first();
 
 		return $data;
 	}
