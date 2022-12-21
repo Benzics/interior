@@ -1,6 +1,8 @@
 <?php
 namespace App\Services;
 
+use function PHPUnit\Framework\isNull;
+
 /**
 *Automatically generated service
 *Author: Benjamin Ojobo
@@ -63,13 +65,23 @@ class CommonService {
 
 	/**
 	 * Returns all the data in model db
+	 * @param array $where An array containing arrays of conditions ['column', 'operator', 'value']
+	 * @param int $limit
+	 * @param string $orderBy
+	 * @param string $order
 	 * @return
 	 */
-	public function getAll()
+	public function getAll($where = [], int $limit = null, string $orderBy = null, string $order = null)
 	{
-		$data = $this->_model->all();
+		$data = $this->_model;
+		
+		if(!empty($where)) $data = $data->where($where);
 
-		return $data;
+		if(!isNull($order) && !isNull($orderBy)) $data = $data->orderBy($orderBy, $order);
+
+		if(!isNull($limit)) return $data->getPaginated($limit);
+
+		return $data->get();
 	}
 
 	/**

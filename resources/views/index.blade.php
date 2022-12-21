@@ -229,7 +229,7 @@
         <div class="section-head text-left">
             <div class="row">
                 <div class="col-md-4">
-                    <h2 class="text-uppercase font-36">Latest Project</h2>
+                    <h2 class="text-uppercase font-36">Latest Products</h2>
                     <div class="wt-separator-outer">
                         <div class="wt-separator bg-black"></div>
                     </div>
@@ -237,9 +237,11 @@
                 <div class="col-md-8">
                     <ul class="btn-filter-wrap">
                         <li class="btn-filter btn-active" data-filter="*">All Project</li>
-                        <li class="btn-filter" data-filter=".building-col">Building</li>
-                        <li class="btn-filter" data-filter=".interior-col">Interior</li>
-                        <li class="btn-filter" data-filter=".restaurant-col">Restaurant</li>
+                        @forelse($productCategories as $item)
+                        <li class="btn-filter" data-filter=".prodcat-{{ $item->id }}">{{ $item->name }}</li>
+                        @empty
+
+                        @endforelse
                     </ul>
                 </div>
             </div>
@@ -249,152 +251,29 @@
         <!-- IMAGE CAROUSEL START -->
         <div class="section-content">
             <div class="owl-carousel owl-carousel-filter  owl-btn-bottom-left">
-                <!-- COLUMNS 1 --> 
-                <div class="item fadingcol building-col">
-                    <div class="wt-img-effect ">
-                        <img src="images/portrait/pic1.jpg" alt="">
-                        <div class="overlay-bx-2 ">
-                            <div class="line-amiation">
-                                <div class="text-white  font-weight-300 p-a40">
-                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
-                                    <p>Morbi mattis ex non urna condimentum,
-                                          eget eleifend diam molestie. Curabitur 
-                                          lorem enim, maximus non null.
-                                    </p>
-                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                @forelse ($productCategories as $category)
+                    @forelse ($productService->getAll([['category_id', '=', $category->id]], 8) as $product)
+                        
+                        <div class="item fadingcol prodcat-{{ $category->id }}">
+                            <div class="wt-img-effect ">
+                                <img src="{{ getImage($product->portrait, '360x560') }}" alt="{{ $product->name }}">
+                                <div class="overlay-bx-2 ">
+                                    <div class="line-amiation">
+                                        <div class="text-white  font-weight-300 p-a40">
+                                            <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">{{ $product->name }}</a></h2>
+                                            {!! $product->description !!}
+                                            <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                       </div>
-                    </div>
-                </div>
-                <!-- COLUMNS 2 --> 
-                <div class="item fadingcol  building-col">
-                    <div class="wt-img-effect ">
-                        <img src="images/portrait/pic2.jpg" alt="">
-                        <div class="overlay-bx-2 ">
-                            <div class="line-amiation">
-                                <div class="text-white  font-weight-300 p-a40">
-                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
-                                    <p>Morbi mattis ex non urna condimentum,
-                                          eget eleifend diam molestie. Curabitur 
-                                          lorem enim, maximus non null.
-                                    </p>
-                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
-                                </div>
-                            </div>
-                       </div>
-                    </div>
-                </div>
-                <!-- COLUMNS 3 --> 
-                <div class="item fadingcol building-col">
-                    <div class="wt-img-effect ">
-                        <img src="images/portrait/pic3.jpg" alt="">
-                        <div class="overlay-bx-2 ">
-                            <div class="line-amiation">
-                                <div class="text-white  font-weight-300 p-a40">
-                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
-                                    <p>Morbi mattis ex non urna condimentum,
-                                          eget eleifend diam molestie. Curabitur 
-                                          lorem enim, maximus non null.
-                                    </p>
-                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
-                                </div>
-                            </div>
-                       </div>
-                    </div>
-                </div>
-                <!-- COLUMNS 4 --> 
-                <div class="item fadingcol building-col">
-                    <div class="wt-img-effect ">
-                        <img src="images/portrait/pic4.jpg" alt="">
-                        <div class="overlay-bx-2 ">
-                            <div class="line-amiation">
-                                <div class="text-white  font-weight-300 p-a40">
-                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
-                                    <p>Morbi mattis ex non urna condimentum,
-                                          eget eleifend diam molestie. Curabitur 
-                                          lorem enim, maximus non null.
-                                    </p>
-                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
-                                </div>
-                            </div>
-                       </div>
-                    </div>
-                </div>
-                <!-- COLUMNS 5 --> 
-                <div class="item fadingcol interior-col">
-                    <div class="wt-img-effect ">
-                        <img src="images/portrait/pic5.jpg" alt="">
-                        <div class="overlay-bx-2 ">
-                            <div class="line-amiation">
-                                <div class="text-white  font-weight-300 p-a40">
-                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
-                                    <p>Morbi mattis ex non urna condimentum,
-                                          eget eleifend diam molestie. Curabitur 
-                                          lorem enim, maximus non null.
-                                    </p>
-                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
-                                </div>
-                            </div>
-                       </div>
-                    </div>
-                </div>
-                <!-- COLUMNS 6 --> 
-                <div class="item fadingcol restaurant-col">
-                    <div class="wt-img-effect ">
-                        <img src="images/portrait/pic6.jpg" alt="">
-                        <div class="overlay-bx-2 ">
-                            <div class="line-amiation">
-                                <div class="text-white  font-weight-300 p-a40">
-                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
-                                    <p>Morbi mattis ex non urna condimentum,
-                                          eget eleifend diam molestie. Curabitur 
-                                          lorem enim, maximus non null.
-                                    </p>
-                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
-                                </div>
-                            </div>
-                       </div>
-                    </div>
-                </div>
-                <!-- COLUMNS 7 --> 
-                <div class="item fadingcol restaurant-col">
-                    <div class="wt-img-effect ">
-                        <img src="images/portrait/pic7.jpg" alt="">
-                        <div class="overlay-bx-2 ">
-                            <div class="line-amiation">
-                                <div class="text-white  font-weight-300 p-a40">
-                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
-                                    <p>Morbi mattis ex non urna condimentum,
-                                          eget eleifend diam molestie. Curabitur 
-                                          lorem enim, maximus non null.
-                                    </p>
-                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
-                                </div>
-                            </div>
-                       </div>
-                   </div>
-                </div>   
-                <!-- COLUMNS 8 -->                         
-                <div class="item fadingcol interior-col">
-                    <div class="wt-img-effect ">
-                        <img src="images/portrait/pic8.jpg" alt="">
-                        <div class="overlay-bx-2 ">
-                            <div class="line-amiation">
-                                <div class="text-white  font-weight-300 p-a40">
-                                    <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">Triangle Concrete House on lake</a></h2>
-                                    <p>Morbi mattis ex non urna condimentum,
-                                          eget eleifend diam molestie. Curabitur 
-                                          lorem enim, maximus non null.
-                                    </p>
-                                    <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
-                                </div>
-                            </div>
-                       </div>
-                    </div>
-                </div>
-
-            </div>
+                        </div>
+                    @empty
+                    @endforelse
+                @empty
+                    
+                @endforelse
+            </div>  
         </div>
         
         <div class="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
@@ -405,63 +284,9 @@
     <!-- LATEST PRJECTS SLIDER END --> 
      
     
-    <!-- BLOG SECTION START -->
-    <div class="section-full p-t140 bg-repeat " style="background-image:url(images/background/ptn-1.png);">
-        <div class="container">
-            <div class="section-content">
-                <!-- TITLE START -->
-                <div class="section-head text-left">
-                    <h2 class="text-uppercase font-36">Latest Blog</h2>
-                    <div class="wt-separator-outer">
-                        <div class="wt-separator bg-black"></div>
-                    </div>
-                </div>
-                <!-- TITLE END -->                    
-                <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        <div class="overlay-wraper bg-no-repeat bg-cover latest-blog-dark-outer p-a20 m-b30" style="background-image:url(images/blog/landscap-half/pic1.jpg);">
-                            <div class="overlay-main bg-black opacity-04"></div>
-                            <div class="latest-blog-dark text-uppercase p-a20">
-                                <h3 class="m-a0"><span class="text-white">Title of first blog post</span></h3>
-                                <div class="v-date  text-yellow font-weight-700">10 Aug 2016</div>
-                            </div>
-                        </div>
-                        <div class="overlay-wraper bg-no-repeat bg-cover latest-blog-dark-outer p-a20 m-b30" style="background-image:url(images/blog/landscap-half/pic2.jpg);">
-                            <div class="overlay-main bg-black opacity-04"></div>
-                            <div class="latest-blog-dark text-uppercase p-a20">
-                                <h3 class="m-a0"><span class="text-white">Title of first blog post</span></h3>
-                                <div class="v-date  text-yellow font-weight-700">10 Aug 2016</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="overlay-wraper bg-no-repeat bg-cover latest-blog-dark-outer2 m-b30" style="background-image:url(images/blog/square/pic1.jpg);">
-                            <div class="overlay-main bg-black opacity-04"></div>
-                            <div class="latest-blog-square text-white">
-                                <h2 class="m-t0 m-b10"><span class="text-white font-30 text-uppercase">Small & Minimal House On Paters on Hill</span></h2>
-                                <p class="font-weight-300">typefaces and layouts, and in appeara
-                                    nce of different general the content of
-                                    dummy text is nonsensical.typefaces 
-                                    of dummy text is nonsensical.</p>
-                                <a href="javascript:;" class="letter-spacing-4 font-12 text-white text-uppercase">Read More</a>     
-                                <div class="v-date  text-yellow font-weight-700 text-uppercase">10 Aug 2016</div>
-                            </div>
-                        </div>                            	
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-                <div class="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-                    <strong>Blog</strong>
-                    <span class="text-black">Post</span>
-                </div>
-            </div>                
-    </div>   
-    <!-- BLOG SECTION END -->  
     
     <!-- CLIENT LOGO SECTION START -->
-    <div class="section-full p-tb100  bg-repeat " style="background-image:url(images/background/ptn-1.png);">
+    {{-- <div class="section-full p-tb100  bg-repeat " style="background-image:url(images/background/ptn-1.png);">
         <div class="container">
             <div class="section-content">
             
@@ -517,7 +342,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- CLIENT LOGO  SECTION End --> 
                 
     <!-- COMPANY DETAIL SECTION START -->
