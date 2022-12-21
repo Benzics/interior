@@ -9,7 +9,7 @@
                     <div class="logo-header">
                         <div class="logo-header-inner logo-header-one">
                             <a href="{{url('/')}}">
-                            <img src="images/logo-dark.png" width="171" height="49" alt="" />
+                            <img src="{{ asset('images/logo-dark.png') }}" width="171" height="49" alt="" />
                         </a>
                         </div>
                     </div>

@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\PageController;
 use App\Http\Controllers\admin\SectionController;
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Artisan;
 
 /*
@@ -65,3 +66,4 @@ Route::name('admin.')->prefix('admin')->group(function()
 });
 
 Route::get('placeholder-image/{size}', [HomeController::class, 'placeholderImage'])->name('placeholder.image');
+Route::get('pages/{url}', [PagesController::class, 'page'])->name('pages');

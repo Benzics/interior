@@ -56,7 +56,7 @@
 
      <!-- CONTENT START -->
     <div class="page-content">
-        @stack('banner')
+        @yield('banner')
         @yield('content')
     </div>
     <!-- CONTENT END -->
@@ -88,6 +88,8 @@
 <script  src="{{ asset('js/shortcode.js') }}"></script><!-- SHORTCODE FUCTIONS  -->
 
 @stack('scripts')
+
+@include('partials.notify')
 
 </body>
 

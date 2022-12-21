@@ -1,5 +1,5 @@
-@push('banner')
-<div class="wt-bnr-inr overlay-wraper bg-parallax bg-top-center"  data-stellar-background-ratio="0.5"  style="background-image:url(images/banner/3.jpg);">
+@section('banner')
+<div class="wt-bnr-inr overlay-wraper bg-parallax bg-top-center"  data-stellar-background-ratio="0.5"  style="background-image:url(/images/banner/{{ rand(1, 6) }}.jpg);">
     <div class="overlay-main bg-black opacity-07"></div>
     <div class="container">
         <div class="wt-bnr-inr-entry">
@@ -13,7 +13,7 @@
                 <div>
                     <ul class="wt-breadcrumb breadcrumb-style-2">
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        @stack('breadcrumb')
+                        @yield('breadcrumb')
                     </ul>
                 </div>
             </div>
@@ -21,4 +21,4 @@
         </div>
     </div>
 </div>
-@endpush
+@endsection
