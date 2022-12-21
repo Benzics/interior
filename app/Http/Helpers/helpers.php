@@ -136,3 +136,10 @@ function getApartmentCategories()
 
     return $categories;
 }
+
+function shortText(string $text)
+{
+    if(strlen($text) < 80) return $text;
+
+    return substr($text, 0, 80) . '...';
+}

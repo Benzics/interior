@@ -3,8 +3,7 @@
 	
         <!-- HEADER END -->
         
-        <!-- CONTENT START -->
-        <div class="page-content">
+       
         
             <!-- SLIDER START -->
             <div id="welcome_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="goodnews-header" data-source="gallery" style="background:#eeeeee;padding:0px;">
@@ -261,7 +260,7 @@
                                     <div class="line-amiation">
                                         <div class="text-white  font-weight-300 p-a40">
                                             <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">{{ $product->name }}</a></h2>
-                                            {!! $product->description !!}
+                                            {!! shortText($product->description) !!}
                                             <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
                                         </div>
                                     </div>
@@ -542,8 +541,6 @@
     </div>    --}}
     <!-- TESTIMONIALS SECTION END --> 
       
-
-<!-- CONTENT END -->
 
 @endsection
 

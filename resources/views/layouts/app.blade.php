@@ -53,7 +53,13 @@
 <body class="footer-fixed">
 
     @include('layouts.header')
-    @yield('content')
+
+     <!-- CONTENT START -->
+    <div class="page-content">
+        @stack('banner')
+        @yield('content')
+    </div>
+    <!-- CONTENT END -->
 
 @include('layouts.footer')
 <!-- JAVASCRIPT  FILES ========================================= --> 
