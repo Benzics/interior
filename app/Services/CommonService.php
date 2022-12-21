@@ -1,8 +1,6 @@
 <?php
 namespace App\Services;
 
-use function PHPUnit\Framework\isNull;
-
 /**
 *Automatically generated service
 *Author: Benjamin Ojobo
@@ -77,9 +75,9 @@ class CommonService {
 		
 		if(!empty($where)) $data = $data->where($where);
 
-		if(!isNull($order) && !isNull($orderBy)) $data = $data->orderBy($orderBy, $order);
+		if(!is_null($order) && !is_null($orderBy)) $data = $data->orderBy($orderBy, $order);
 
-		if(!isNull($limit)) return $data->getPaginated($limit);
+		if(!is_null($limit)) return $data->getPaginated($limit);
 
 		return $data->get();
 	}
