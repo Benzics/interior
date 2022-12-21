@@ -20,7 +20,9 @@ class SectionSeeder extends Seeder
             'content' => '<p>DUMMY TEXT IS ALSO USED TO DEMONSTRATE THE APPEARANCE OF DIFFERENT TYPEFACES AND LAYOUTS, AND IN GENERAL</p>
             <p class="text-lowercase">
             typefaces and layouts, and in appearance of different general the content of dummy text is nonsensical.typefaces and layouts, different general the content of dummy text is nonsensical.</p>',
-            'button_text' => 'READ MORE', 'url' => 'pages/about']
+            'button_text' => 'READ MORE', 'url' => 'pages/about'],
+            ['id' => '2', 'name' => 'facts', 'title' => 'SOME', 'subtitle' => 'INTERESTING FACTS', 'content' => '<p>MORBI MATTIS EX NON URNA CONDIMENTUM, EGET ELEIF END DIAM MOLESTIE. CURABITUR LOREM ENIM, MAXIMUS NON NULLA SED, EGESTAS VENENATIS FELIS. </p>',
+            'button_text' => '', 'url' => ''],
         ]);
     }
 }

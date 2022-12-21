@@ -21,17 +21,21 @@ class HomeController extends Controller
         $bannerService = new CommonService();
         $bannerService->set_model(new Banner());
         $banners = $bannerService->getAll();
+
         $sectionService = new CommonService();
         $sectionService->set_model(new Section());
+
         $categoryService = new CommonService();
         $categoryService->set_model(new Category());
         $productCategories = $categoryService->getAll();
+
         $productService = new CommonService();
         $productService->set_model(new Product());
 
         $about = $sectionService->get('about', 'name');
+        $facts = $sectionService->get('facts', 'name');
 
-        return view('index', compact('banners', 'about', 'productCategories', 'productService'));
+        return view('index', compact('banners', 'about', 'productCategories', 'productService', 'facts'));
     }
 
     public function placeholderImage($size = null)

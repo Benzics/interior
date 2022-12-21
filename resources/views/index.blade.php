@@ -353,13 +353,12 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="some-facts">
                         <div class="text-white text-uppercase">
-                        <span class="font-40 font-weight-300">Some</span>
+                        <span class="font-40 font-weight-300">{{ $facts?->title }}</span>
                         <h2 class="font-50">
-                            <span class="text-yellow">Intresting Facts</span>
+                            <span class="text-yellow">{{ $facts?->subtitle }}</span>
                         </h2>
-                        <p class="font-18 font-weight-300">Morbi mattis ex non urna condimentum, eget eleif
-end diam molestie. Curabitur lorem enim, maximus 
-non nulla sed, egestas venenatis felis. 
+                        <p class="font-18 font-weight-300">
+                            {!! $facts?->content !!}
                         </p>
                     </div>
                     </div>
@@ -402,7 +401,7 @@ non nulla sed, egestas venenatis felis.
     <!-- COMPANY DETAIL SECTION End --> 
                
     <!-- TESTIMONIALS SECTION START -->
-    <div class="section-full p-t140 bg-repeat " style="background-image:url(images/background/ptn-1.png);">
+    {{-- <div class="section-full p-t140 bg-repeat " style="background-image:url(images/background/ptn-1.png);">
         <div class="container">
             <div class="section-content">
                 <!-- TITLE START -->
@@ -540,7 +539,7 @@ non nulla sed, egestas venenatis felis.
                     <span class="text-black">Says</span>
                 </div>
             </div>                
-    </div>   
+    </div>    --}}
     <!-- TESTIMONIALS SECTION END --> 
       
 
