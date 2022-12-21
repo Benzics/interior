@@ -8,7 +8,7 @@
                 <div class="container">
                     <div class="logo-header">
                         <div class="logo-header-inner logo-header-one">
-                            <a href="index.html">
+                            <a href="{{url('/')}}">
                             <img src="images/logo-dark.png" width="171" height="49" alt="" />
                         </a>
                         </div>
@@ -21,25 +21,26 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- ETRA Nav -->
-                    <div class="extra-nav">
+                    {{-- <div class="extra-nav">
                         <div class="extra-cell">
                             <a href="#search" class="site-search-btn"><i class="fa fa-search"></i></a>
                         </div>
-                     </div>
+                     </div> --}}
                      
                      
                     <!-- SITE Search -->
-                    <div id="search"> 
+                    {{-- <div id="search"> 
                         <span class="close"></span>
-                        <form role="search" id="searchform" action="/search" method="get" class="radius-xl">
+                        <form role="search" id="searchform" action="#" method="get" class="radius-xl">
                             <div class="input-group">
                                 <input value="" name="q" type="search" placeholder="Type to search"/>
                                 <span class="input-group-btn"><button type="button" class="search-btn"><i class="fa fa-search"></i></button></span>
                             </div>   
                         </form>
-                    </div>
+                    </div> --}}
                     
                     <!-- ETRA Nav -->
+                    {{-- 
                     <div class="extra-nav">
                         <div class="extra-cell">
                             <div class="dropdown share-icon-btn">
@@ -58,73 +59,58 @@
                                 </div>
                             </div>                                 
                         </div>
-                     </div>                           
+                     </div>                            --}}
                     <!-- MAIN Vav -->
                     <div class="header-nav navbar-collapse collapse">
                         <ul class=" nav navbar-nav">
-                            <li class="active">
-                                <a href="javascript:;">Home</a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a href="index.html">Home-1</a>
-                                    </li>
-                                    <li>
-                                        <a href="index-2.html">Home-2</a>
-                                    </li>
-                                    <li>
-                                        <a href="index-3.html">Home-3</a>
-                                    </li>
-                                    <li>
-                                        <a href="index-4.html">Home-4</a>
-                                    </li>
-                                    <li>
-                                        <a href="index-5.html">Home-5</a>
-                                    </li>
-                                </ul>                                                    
+                            <li class="{{menuActive('home')}}">
+                                <a href="{{ url('/') }}">Home</a>                                        
                             </li>
                             <li>
+                                
                                 <a href="javascript:;">Pages</a>
                                 <ul class="sub-menu">
+                                    @forelse (getPages() as $item)
                                     <li>
-                                        <a href="about-1.html">About us</a>
+                                        <a href="{{ url('pages/' . $item->url) }}">{{ $item->name }}</a>
                                     </li>
+
+                                    @empty 
+                                    @endforelse
+                                  
                                     <li>
-                                        <a href="contact-1.html">Contact us</a>
+                                        <a href="#">Contact us</a>
                                     </li>
                                 </ul>
                             </li>
+                           
                             <li>
-                                <a href="javascript:;">News</a>
+                                <a href="javascript:;">Products</a>
                                 <ul class="sub-menu">
-                                    <li><a href="news-grid.html">Grid</a></li>
-                                    <li><a href="news-listing.html">Listing</a></li>
-                                    <li><a href="news-masonry.html">Masonry</a></li>
+                                    @forelse (getProductCategories() as $item)
+                                    <li>
+                                        <a href="{{ url('categories/' . $item->id) }}">{{ $item->name }}</a>
+                                    </li>
+
+                                    @empty 
+                                    <li><a>Coming soon...</a></li>
+                                    @endforelse                                        
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript:;">Works</a>
+                                <a href="javascript:;">Apartments</a>
                                 <ul class="sub-menu">
-                                    <li><a href="work-grid.html">Grid</a></li>
-                                    <li><a href="work-masonry.html">Masonry</a></li>
-                                    <li><a href="work-carousel.html">Carousel</a></li>
-                                    <li><a href="project-detail.html">Project Detail</a></li>                                        
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:;">Post detail</a>
-                                <ul class="sub-menu">
-                                    <li><a href="post-image.html">Image</a></li>
-                                    <li><a href="post-gallery.html">Gallery</a></li>
-                                    <li><a href="post-video.html">Video</a></li>
-                                    <li><a href="post-right-sidebar.html">Right Sidebar</a></li>                                        
+                                    @forelse (getApartmentCategories() as $item)
+                                    <li>
+                                        <a href="{{ url('apartment-categories/' . $item->id) }}">{{ $item->name }}</a>
+                                    </li>
+
+                                    @empty 
+                                    <li><a>Coming Soon...</a></li>
+                                    @endforelse                                          
                                 </ul>                                    
                             </li>
-                            <li class="submenu-direction">
-                                <a href="javascript:;">Shortcodes</a>
-                                <ul class="sub-menu">
-                                    <li><a href="accordian.html">All Elements</a></li>
-                                </ul>                                    
-                            </li>                                
+                                    
                         </ul>
                     </div>
                 </div>

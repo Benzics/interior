@@ -77,9 +77,11 @@ class CommonService {
 
 		if(!is_null($order) && !is_null($orderBy)) $data = $data->orderBy($orderBy, $order);
 
-		if(!is_null($limit)) return $data->getPaginated($limit);
+		if(!is_null($limit)) return $data->paginate($limit);
 
-		return $data->get();
+		return $data->all();
+
+		return $data;
 	}
 
 	/**

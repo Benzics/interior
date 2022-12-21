@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('install', function(){
     Artisan::call('key:generate');
     Artisan::call('migrate:refresh');

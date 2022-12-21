@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\ApartmentCategory;
+use App\Models\Category;
+use App\Models\Page;
 use App\Models\Setting;
 
 /**
@@ -111,4 +114,25 @@ function makeDirectory($path)
 function removeFile($path)
 {
     return file_exists($path) && is_file($path) ? @unlink($path) : false;
+}
+
+function getPages()
+{
+    $pages = Page::all();
+
+    return $pages;
+}
+
+function getProductCategories()
+{
+    $categories = Category::all();
+
+    return $categories;
+}
+
+function getApartmentCategories()
+{
+    $categories = ApartmentCategory::all();
+
+    return $categories;
 }
