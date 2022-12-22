@@ -52,11 +52,15 @@ class CommonService {
 	 * @param int $limit = 15
 	 * @param string $field = 'id'
 	 * @param string $order = 'DESC'
+	 * @param array $where
 	 * @return
 	 */
-	public function getPaginated(int $limit = 15, string $field = 'id', string $order = 'DESC')
+	public function getPaginated(int $limit = 15, string $field = 'id', string $order = 'DESC', array $where = [])
 	{
-		$data = $this->_model->orderBy($field, $order)->paginate($limit);
+		$data = $this->_model;
+		if(!empty($where)) $data = $data->where($where);
+
+		$data = $data->orderBy($field, $order)->paginate($limit);
 
 		return $data;  
 	}

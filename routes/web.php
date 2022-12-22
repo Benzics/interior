@@ -15,7 +15,7 @@ use App\Http\Controllers\admin\PageController;
 use App\Http\Controllers\admin\SectionController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Artisan;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,3 +67,7 @@ Route::name('admin.')->prefix('admin')->group(function()
 
 Route::get('placeholder-image/{size}', [HomeController::class, 'placeholderImage'])->name('placeholder.image');
 Route::get('pages/{url}', [PagesController::class, 'page'])->name('pages');
+Route::controller(ProductController::class)->group(function(){
+    Route::get('products/{id}', 'product')->name('product.single');
+    Route::get('categories/{id}', 'singleCategory')->name('categories.single');
+});

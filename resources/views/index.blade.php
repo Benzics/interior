@@ -259,9 +259,9 @@
                                 <div class="overlay-bx-2 ">
                                     <div class="line-amiation">
                                         <div class="text-white  font-weight-300 p-a40">
-                                            <h2><a href="javascript:void(0);" class="text-white font-20 letter-spacing-4 text-uppercase">{{ $product->name }}</a></h2>
+                                            <h2><a href="{{ route('product.single', ['id' => $product->id]) }}" class="text-white font-20 letter-spacing-4 text-uppercase">{{ $product->name }}</a></h2>
                                             {!! shortText($product->description) !!}
-                                            <a href="javscript:;" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
+                                            <a href="{{ route('product.single', ['id' => $product->id]) }}" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
                                         </div>
                                     </div>
                                 </div>

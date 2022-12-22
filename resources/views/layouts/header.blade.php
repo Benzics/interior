@@ -89,7 +89,7 @@
                                 <ul class="sub-menu">
                                     @forelse (getProductCategories() as $item)
                                     <li>
-                                        <a href="{{ url('categories/' . $item->id) }}">{{ $item->name }}</a>
+                                        <a href="{{ route('categories.single', ['id' => $item->id]) }}">{{ $item->name }}</a>
                                     </li>
 
                                     @empty 
