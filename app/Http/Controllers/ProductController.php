@@ -57,11 +57,20 @@ class ProductController extends Controller
 
     public function product($id)
     {
+        $product = $this->service->get($id);
 
+        if(!$product) return back()->withErrors(['product' => 'Product not found']);
+
+        $pageTitle = ucwords($product->name);
+        $route = 'products';
+
+        $related = $this->service->getAll([['category_id', '=', $product->category_id]], 8);
+
+        return view('product', compact('product', 'pageTitle', 'related', 'route'));
     }
 
     public function apartment($id)
     {
-        
+
     }
 }

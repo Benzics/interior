@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Contact;
+use App\Models\Apartment;
+use App\Models\ApartmentCategory;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Product;
@@ -32,13 +34,20 @@ class HomeController extends Controller
         $categoryService->set_model(new Category());
         $productCategories = $categoryService->getAll();
 
+        $apartmentCategoryService = new CommonService();
+        $apartmentCategoryService->set_model(new ApartmentCategory());
+        $apartmentCategories = $apartmentCategoryService->getAll();
+
         $productService = new CommonService();
         $productService->set_model(new Product());
+
+        $apartmentService = new CommonService();
+        $apartmentService->set_model(new Apartment());
 
         $about = $sectionService->get('about', 'name');
         $facts = $sectionService->get('facts', 'name');
 
-        return view('index', compact('banners', 'about', 'productCategories', 'productService', 'facts'));
+        return view('index', compact('banners', 'about', 'productCategories', 'productService', 'facts', 'apartmentService', 'apartmentCategories'));
     }
 
     public function placeholderImage($size = null)
