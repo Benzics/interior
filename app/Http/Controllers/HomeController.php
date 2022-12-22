@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Contact;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Section;
 use App\Services\CommonService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
+use Throwable;
 
 class HomeController extends Controller
 {
@@ -65,5 +68,35 @@ class HomeController extends Controller
         imagettftext($image, $fontSize, 0, $textX, $textY, $colorFill, $fontFile, $text);
         imagejpeg($image);
         imagedestroy($image);
+    }
+
+    public function contact()
+    {
+        $pageTitle = 'Contact Us';
+
+        return view('contact', compact('pageTitle'));
+    }
+
+    public function contactUs(Request $request)
+    {
+        $validate = $request->validate([
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        $data = (object) [
+            'from' => $validate['email'],
+            'message' => $validate['message'],
+        ];
+
+        try {
+            Mail::to(setting('admin-mail'))->send(new Contact($data));
+        }
+        catch(Throwable $e){
+            report($e);
+            return back()->withErrors(['email' => 'An internal error occured']);
+        }
+
+        return redirect()->route('contact')->with('notify', ['Message sent successfully']);
     }
 }

@@ -79,7 +79,7 @@
                                     @endforelse
                                   
                                     <li>
-                                        <a href="#">Contact us</a>
+                                        <a href="/contact">Contact us</a>
                                     </li>
                                 </ul>
                             </li>

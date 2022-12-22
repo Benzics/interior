@@ -66,6 +66,8 @@ Route::name('admin.')->prefix('admin')->group(function()
 });
 
 Route::get('placeholder-image/{size}', [HomeController::class, 'placeholderImage'])->name('placeholder.image');
+Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('contact', [HomeController::class, 'contactUs']);
 Route::get('pages/{url}', [PagesController::class, 'page'])->name('pages');
 Route::controller(ProductController::class)->group(function(){
     Route::get('products/{id}', 'product')->name('products.single');
