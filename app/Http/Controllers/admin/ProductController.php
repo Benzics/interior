@@ -170,8 +170,6 @@ class ProductController extends Controller
 
             // create a new portrait 
             $portrait = collect($request->file('images'))->first();
-
-            
     
             $portrait = 'product_images/' . uploadImage($portrait, $path, '360x560');
         }

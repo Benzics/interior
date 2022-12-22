@@ -33,6 +33,7 @@
                 </div>
                
             </div>
+            <h4 class="tagcloud text-uppercase">{{ currencySymbol() . number_format($product->price, 2) }}</h4>
             
         </div>
         <!-- BLOG START -->

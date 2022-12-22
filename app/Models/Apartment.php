@@ -10,7 +10,7 @@ class Apartment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'user_id', 'apartment_category_id', 'price'];
+    protected $fillable = ['name', 'description', 'user_id', 'apartment_category_id', 'price', 'portrait'];
 
     protected $casts = [
         'description' => CleanHtml::class,

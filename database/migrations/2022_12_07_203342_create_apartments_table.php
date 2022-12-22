@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('price');
             $table->foreignId('user_id');
             $table->foreignId('apartment_category_id');
+            $table->string('portrait')->nullable();
             $table->timestamps();
         });
     }

@@ -56,6 +56,13 @@ class ApartmentController extends Controller
             'images.*' => ['required', File::image()],
         ]);
 
+        // create a portrait from one of the uploaded images
+        $portrait = collect($request->file('images'))->first();
+
+        $path = public_path('product_images');
+
+        $portrait = 'product_images/' . uploadImage($portrait, $path, '360x560');
+
         // save the product
         $product = $this->_service->add_product([
             'name' => $validate['name'],
@@ -63,16 +70,19 @@ class ApartmentController extends Controller
             'apartment_category_id' => $validate['category_id'],
             'price' => $validate['price'],
             'user_id' => auth()->id(),
+            'portrait' => $portrait,
         ]);
 
         // upload images
-        $image_service = new ImageService();
+        $imageService = new ImageService();
+
+        $path = public_path('product_images/');
 
         foreach($request->file('images') as $image)
         {
-            $path = $image->store('/product_images', ['disk' => 'my_files']);
+            $imagePath = 'product_images/' . uploadImage($image, $path, '800x500');
 
-            $image_service->save_image($path, $product->id, true);
+            $imageService->save_image($imagePath, $product->id, true);
         }
 
         return redirect()->route($this->_route . '.index')->with('notify', ['Product added successfully']);
@@ -135,11 +145,12 @@ class ApartmentController extends Controller
         ]);
 
         $preloaded = $request->input('preloaded');
+        $portrait = $product->portrait;
 
         // if length of preloaded images is not equal to the images this product has, we delete the removed images
         if(count($request->input('preloaded') ?? []) !== $images->count())
         {
-            $delete_images = $images->map(function($item, $key) use ($preloaded, $image_service) {
+            $images->map(function($item, $key) use ($preloaded, $image_service) {
 
                 if(collect($preloaded ?? [])->search($item->id) === false)
                 {
@@ -152,12 +163,18 @@ class ApartmentController extends Controller
         // if new images are included, upload them
         if($request->hasFile('images'))
         {
+            $path = public_path('product_images');
             foreach($request->file('images') as $image)
             {
-                $path = $image->store('/product_images', ['disk' => 'my_files']);
+                $imagePath = 'product_images/' . uploadImage($image, $path, '800x500');
 
-                $image_service->save_image($path, $product->id, true);
+                $image_service->save_image($imagePath, $product->id, true);
             }
+
+            // create a new portrait 
+            $portrait = collect($request->file('images'))->first();
+    
+            $portrait = 'product_images/' . uploadImage($portrait, $path, '360x560');
         }
 
         // edit the product
@@ -165,7 +182,8 @@ class ApartmentController extends Controller
             'name' => $validate['name'],
             'description' => $validate['description'],
             'apartment_category_id' => $validate['category_id'],
-            'price' => $validate['price']
+            'price' => $validate['price'],
+            'portrait' => $portrait,
         ];
 
         if(!$this->_service->edit_product($product_data, $product->id))
