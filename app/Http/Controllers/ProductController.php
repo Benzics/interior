@@ -71,6 +71,17 @@ class ProductController extends Controller
 
     public function apartment($id)
     {
+        $apartmentService = new CommonService();
+        $apartmentService->set_model(new Apartment());
+        $product = $apartmentService->get($id);
 
+        if(!$product) return back()->withErrors(['product' => 'Apartment not found']);
+
+        $pageTitle = ucwords($product->name);
+        $route = 'products';
+
+        $related = $apartmentService->getAll([['apartment_category_id', '=', $product->apartment_category_id]], 8);
+
+        return view('apartment', compact('product', 'pageTitle', 'related', 'route'));
     }
 }
