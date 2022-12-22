@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\ApartmentCategory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -23,6 +24,7 @@ class PagesTest extends TestCase
     private function _factory()
     {
         Category::factory()->create();
+        ApartmentCategory::factory()->create();
         return Product::factory()->create();
     }
 
@@ -37,6 +39,14 @@ class PagesTest extends TestCase
         $this->_factory();
 
         $response = $this->get(route('categories.single', ['id' => '1']));
+        $response->assertOk();
+    }
+
+    public function test_single_apartment_category()
+    {
+        $this->_factory();
+
+        $response = $this->get(route('apartments.category', ['id' => '1']));
         $response->assertOk();
     }
 

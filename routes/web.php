@@ -68,6 +68,8 @@ Route::name('admin.')->prefix('admin')->group(function()
 Route::get('placeholder-image/{size}', [HomeController::class, 'placeholderImage'])->name('placeholder.image');
 Route::get('pages/{url}', [PagesController::class, 'page'])->name('pages');
 Route::controller(ProductController::class)->group(function(){
-    Route::get('products/{id}', 'product')->name('product.single');
+    Route::get('products/{id}', 'product')->name('products.single');
+    Route::get('apartments/{id}', 'apartment')->name('apartments.single');
     Route::get('categories/{id}', 'singleCategory')->name('categories.single');
+    Route::get('apartment-categories/{id}', 'singleApartmentCategory')->name('apartments.category');
 });

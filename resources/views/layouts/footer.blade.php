@@ -15,10 +15,10 @@
                 </div>  
                                      
                 <div class="col-md-4 wt-footer-bot-right p-t15">
-                    <ul class="copyrights-nav pull-right"> 
-                        <li><a href="javascript:void(0);">Terms  & Condition</a></li>
-                        <li><a href="javascript:void(0);">Privacy Policy</a></li>
-                        <li><a href="contact-1.html">Contact Us</a></li>
+                    <ul class="list-unstyled list-inline e-p-bx pull-right"> 
+                        <li><a href="mailto:{{ setting('admin-mail') }}"><i class="fa fa-envelope"></i> {{ setting('admin-mail') }}</a></li>
+                        <li><i class="fa fa-phone"></i> {{ setting('phone') }}</li>
+    
                     </ul>
                 </div>
 
