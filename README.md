@@ -1,8 +1,3 @@
-# Interior max
-A website for interior design services
-
-## Features
-- Admin and user panel
-- Product upload
-- Responsive design
-- Fully secured 
+# Interior Design Servics
+The website for TinselCollections
+https://tinselcollections.com

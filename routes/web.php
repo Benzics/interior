@@ -29,9 +29,15 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('install', function(){
+    Artisan::call('cache:clear');
     Artisan::call('key:generate');
     Artisan::call('migrate:refresh');
     Artisan::call('db:seed');
+    Artisan::call('storage:link');
+    Artisan::call('config:cache');
+    Artisan::call('view:cache');
+      
+    echo 'Installed OK';
 });
 Route::name('admin.')->prefix('admin')->group(function()
 {
