@@ -21,12 +21,12 @@
                         <!-- COLUMNS 1 -->
                         <div class="masonry-item cat-1 col-lg-3 col-md-6 col-sm-6 m-b30">
                             <div class="wt-img-effect ">
-                                <img src="{{ getImage($product->portrait, '360x560') }}" alt="{{ $product->name }}">
+                                <img src="{{ getImage(collect($product->images)->first()->name, '360x420') }}" alt="{{ $product->name }}">
                                 <div class="overlay-bx-2 ">
                                     <div class="line-amiation">
                                         <div class="text-white  font-weight-300 p-a40">
                                             <h2><a href="{{ route($route . '.single', ['id' => $product->id]) }}" class="text-white font-20 letter-spacing-4 text-uppercase">{{ $product->name }}</a></h2>
-                                            {!! shortText($product->description) !!}
+                                            {{-- {!! shortText($product->description) !!} --}}
                                             <a href="{{ route($route . '.single', ['id' => $product->id]) }}" class="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</a>
                                         </div>
                                     </div>
