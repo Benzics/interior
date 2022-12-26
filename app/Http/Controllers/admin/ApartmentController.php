@@ -61,7 +61,7 @@ class ApartmentController extends Controller
 
         $path = public_path('product_images');
 
-        $portrait = 'product_images/' . uploadImage($portrait, $path, '360x560');
+        $portrait = 'product_images/' . uploadImage($portrait, $path, '360x420');
 
         // save the product
         $product = $this->_service->add_product([
@@ -174,7 +174,7 @@ class ApartmentController extends Controller
             // create a new portrait 
             $portrait = collect($request->file('images'))->first();
     
-            $portrait = 'product_images/' . uploadImage($portrait, $path, '360x560');
+            $portrait = 'product_images/' . uploadImage($portrait, $path, '360x420');
         }
 
         // edit the product
