@@ -8,11 +8,13 @@ use Tests\TestCase;
 
 class BookingTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_book_product()
     {
         $data = ['email' => 'test@site.com', 'product_id' => '1'];
         $response = $this->post(route('api.book'), $data);
 
-        $response->assertJson('success');
+        $response->assertJson(['success' => true]);
     }
 }
