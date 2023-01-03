@@ -16,6 +16,7 @@ use App\Http\Controllers\admin\SectionController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\admin\BookingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,6 +63,8 @@ Route::name('admin.')->prefix('admin')->group(function()
         Route::post('/password', [PasswordController::class, 'store']);
 
         Route::get('/profile', [PasswordController::class, 'profile'])->name('profile');
+        Route::get('/bookings', [BookingController::class, 'index'])->name('bookings');
+
         Route::post('/profile', [PasswordController::class, 'editProfile']);
         Route::resource('banners', BannerController::class)->except('show');
         Route::resource('pages', PageController::class)->except('show');

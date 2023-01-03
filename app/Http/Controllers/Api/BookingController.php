@@ -44,4 +44,34 @@ class BookingController extends Controller
         ]);
 
     }
+
+    public function markRead($id)
+    {
+        if($this->service->edit(['status' => '1'], $id)){
+            return response()->json([
+                'success' => true,
+                'message' => 'Successfully marked as read'
+            ]);
+        }
+
+        return response()->json([
+            'error' => true,
+            'message' => 'An internal error occured',
+        ]);
+    }
+
+    public function markUnread($id)
+    {
+        if($this->service->edit(['status' => '0'], $id)){
+            return response()->json([
+                'success' => true,
+                'message' => 'Successfully marked as unread'
+            ]);
+        }
+
+        return response()->json([
+            'error' => true,
+            'message' => 'An internal error occured',
+        ]);
+    }
 }
