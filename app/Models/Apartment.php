@@ -32,4 +32,9 @@ class Apartment extends Model
             $apartment->images()->delete();
         });
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

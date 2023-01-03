@@ -32,4 +32,9 @@ class Product extends Model
             $product->images()->delete();
         });
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }
