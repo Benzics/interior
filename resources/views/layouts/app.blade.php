@@ -91,6 +91,7 @@
 
 @include('partials.notify')
 
+@stack('modal')
 </body>
 
 </html>

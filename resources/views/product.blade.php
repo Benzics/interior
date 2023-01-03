@@ -27,6 +27,10 @@
             <div class="wt-post-text">
                 {!! $product->description !!}
             </div>
+            <div class="wt-read-more">
+                <button class="m-b15 site-button button-lg m-r15" data-toggle="modal" data-target="#with-form" type="button">Book Now</button>
+            </div>
+             
         </div>
         
         <div class="section-content">
@@ -71,8 +75,40 @@
             
     </div>
 </div>
+
+
 @endsection
 
 @section('breadcrumb')
 <li>{{ $pageTitle }}</li>
 @endsection
+
+@push('modal')
+<!-- MODAL -->
+<div id="with-form" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header bg-secondry">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-black">Book {{ ucwords($product->name) }}</h4>
+        </div>
+        <div class="modal-body">
+          <form id="book-form" name="book-form" class="form-horizontal mb-lg" novalidate>
+              <div class="form-group mt-lg">
+                  <label class="col-sm-3 control-label">Your Email Address</label>
+                  <div class="col-sm-9">
+                      <input name="email" id="email" class="form-control" placeholder="Type your email..." required type="email">
+                  </div>
+              </div>
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="site-button text-uppercase button-sm letter-spacing-2 m-r15" data-dismiss="modal">Close</button>
+          <button type="button" id="bookIt" class="site-button text-uppercase button-sm letter-spacing-2">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endpush
