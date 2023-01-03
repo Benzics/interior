@@ -87,3 +87,70 @@
 @section('breadcrumb')
 <li>{{ $pageTitle }}</li>
 @endsection
+
+@push('modal')
+<!-- MODAL -->
+<div id="with-form" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header bg-secondry">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title text-black">Book {{ ucwords($product->name) }}</h4>
+        </div>
+        <div class="modal-body">
+          <form id="book-form" name="book-form" class="form-horizontal mb-lg">
+                @csrf
+              <div class="form-group mt-lg">
+                  <label class="col-sm-3 control-label">Your Email Address</label>
+                  <div class="col-sm-9">
+                      <input name="email" id="email" class="form-control" placeholder="Type your email..." required type="email" />
+                  </div>
+              </div>
+              <input type="hidden" name="apartment_id" value="{{ $product->id }}" />
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="site-button text-uppercase button-sm letter-spacing-2 m-r15" data-dismiss="modal">Close</button>
+          <button type="submit" form="book-form" id="bookIt" class="site-button text-uppercase button-sm letter-spacing-2">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endpush
+@push('scripts')
+<script>
+  $(document).ready(function(){
+      jQuery('body').on('submit', '#book-form', function(e){
+          e.preventDefault();
+          var formData = $(this);
+          jQuery.ajax({
+              url: "{{ route('api.book') }}",
+              data: formData.serialize(),
+              type: 'POST',
+              dataType: 'JSON',
+              beforeSend: function() {
+                  jQuery('.loading-area').show();
+              },
+
+              success:function(data){
+                  jQuery('.loading-area').hide(100, function(){
+                      formData.trigger('reset');
+                      $('#with-form').modal('hide');
+                  });
+           
+                  if(data['success']){
+                      notify(data['message']);
+                  }else{
+                  errorMessage(data['message']);
+                  }
+              }
+          });
+          return false;
+
+      })
+  })
+  
+</script>
+@endpush

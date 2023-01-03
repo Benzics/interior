@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('product_id')->nullable();
             $table->foreignId('apartment_id')->nullable();
             $table->string('email');
+            $table->integer('status')->default('0');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('booking');
+        Schema::dropIfExists('bookings');
     }
 };
