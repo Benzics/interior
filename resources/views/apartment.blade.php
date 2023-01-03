@@ -34,7 +34,9 @@
                
             </div>
             <h4 class="tagcloud text-uppercase">{{ currencySymbol() . number_format($product->price, 2) }}</h4>
-            
+            <div class="wt-read-more">
+                <button class="m-b15 site-button button-lg m-r15" data-toggle="modal" data-target="#with-form" type="button">Book Now</button>
+            </div>
         </div>
         <!-- BLOG START -->
         <div class="wt-divider divider-3px bg-gray-dark"><i class="icon-dot c-square"></i></div>

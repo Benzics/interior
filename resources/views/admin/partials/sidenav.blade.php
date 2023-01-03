@@ -115,6 +115,12 @@
                         <span class="menu-title">Product Bookings</span>
                     </a>
                 </li>
+                <li class="sidebar-menu-item {{menuActive('admin.apartment-bookings*')}}">
+                    <a href="{{route('admin.apartment-bookings')}}" class="nav-link ">
+                        <i class="menu-icon la la-book"></i>
+                        <span class="menu-title">Apartment Bookings</span>
+                    </a>
+                </li>
                 <li class="sidebar-menu-item {{menuActive(['admin.profile', 'admin.password'])}}">
                     <a href="{{route('admin.profile')}}" class="nav-link ">
                         <i class="menu-icon las la-user"></i>

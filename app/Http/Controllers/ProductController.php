@@ -78,7 +78,7 @@ class ProductController extends Controller
         if(!$product) return back()->withErrors(['product' => 'Apartment not found']);
 
         $pageTitle = ucwords($product->name);
-        $route = 'products';
+        $route = 'apartments';
 
         $related = $apartmentService->getAll([['apartment_category_id', '=', $product->apartment_category_id]], 8);
 

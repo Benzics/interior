@@ -29,7 +29,8 @@ class BookingController extends Controller
     {
         $pageTitle = 'Apartment Bookings';
         $bookings = $this->service->getPaginated(15, 'id', 'DESC', [['apartment_id', '!=', '0']]);
+        $apartment = true;
 
-        return view('admin.bookings', compact('pageTitle', 'bookings'));
+        return view('admin.apartment-bookings', compact('pageTitle', 'bookings', 'apartment'));
     }
 }
