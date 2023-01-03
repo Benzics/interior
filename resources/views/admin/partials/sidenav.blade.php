@@ -111,13 +111,13 @@
                 </li>
                 <li class="sidebar-menu-item {{menuActive('admin.bookings*')}}">
                     <a href="{{route('admin.bookings')}}" class="nav-link ">
-                        <i class="menu-icon la la-book"></i>
+                        <i class="menu-icon la la-shopping-cart"></i>
                         <span class="menu-title">Product Bookings</span>
                     </a>
                 </li>
                 <li class="sidebar-menu-item {{menuActive('admin.apartment-bookings*')}}">
                     <a href="{{route('admin.apartment-bookings')}}" class="nav-link ">
-                        <i class="menu-icon la la-book"></i>
+                        <i class="menu-icon la la-shopping-cart"></i>
                         <span class="menu-title">Apartment Bookings</span>
                     </a>
                 </li>
