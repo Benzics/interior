@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Apartment;
+use App\Models\Booking;
 
 class DashboardController extends Controller
 {
@@ -14,6 +15,9 @@ class DashboardController extends Controller
         $pageTitle = 'Dashboard';
         $products = Product::count();
         $apartments = Apartment::count();
-        return view('admin.dashboard', compact('pageTitle', 'products', 'apartments'));
+        $productBookings = Booking::where([['product_id', '!=', '0'], ['status', '=', '0']])->count();
+        $apartmentBookings = Booking::where([['apartment_id', '!=', '0'], ['status', '=', '0']])->count();
+
+        return view('admin.dashboard', compact('pageTitle', 'products', 'apartments', 'productBookings', 'apartmentBookings'));
     }
 }
