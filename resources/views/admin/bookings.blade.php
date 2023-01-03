@@ -26,9 +26,9 @@
                                 <td data-label="Category Name">{{ ($row->status) ? 'Read': 'Unread' }}</td>
                                 <td data-label="Action">
                                     @if($row->status === 0)
-                                    <a href="" class="icon-btn bg--7" data-toggle="tooltip" title="Mark As Read"><i class="fas fa-eye"></i></a>
+                                    <a href="#" id="mark-product" data-id="{{ $row->id }}" class="icon-btn bg--7" data-toggle="tooltip" title="Mark As Read"><i class="fas fa-eye"></i></a>
                                     @else
-                                    <a href="" class="icon-btn bg--7" data-toggle="tooltip" title="Mark As Unread"><i class="fas fa-eye-slash"></i></a>
+                                    <a href="#" id="unmark-product" data-id="{{ $row->id }}" class="icon-btn bg--7" data-toggle="tooltip" title="Mark As Unread"><i class="fas fa-eye-slash"></i></a>
                                     @endif
                                 </td>
                             </tr>
@@ -59,4 +59,59 @@ table .user .thumb, table .user .thumb img {
     height: 100px;
 }
 </style>
+@endpush
+
+@push('script')
+<script>
+  $(document).ready(function(){
+      jQuery('body').on('click', '#mark-product', function(e){
+          e.preventDefault();
+          var id = $(this).attr('data-id');
+          var button = $(this);
+          jQuery.ajax({
+              url: `/api/admin/mark-product/`,
+              dataType: 'JSON',
+              type: 'POST',
+              data: {id},
+
+              success:function(data){
+
+                  if(data['success']){
+                      notify(data['message']);
+                    window.location.reload();
+                  }else{
+                  errorMessage(data['message']);
+                  
+                  }
+              }
+          });
+
+      })
+  })
+
+  $(document).ready(function(){
+      jQuery('body').on('click', '#unmark-product', function(e){
+          e.preventDefault();
+          var id = $(this).attr('data-id');
+          jQuery.ajax({
+              url: `/api/admin/unmark-product/`,
+              dataType: 'JSON',
+              type: 'POST',
+              data: {id},
+
+              success:function(data){
+           
+                  if(data['success']){
+                      notify(data['message']);
+                      window.location.reload();
+                  }else{
+                  errorMessage(data['message']);
+                  }
+              }
+          });
+
+      })
+  })
+  
+</script>
 @endpush

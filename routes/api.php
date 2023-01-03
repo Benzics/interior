@@ -19,5 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('book', [BookingController::class, 'store'])->name('api.book');
-Route::get('mark-product/:id', [BookingController::class, 'markRead'])->name('api.mark-product');
-Route::get('unmark-product/:id', [BookingController::class, 'markUnread'])->name('api.unmark-product');
+Route::name('admin.')->prefix('admin')->group(function()
+{
+    Route::post('mark-product/', [BookingController::class, 'markRead'])->name('api.mark-product');
+    Route::post('unmark-product/', [BookingController::class, 'markUnread'])->name('api.unmark-product');
+});

@@ -17,10 +17,18 @@ class BookingController extends Controller
         $this->service->set_model(new Booking());
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $pageTitle = 'Bookings';
-        $bookings = $this->service->getPaginated();
+        $bookings = $this->service->getPaginated(15, 'id', 'DESC', [['product_id', '!=', '0']]);
+
+        return view('admin.bookings', compact('pageTitle', 'bookings'));
+    }
+
+    public function apartment(Request $request)
+    {
+        $pageTitle = 'Apartment Bookings';
+        $bookings = $this->service->getPaginated(15, 'id', 'DESC', [['apartment_id', '!=', '0']]);
 
         return view('admin.bookings', compact('pageTitle', 'bookings'));
     }

@@ -45,8 +45,9 @@ class BookingController extends Controller
 
     }
 
-    public function markRead($id)
+    public function markRead(Request $request)
     {
+        $id = $request->id;
         if($this->service->edit(['status' => '1'], $id)){
             return response()->json([
                 'success' => true,
@@ -60,8 +61,9 @@ class BookingController extends Controller
         ]);
     }
 
-    public function markUnread($id)
+    public function markUnread(Request $request)
     {
+        $id = $request->id;
         if($this->service->edit(['status' => '0'], $id)){
             return response()->json([
                 'success' => true,
