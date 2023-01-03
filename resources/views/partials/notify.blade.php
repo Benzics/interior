@@ -28,8 +28,15 @@
 @endif
 <script>
     "use strict";
-    function notify(status,message) {
-        iziToast[status]({
+    function notify(message) {
+        iziToast.success({
+            message: message,
+            position: "topRight"
+        });
+    }
+
+    function errorMessage(message) {
+        iziToast.error({
             message: message,
             position: "topRight"
         });

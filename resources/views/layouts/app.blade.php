@@ -62,6 +62,8 @@
     <!-- CONTENT END -->
 
 @include('layouts.footer')
+
+
 <!-- JAVASCRIPT  FILES ========================================= --> 
 <script  src="{{ asset('js/jquery-1.12.4.min.js') }}"></script><!-- JQUERY.MIN JS -->
 <script  src="{{ asset('js/bootstrap.min.js') }}"></script><!-- BOOTSTRAP.MIN JS -->
@@ -88,7 +90,6 @@
 <script  src="{{ asset('js/shortcode.js') }}"></script><!-- SHORTCODE FUCTIONS  -->
 
 @stack('scripts')
-
 @include('partials.notify')
 
 @stack('modal')
