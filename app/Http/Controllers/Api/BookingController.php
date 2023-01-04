@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\ProductBooked;
 use App\Http\Controllers\Controller;
+use App\Models\Apartment;
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\Product;
 use App\Services\CommonService;
 
 class BookingController extends Controller
@@ -24,20 +27,40 @@ class BookingController extends Controller
             'name' => 'required',
         ]);
 
-        $product_id = $request->product_id ?? 0;
-        $apartment_id = $request->apartment_id ?? 0;
+        $productId = $request->product_id ?? 0;
+        $apartmentId = $request->apartment_id ?? 0;
         $data = [
             'email' => $validate['email'],
             'name' => $validate['name'],
-            'product_id' => $product_id,
-            'apartment_id' => $apartment_id,
+            'product_id' => $productId,
+            'apartment_id' => $apartmentId,
         ];
 
+        $productService = new CommonService();
+        $productService->set_model(new Product());
+
+        $apartmentService = new CommonService();
+        $apartmentService->set_model(new Apartment());
+
+        $product = ($productId) ? $productService->get($productId) : $apartmentService->get($apartmentId);
+        
         if(!$this->service->save($data)){
             return response()->json([
                 'error' => true,
                 'message' => 'An internal error occured',
             ]);
+        }
+
+        $mailData = [
+            'email' => $validate['email'],
+            'name' => $validate['name'],
+            'product_name' => $product?->name,
+        ];
+
+        try {
+            ProductBooked::dispatch($mailData);
+        } catch (\Throwable $th) {
+            report($th);
         }
 
         return response()->json([

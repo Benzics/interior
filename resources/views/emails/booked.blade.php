@@ -1,12 +1,16 @@
 @component('mail::message')
-# Introduction
+# We have received your booking
 
-The body of your message.
+Hello {{ $data['name'] }},
 
-@component('mail::button', ['url' => ''])
-Button Text
+You have successfully booked <b>{{ $data['product_name'] }}</b>
+
+We will be in contact with you shortly, you can browse our other products by clicking the link below.
+
+@component('mail::button', ['url' => url('/')])
+Browse Products
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+Thank You,<br>
+{{ setting('site-name') }}
 @endcomponent
