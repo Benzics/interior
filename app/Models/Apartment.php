@@ -30,6 +30,7 @@ class Apartment extends Model
 
         static::deleting(function($apartment) {
             $apartment->images()->delete();
+            $apartment->bookings()->delete();
         });
     }
 

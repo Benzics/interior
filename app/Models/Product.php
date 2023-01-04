@@ -30,6 +30,7 @@ class Product extends Model
 
         static::deleting(function($product) {
             $product->images()->delete();
+            $product->bookings()->delete();
         });
     }
 
