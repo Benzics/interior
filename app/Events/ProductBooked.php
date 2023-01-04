@@ -14,14 +14,15 @@ class ProductBooked
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $email;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(string $email)
     {
-        //
+        $this->email = $email;
     }
 
     /**

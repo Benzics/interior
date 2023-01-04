@@ -103,12 +103,19 @@
         <div class="modal-body">
           <form id="book-form" name="book-form" class="form-horizontal mb-lg">
                 @csrf
+                <div class="form-group mt-lg">
+                    <label class="col-sm-3 control-label">Your Name</label>
+                    <div class="col-sm-9">
+                        <input name="name" id="name" class="form-control" placeholder="Type your name..." required type="text" />
+                    </div>
+                </div>
               <div class="form-group mt-lg">
                   <label class="col-sm-3 control-label">Your Email Address</label>
                   <div class="col-sm-9">
                       <input name="email" id="email" class="form-control" placeholder="Type your email..." required type="email" />
                   </div>
               </div>
+
               <input type="hidden" name="apartment_id" value="{{ $product->id }}" />
            
           </form>

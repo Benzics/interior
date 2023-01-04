@@ -21,12 +21,14 @@ class BookingController extends Controller
     {
         $validate = $request->validate([
             'email' => 'required|email',
+            'name' => 'required',
         ]);
 
         $product_id = $request->product_id ?? 0;
         $apartment_id = $request->apartment_id ?? 0;
         $data = [
             'email' => $validate['email'],
+            'name' => $validate['name'],
             'product_id' => $product_id,
             'apartment_id' => $apartment_id,
         ];

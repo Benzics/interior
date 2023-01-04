@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('product_id')->nullable();
             $table->foreignId('apartment_id')->nullable();
             $table->string('email');
+            $table->string('name');
             $table->integer('status')->default('0');
             $table->timestamps();
         });

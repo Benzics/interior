@@ -10,7 +10,8 @@
                     <table class="table table--light style--two">
                         <thead>
                             <tr>
-                                <th>User Email</th>
+                                <th>Name</th>
+                                <th>Email</th>
                                 <th>Product</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -19,6 +20,9 @@
                         <tbody class="list">
                             @forelse($bookings as $row)
                             <tr>
+                                <td data-label="User Name">
+                                    {{ $row->name }}
+                                </td>
                                 <td data-label="User Email">
                                     {{ $row->email }}
                                 </td>

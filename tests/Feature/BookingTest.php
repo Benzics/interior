@@ -12,7 +12,7 @@ class BookingTest extends TestCase
 
     public function test_book_product()
     {
-        $data = ['email' => 'test@site.com', 'product_id' => '1'];
+        $data = ['email' => 'test@site.com', 'product_id' => '1', 'name' => 'test'];
         $response = $this->post(route('api.book'), $data);
 
         $response->assertJson(['success' => true]);
