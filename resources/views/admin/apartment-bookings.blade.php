@@ -31,7 +31,7 @@
                                 <td>{{ currencySymbol() . number_format($row->apartment->price, 2) }}</td>
                                 <td data-label="Category Name">{{ ($row->status) ? 'Read': 'Unread' }}</td>
                                 <td data-label="Action">
-                                    @if($row->status === 0)
+                                    @if(!$row->status)
                                     <a href="#" id="mark-product" data-id="{{ $row->id }}" class="icon-btn bg--7" data-toggle="tooltip" title="Mark As Read"><i class="fas fa-eye"></i></a>
                                     @else
                                     <a href="#" id="unmark-product" data-id="{{ $row->id }}" class="icon-btn bg--7" data-toggle="tooltip" title="Mark As Unread"><i class="fas fa-eye-slash"></i></a>
@@ -73,9 +73,10 @@ table .user .thumb, table .user .thumb img {
       jQuery('body').on('click', '#mark-product', function(e){
           e.preventDefault();
           var id = $(this).attr('data-id');
+          var url = "{{ url('/api/admin/mark-product/') }}";
           var button = $(this);
           jQuery.ajax({
-              url: `/api/admin/mark-product/`,
+              url: url,
               dataType: 'JSON',
               type: 'POST',
               data: {id},
@@ -99,8 +100,9 @@ table .user .thumb, table .user .thumb img {
       jQuery('body').on('click', '#unmark-product', function(e){
           e.preventDefault();
           var id = $(this).attr('data-id');
+          var url = "{{ url('/api/admin/unmark-product/') }}";
           jQuery.ajax({
-              url: `/api/admin/unmark-product/`,
+              url: url,
               dataType: 'JSON',
               type: 'POST',
               data: {id},
