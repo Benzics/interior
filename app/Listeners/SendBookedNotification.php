@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\ProductBooked;
+use App\Mail\NotifyAdmin;
 use App\Mail\ProductBooked as MailProductBooked;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -31,5 +32,7 @@ class SendBookedNotification implements ShouldQueue
         // notify the user
         Mail::to($event->data['email'])->send(new MailProductBooked($event->data));
 
+        // mail admin
+        Mail::to(setting('admin-mail'))->send(new NotifyAdmin($event->data));
     }
 }
