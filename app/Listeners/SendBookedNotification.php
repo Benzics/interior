@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 
-class SendBookedNotification
+class SendBookedNotification implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -30,6 +30,6 @@ class SendBookedNotification
     {
         // notify the user
         Mail::to($event->data['email'])->send(new MailProductBooked($event->data));
-        
+
     }
 }
