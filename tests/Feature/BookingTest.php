@@ -3,18 +3,12 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 
-class BookingTest extends TestCase
-{
-    use RefreshDatabase;
+uses(RefreshDatabase::class);
 
-    public function test_book_product()
-    {
-        $data = ['email' => 'test@site.com', 'product_id' => '1', 'name' => 'test'];
-        $response = $this->post(route('api.book'), $data);
+it('books a product', function () {
+    $data = ['email' => 'test@site.com', 'product_id' => '1', 'name' => 'test'];
+    $response = $this->postJson(route('api.book'), $data);
 
-        $response->assertJson(['success' => true]);
-    }
-}
+    $response->assertJson(['success' => 'true']);
+});
